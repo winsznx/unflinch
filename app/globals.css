@@ -1,0 +1,97 @@
+
+/* Design tokens shared by marketing.css and every product surface. */
+:root {
+  --canvas: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f4f5f7;
+  --surface-strong: #ebedf1;
+  --border: #e7e9ee;
+  --border-strong: #d4d8e0;
+  --ink: #0b0b0c;
+  --ink-secondary: #5b6270;
+  --ink-muted: #8a909c;
+  --brand: #101114;
+  --brand-strong: #000000;
+  --accent: #3b71f0;
+  --accent-strong: #2554cc;
+  --accent-soft: #eaf0fe;
+  --close: #d93b3b;
+  --close-soft: #fdecec;
+  --preserve: #3b71f0;
+  --preserve-soft: #eaf0fe;
+  --success: #17a673;
+  --success-soft: #e6f7f0;
+  --warning: #c98a14;
+  --warning-soft: #fcf3e1;
+  --danger: #d93b3b;
+  --danger-soft: #fdecec;
+  --info: #3b71f0;
+  --info-soft: #eaf0fe;
+  --radius-control: 10px;
+  --radius-panel: 16px;
+  --radius-card: 24px;
+  --shadow-card: 0 1px 2px rgba(11, 11, 12, 0.04), 0 6px 18px rgba(11, 11, 12, 0.05);
+  --shadow-floating: 0 12px 40px rgba(11, 11, 12, 0.1);
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-instrument-sans), Inter, -apple-system, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 113, 240, 0.25);
+  border-radius: 6px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink);
+}
+
+.brand-logo-word {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
