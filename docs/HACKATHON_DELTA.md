@@ -19,7 +19,7 @@ These files are unchanged since the import:
 |---|---|
 | `scripts/dev-with-session-cleanup.mjs` | Still the `pnpm dev` entry point. It deletes leftover Orbis sessions that the playground registered. |
 | `app/api/session-cleanup/route.ts`, `app/api/session-registry/route.ts`, `lib/server/reactor-session-registry.ts` | Session cleanup and the dev-only registry, used by the playground hook. |
-| `app/api/nano-banana/route.ts`, `app/api/orbis-prompt/route.ts`, `lib/nano-banana.ts`, `lib/orbis-prompt.ts`, `components/nano-banana-example.tsx`, `dog.png` | The Nano Banana kickoff example. It now lives in the playground at `/lab/orbis`, which returns 404 in production. |
+| `app/api/nano-banana/route.ts`, `app/api/orbis-prompt/route.ts`, `lib/nano-banana.ts`, `lib/orbis-prompt.ts`, `components/nano-banana-example.tsx`, `dog.png` | The Nano Banana kickoff example. It now lives in the playground at `/lab/orbis`, which returns 404 in production. Its pattern (Gemini image edit, then an image-grounded prompt, then `set_image` + `start`) is the basis of the "your street" anchor in `lib/ladder/anchor.ts`, which reuses `NANO_BANANA_MODEL`. |
 | `components/orbis-controls.tsx`, `components/orbis-player.tsx` | Playground controls and player. |
 | `tsconfig.json` | Unchanged. |
 

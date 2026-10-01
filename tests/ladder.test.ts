@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { CATALOG } from "@/lib/ladder/catalog";
 import { CURATED } from "@/lib/ladder/curated";
 import { structureIssues } from "@/lib/ladder/generate";
-import { lintLadder, lintPrompt } from "@/lib/ladder/lint";
+import { lintContext, lintLadder, lintPrompt } from "@/lib/ladder/lint";
 import { Ladder } from "@/lib/ladder/schema";
 
 describe("curated ladders", () => {
@@ -44,4 +44,13 @@ describe("generated catalog", () => {
       expect(structureIssues(entry.ladder)).toEqual([]);
     });
   }
+});
+
+describe("lintContext", () => {
+  it("passes a curated context and flags a harmful step in one", () => {
+    const context = CURATED.dogs!.contexts[0]!;
+    expect(lintContext(context)).toEqual([]);
+    const bad = { ...context, enter: "The terrier lunges and bites at the camera." };
+    expect(lintContext(bad).map((i) => i.rule)).toContain("harm");
+  });
 });

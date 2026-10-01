@@ -5,6 +5,7 @@ import { useState, type FormEvent } from "react";
 
 import type { SessionMode, SignalMode } from "@/lib/orbis/receipts";
 import { createSession } from "@/lib/session/local";
+import { prepareAnchorPhoto, savePhoto } from "@/lib/session/photo";
 
 const FEAR_CHIPS = [
   "Dogs",
@@ -38,11 +39,27 @@ export function IntakeForm() {
   const [modeIndex, setModeIndex] = useState(0);
   const [consent, setConsent] = useState(false);
   const [audio, setAudio] = useState(true);
+  const [photo, setPhoto] = useState<string | null>(null);
+  const [photoClean, setPhotoClean] = useState(false);
+  const [photoError, setPhotoError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const excluded = EXCLUDED.test(fear);
   const canSubmit = fear.trim().length >= 2 && outcome.trim().length >= 2 && !excluded && !busy;
+
+  async function choosePhoto(file: File | undefined) {
+    setPhotoError(null);
+    if (!file) {
+      setPhoto(null);
+      return;
+    }
+    try {
+      setPhoto(await prepareAnchorPhoto(file));
+    } catch {
+      setPhotoError("That photo couldn't be read. Try a JPEG or PNG.");
+    }
+  }
 
   async function submit(event: FormEvent) {
     event.preventDefault();
@@ -60,6 +77,7 @@ export function IntakeForm() {
         consent,
         audio,
       });
+      if (photo) savePhoto(session.id, { dataUrl: photo, confirmedClean: photoClean });
       router.push(`/session/${session.id}`);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : String(caught));
@@ -165,6 +183,34 @@ export function IntakeForm() {
           <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
           Save a recording of the generated scene. Anyone with this session's run link can watch it. Unflinch never opens your camera.
         </label>
+      </fieldset>
+
+      <fieldset className="in-step">
+        <legend>
+          <span className="in-step-number">05</span>
+          A place you know (optional)
+        </legend>
+        <p className="in-help">
+          Add a photo of somewhere real, like your street. The last round happens there. People and text are removed
+          before anything is generated, and the photo is never stored.
+        </p>
+        <input
+          className="in-file"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          onChange={(event) => void choosePhoto(event.target.files?.[0])}
+        />
+        {photo && (
+          <>
+            <img className="in-photo" src={photo} alt="Your place, cropped to the scene's 16:9 frame" />
+            <label className="in-check">
+              <input type="checkbox" checked={photoClean} onChange={(event) => setPhotoClean(event.target.checked)} />
+              This photo shows no people and no readable text. If automatic cleanup is unavailable, it&apos;s used as
+              it is.
+            </label>
+          </>
+        )}
+        {photoError && <p className="in-help">{photoError}</p>}
       </fieldset>
 
       {MODES[modeIndex]!.mode === "therapist" && (

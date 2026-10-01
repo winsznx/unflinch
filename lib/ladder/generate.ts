@@ -21,7 +21,7 @@ export type GenerateOptions = { models?: string[]; budgetMs?: number | null; att
 
 const thinkingFor = (model: string) => (model.includes("lite") ? ThinkingLevel.MINIMAL : ThinkingLevel.LOW);
 
-const SYSTEM = `You write exposure-practice ladders for Visko Orbis, a live video world model that morphs one continuous scene at each chunk boundary.
+export const SYSTEM = `You write exposure-practice ladders for Visko Orbis, a live video world model that morphs one continuous scene at each chunk boundary.
 
 Output one JSON object matching the schema. Rules:
 - Photoreal, ordinary daylight scenes. Animals, places and camera moves only. Never include people, faces, hands or text.
@@ -76,10 +76,10 @@ function isTransient(error: unknown): boolean {
 }
 
 /** One structured call, retried on overload and walked down the model chain before giving up. */
-async function callModels(
+export async function callModels(
   ai: GoogleGenAI,
   models: string[],
-  args: { contents: string; schema: unknown; deadline: number | null },
+  args: { contents: string | object[]; schema: unknown; deadline: number | null; system?: string; json?: boolean },
 ): Promise<{ text: string; model: string }> {
   let lastError: unknown = null;
   for (const model of models) {
@@ -90,9 +90,8 @@ async function callModels(
           model,
           contents: args.contents,
           config: {
-            systemInstruction: SYSTEM,
-            responseMimeType: "application/json",
-            responseJsonSchema: args.schema,
+            systemInstruction: args.system ?? SYSTEM,
+            ...(args.json === false ? {} : { responseMimeType: "application/json", responseJsonSchema: args.schema }),
             temperature: 0.4,
             thinkingConfig: { thinkingLevel: thinkingFor(model) },
             ...(args.deadline !== null ? { abortSignal: AbortSignal.timeout(Math.max(1000, args.deadline - Date.now())) } : {}),

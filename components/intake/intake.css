@@ -316,3 +316,18 @@
 .in-slot-dot.is-busy {
   background: var(--warning);
 }
+
+.in-file {
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink-secondary);
+}
+
+.in-photo {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}

@@ -259,11 +259,20 @@ A receipt (`unflinch.receipt.v1`, `lib/orbis/receipts.ts`) holds one trial: mode
 - `/proof` renders `evidence/manifest.json` through `lib/evidence/claims.ts`, shows hashes from `evidence/hashes.json` (`pnpm build:evidence`), and lists committed runs plus those of the 10 most recent stored trials that carry the label `SIMULATED_INPUT` or `BUILDER_DEMO`.
 - `scripts/verify-receipt.ts` checks a receipt offline.
 
+## "Your street" anchor
+
+Intake takes an optional photo of a real place. The browser crops it to 16:9 (at most 1280×720) and keeps it in the tab. After the plan loads, `POST /api/anchor` (`lib/ladder/anchor.ts`):
+
+1. asks a Gemini image model (`gemini-3.1-flash-image`, then `gemini-3.1-flash-lite-image`) to remove people, faces and readable text and keep the place; if no image model is reachable, the photo is used only when the person confirmed it shows no people and no readable text, otherwise the request is refused,
+2. describes the place as an absolute opening prompt with a vision-capable text model, linted like every absolute prompt,
+3. generates one ladder context set in that place for the person's feared subject, checked by `lintContext` and the structure rules.
+
+The final round uses that context: Orbis starts from the photo through `set_image` at L0 and the subject enters by action. The photo is never stored on the server; the receipt holds its SHA-256. If any step fails, the plan screen says so and the round uses another context.
+
 ## Differences from the PRD and known gaps
 
 - Resume after a lost connection restarts the same round as a new take, without calibration. The new take reuses the round's trial index, so its receipt replaces the receipt saved when the connection dropped. The drop is still in the event log.
 - A rating left idle for 60 s ends the session and stores that round's receipt with empty ratings.
 - An unlanded send is resent once. If the resend doesn't land either, the session pauses and tells the person.
-- The "your street" photo anchor (PRD G7) is not in the session flow. The Nano Banana example exists only in the dev playground at `/lab/orbis`.
 - `pnpm proof:replay`, `test:live`, `scripts/latency.ts`, `lib/orbis/chunkClock.ts` and `.github/workflows/ci.yml` from the PRD layout do not exist yet.
 - The slot is a Postgres lease that coordinates Unflinch sessions only. The app's own 409 and a Reactor `RateLimitedError` on connect both show the busy screen. Other start failures show the error overlay with a link to the recorded run.

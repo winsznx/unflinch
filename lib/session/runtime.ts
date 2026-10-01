@@ -65,6 +65,8 @@ export type SessionConfig = {
   audio: boolean;
   intakeAt: number | null;
   builderDemo: boolean;
+  /** "Your street": a real place for the final round, opened from the person's (cleaned) photo. */
+  place: { context: LadderContext; image: Blob; edited: boolean } | null;
 };
 
 export type Rating = {
@@ -173,7 +175,8 @@ export class SessionRuntime {
   private generationComplete = false;
   private recorder = new TrialRecorder();
   private video: HTMLVideoElement | null = null;
-  private anchor: Blob | null = null;
+  /** Last frame of the previous round, used as the next round's opening image when the context repeats. */
+  private lastFrame: Blob | null = null;
   private startedAt = 0;
   private trialStartedAt = 0;
   private pausedAt: number | null = null;
@@ -610,7 +613,12 @@ export class SessionRuntime {
 
   // ---------- trials ----------
 
+  private isPlaceTrial(trial: number): boolean {
+    return this.config.place !== null && trial === this.config.trials;
+  }
+
   private contextForTrial(trial: number): LadderContext {
+    if (this.isPlaceTrial(trial)) return this.config.place!.context;
     const contexts = this.config.ladder.contexts;
     return contexts[(trial - 1) % contexts.length]!;
   }
@@ -618,9 +626,11 @@ export class SessionRuntime {
   private async startTrialRun(trial: number, withCalibration: boolean) {
     const client = this.client!;
     this.context = this.contextForTrial(trial);
+    const placeTrial = this.isPlaceTrial(trial);
     const sameContext = trial > 1 && this.contextForTrial(trial - 1).id === this.context.id;
-    const image = sameContext ? this.anchor : null;
-    const startLevel = withCalibration ? 0 : 1;
+    const image = placeTrial ? this.config.place!.image : sameContext ? this.lastFrame : null;
+    // The place photo is the empty scene, so that round opens at L0 and the subject enters by action.
+    const startLevel = withCalibration || placeTrial ? 0 : 1;
     const prompt = absolutePrompt(this.context, startLevel);
     if (lintPrompt(prompt, "absolute").length) throw new Error("Start prompt failed lint");
 
@@ -646,6 +656,9 @@ export class SessionRuntime {
         caption: "Let's get a feel for your normal breathing. Just watch the scene.",
         levels: [...this.snap.levels, { t: now(), level: 0 }],
       });
+    } else if (placeTrial) {
+      this.set({ levels: [...this.snap.levels, { t: now(), level: 0 }] });
+      await this.enterSubject();
     } else {
       this.beginController(1, run.maxChunks);
     }
@@ -977,7 +990,7 @@ export class SessionRuntime {
     this.receipt.ended_by = reason as Receipt["ended_by"];
     this.set({ phase: "handoff", caption: "Before we go on, did what you expected happen?", nudge: false });
     await this.client?.pause().catch(() => undefined);
-    if (this.video) this.anchor = await captureFrame(this.video).catch(() => null);
+    if (this.video) this.lastFrame = await captureFrame(this.video).catch(() => null);
     const recording = await this.recorder.stop().catch(() => null);
     if (recording) {
       this.receipt.recording = { path: "", sha256: recording.sha256, bytes: recording.bytes };

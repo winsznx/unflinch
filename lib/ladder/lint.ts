@@ -1,4 +1,4 @@
-import type { Ladder } from "./schema";
+import type { Ladder, LadderContext } from "./schema";
 
 export const LINT = {
   maxWordsAbsolute: 100,
@@ -48,35 +48,32 @@ export function lintPrompt(text: string, kind: PromptKind, path = "prompt"): Lin
   return issues;
 }
 
+export function lintContext(context: LadderContext, base = "context"): LintIssue[] {
+  const issues: LintIssue[] = [];
+  issues.push(...lintPrompt(context.safe, "absolute", `${base}.safe`));
+  issues.push(...lintPrompt(context.enter, "transition", `${base}.enter`));
+  issues.push(...lintPrompt(context.exit, "transition", `${base}.exit`));
+  context.levels.forEach((level, l) => {
+    const lp = `${base}.levels[${l}]`;
+    if (level.level !== l + 1) {
+      issues.push({ path: `${lp}.level`, rule: "levelOrder", text: String(level.level) });
+    }
+    issues.push(...lintPrompt(level.state, "absolute", `${lp}.state`));
+    issues.push(...lintPrompt(level.up, "transition", `${lp}.up`));
+    issues.push(...lintPrompt(level.down, "transition", `${lp}.down`));
+    if (level.selfApproach) {
+      issues.push(...lintPrompt(level.selfApproach, "transition", `${lp}.selfApproach`));
+    }
+    level.holds.forEach((hold, h) => issues.push(...lintPrompt(hold, "transition", `${lp}.holds[${h}]`)));
+  });
+  return issues;
+}
+
 export function lintLadder(ladder: Ladder): LintIssue[] {
   const issues: LintIssue[] = [];
-  ladder.contexts.forEach((context, c) => {
-    const base = `contexts[${c}]`;
-    issues.push(...lintPrompt(context.safe, "absolute", `${base}.safe`));
-    issues.push(...lintPrompt(context.enter, "transition", `${base}.enter`));
-    issues.push(...lintPrompt(context.exit, "transition", `${base}.exit`));
-    context.levels.forEach((level, l) => {
-      const lp = `${base}.levels[${l}]`;
-      if (level.level !== l + 1) {
-        issues.push({ path: `${lp}.level`, rule: "levelOrder", text: String(level.level) });
-      }
-      issues.push(...lintPrompt(level.state, "absolute", `${lp}.state`));
-      issues.push(...lintPrompt(level.up, "transition", `${lp}.up`));
-      issues.push(...lintPrompt(level.down, "transition", `${lp}.down`));
-      if (level.selfApproach) {
-        issues.push(...lintPrompt(level.selfApproach, "transition", `${lp}.selfApproach`));
-      }
-      level.holds.forEach((hold, h) =>
-        issues.push(...lintPrompt(hold, "transition", `${lp}.holds[${h}]`)),
-      );
-    });
-  });
-  ladder.ev.forEach((test, e) =>
-    issues.push(...lintPrompt(test.prompt, "transition", `ev[${e}].prompt`)),
-  );
-  ladder.deepened.forEach((cue, d) =>
-    issues.push(...lintPrompt(cue, "transition", `deepened[${d}]`)),
-  );
+  ladder.contexts.forEach((context, c) => issues.push(...lintContext(context, `contexts[${c}]`)));
+  ladder.ev.forEach((test, e) => issues.push(...lintPrompt(test.prompt, "transition", `ev[${e}].prompt`)));
+  ladder.deepened.forEach((cue, d) => issues.push(...lintPrompt(cue, "transition", `deepened[${d}]`)));
   return issues;
 }
 

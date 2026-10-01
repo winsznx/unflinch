@@ -40,6 +40,13 @@ Unflinch is not a medical device and is not HIPAA compliant. It has no accounts 
 - The recording SHA-256 is computed in the browser and stored as sent. The server does not recompute it. `pnpm verify:receipt` checks a recording file against the receipt.
 - There is no self-serve deletion. Removing a person's data is a manual delete in Supabase.
 
+## Place photos
+
+- `/api/anchor` accepts one JPEG, PNG or WebP of at most 4 MB per session (tracked per server instance), behind the session key and the same-origin check.
+- The photo is processed in memory and never written to the database or storage. Only its hash reaches the receipt.
+- People, faces and text are removed by an image model when one is reachable. Without one, the photo is used only after the person confirms it shows no people and no readable text.
+- The place description and every generated step pass the same lint as other prompts before anything reaches Orbis.
+
 ## Data stored
 
 | Where | What |

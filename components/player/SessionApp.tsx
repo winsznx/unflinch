@@ -4,8 +4,9 @@ import Link from "next/link";
 import QRCode from "qrcode";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 
-import type { Ladder, LadderSource } from "@/lib/ladder/schema";
+import type { Ladder, LadderContext, LadderSource } from "@/lib/ladder/schema";
 import { loadLocalSession, type LocalSession } from "@/lib/session/local";
+import { dataUrlToBlob, loadPhoto } from "@/lib/session/photo";
 import { SessionRuntime, type SessionConfig } from "@/lib/session/runtime";
 
 import { Player } from "./Player";
@@ -21,9 +22,16 @@ const TRIALS = 3;
 
 type Plan = { ladder: Ladder; source: LadderSource; sha256: string; fallbackReason: string | null };
 
-function planLine(ladder: Ladder): string {
+type Place =
+  | { status: "none" }
+  | { status: "loading" }
+  | { status: "ready"; context: LadderContext; image: Blob; previewUrl: string; edited: boolean }
+  | { status: "failed"; reason: string };
+
+function planLine(ladder: Ladder, withPlace: boolean): string {
   const contexts = Array.from({ length: TRIALS }, (_, i) => ladder.contexts[i % ladder.contexts.length]!.id);
   const names = contexts.map((id) => CONTEXT_NAMES[id] ?? id.replace(/[-_]/g, " "));
+  if (withPlace) names[TRIALS - 1] = "your place";
   return `${TRIALS} short exposures · ${names.join(" → ")} · you can pause any time.`;
 }
 
@@ -63,6 +71,45 @@ export function SessionApp({ id }: { id: string }) {
     setPlanError(null);
     setAttempt((n) => n + 1);
   };
+
+  const [place, setPlace] = useState<Place>({ status: "none" });
+  const planReady = plan !== null && plan.source !== "fallback";
+
+  useEffect(() => {
+    if (!local || !planReady) return;
+    const photo = loadPhoto(local.id);
+    if (!photo) return;
+    let cancelled = false;
+    setPlace({ status: "loading" });
+    const form = new FormData();
+    form.set("sessionId", local.id);
+    form.set("key", local.key);
+    form.set("confirmedClean", String(photo.confirmedClean));
+    form.set("photo", new File([dataUrlToBlob(photo.dataUrl)], "place.jpg", { type: "image/jpeg" }));
+    fetch("/api/anchor", { method: "POST", body: form })
+      .then(async (response) => {
+        const body = (await response.json()) as {
+          ok?: boolean;
+          message?: string;
+          image?: { data: string; mimeType: string };
+          context?: LadderContext;
+          edited?: boolean;
+        };
+        if (cancelled) return;
+        if (!response.ok || !body.ok || !body.image || !body.context) {
+          setPlace({ status: "failed", reason: body.message ?? "Your place couldn't be prepared." });
+          return;
+        }
+        const previewUrl = `data:${body.image.mimeType};base64,${body.image.data}`;
+        setPlace({ status: "ready", context: body.context, image: dataUrlToBlob(previewUrl), previewUrl, edited: Boolean(body.edited) });
+      })
+      .catch(() => {
+        if (!cancelled) setPlace({ status: "failed", reason: "Your place couldn't be prepared." });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [local, planReady]);
 
   if (local === undefined) return null;
   if (local === null) {
@@ -120,10 +167,19 @@ export function SessionApp({ id }: { id: string }) {
       </div>
     );
   }
-  return <Live local={local} plan={plan} />;
+  if (place.status === "loading") {
+    return (
+      <div className="pl-center" aria-live="polite">
+        <span className="pl-spinner" aria-hidden="true" />
+        <h1>Preparing your place…</h1>
+        <p>Removing people and text from your photo and writing the steps for it.</p>
+      </div>
+    );
+  }
+  return <Live local={local} plan={plan} place={place} />;
 }
 
-function Live({ local, plan }: { local: LocalSession; plan: Plan }) {
+function Live({ local, plan, place }: { local: LocalSession; plan: Plan; place: Place }) {
   const config = useMemo<SessionConfig>(
     () => ({
       sessionId: local.id,
@@ -143,8 +199,9 @@ function Live({ local, plan }: { local: LocalSession; plan: Plan }) {
       audio: local.audio,
       intakeAt: local.intakeAt,
       builderDemo: local.builderDemo,
+      place: place.status === "ready" ? { context: place.context, image: place.image, edited: place.edited } : null,
     }),
-    [local, plan],
+    [local, plan, place],
   );
   const [runtime, setRuntime] = useState<SessionRuntime | null>(null);
 
@@ -155,13 +212,13 @@ function Live({ local, plan }: { local: LocalSession; plan: Plan }) {
   }, [config]);
 
   if (!runtime) return null;
-  return <Stage runtime={runtime} local={local} plan={plan} />;
+  return <Stage runtime={runtime} local={local} plan={plan} place={place} />;
 }
 
-function Stage({ runtime, local, plan }: { runtime: SessionRuntime; local: LocalSession; plan: Plan }) {
+function Stage({ runtime, local, plan, place }: { runtime: SessionRuntime; local: LocalSession; plan: Plan; place: Place }) {
   const snap = useSyncExternalStore(runtime.subscribe, runtime.getSnapshot, runtime.getSnapshot);
   if (snap.phase === "ready") {
-    return <Prepare runtime={runtime} local={local} plan={plan} phoneConnected={snap.phoneConnected} />;
+    return <Prepare runtime={runtime} local={local} plan={plan} place={place} phoneConnected={snap.phoneConnected} />;
   }
   return <Player runtime={runtime} snap={snap} local={local} />;
 }
@@ -170,11 +227,13 @@ function Prepare({
   runtime,
   local,
   plan,
+  place,
   phoneConnected,
 }: {
   runtime: SessionRuntime;
   local: LocalSession;
   plan: Plan;
+  place: Place;
   phoneConnected: boolean;
 }) {
   const [qr, setQr] = useState<string | null>(null);
@@ -216,7 +275,17 @@ function Prepare({
           Your plan
         </span>
         <h1>{local.fear}</h1>
-        <p className="pl-plan-line">{planLine(plan.ladder)}</p>
+        <p className="pl-plan-line">{planLine(plan.ladder, place.status === "ready")}</p>
+        {place.status === "ready" && (
+          <figure className="pl-place">
+            <img src={place.previewUrl} alt="Your place, prepared for the last round" />
+            <figcaption>
+              Round {TRIALS} happens here.{" "}
+              {place.edited ? "People and text were removed." : "Used as you sent it: you confirmed it shows no people or text."}
+            </figcaption>
+          </figure>
+        )}
+        {place.status === "failed" && <p className="pl-place-note">{place.reason} Round {TRIALS} uses another place instead.</p>}
         <dl className="pl-plan-facts">
           <div>
             <dt>Your prediction</dt>
