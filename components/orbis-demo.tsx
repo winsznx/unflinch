@@ -7,7 +7,7 @@ import { NanoBananaExample } from "@/components/nano-banana-example";
 import { OrbisControls } from "@/components/orbis-controls";
 import { OrbisPlayer } from "@/components/orbis-player";
 import { useOrbisSession } from "@/hooks/use-orbis-session";
-import { ORBIS_MODEL_NAME, ORBIS_TRACKS, requestReactorJwt } from "@/lib/orbis";
+import { ORBIS_MODEL_NAME, ORBIS_TRACKS, requestReactorJwt } from "@/lib/orbis/model";
 
 export function OrbisDemo() {
   const jwtPromise = useRef<Promise<string> | null>(null);

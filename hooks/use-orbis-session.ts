@@ -7,7 +7,7 @@ import {
   DOCUMENTED_RESOLUTIONS,
   type OrbisMessage,
   unwrapOrbisMessage,
-} from "@/lib/orbis";
+} from "@/lib/orbis/model";
 
 export function useOrbisSession(
   clearJwt: () => void,
