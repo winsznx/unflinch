@@ -1,0 +1,731 @@
+{
+ "ev": {
+  "t": 1790881313477,
+  "prompt": "The dog trots right up to the camera and sits down at the camera's feet, tail wagging."
+ },
+ "sdk": "@reactor-team/js-sdk@3.0.2",
+ "mode": "sim",
+ "seed": 2026,
+ "suds": [],
+ "model": "reactor/visko-orbis-stable",
+ "start": {
+  "t": 1790881260934,
+  "level": 0,
+  "prompt": "A quiet city park in warm late-afternoon light: a wide mown lawn, a row of plane trees at the far end, a wooden bench on the left, long soft shadows across the grass. Wide shot, eye-level, static camera, deep depth of field.",
+  "image_sha256": null
+ },
+ "trial": 1,
+ "chunks": [
+  {
+   "i": 0,
+   "t": 1790881262214,
+   "frames": 0,
+   "active_prompt": null
+  },
+  {
+   "i": 1,
+   "t": 1790881264526,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 2,
+   "t": 1790881266804,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 3,
+   "t": 1790881267655,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 4,
+   "t": 1790881275026,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 5,
+   "t": 1790881275028,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 6,
+   "t": 1790881275028,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 7,
+   "t": 1790881275029,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 8,
+   "t": 1790881276827,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 9,
+   "t": 1790881278665,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 10,
+   "t": 1790881281294,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 11,
+   "t": 1790881282335,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 12,
+   "t": 1790881284160,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 13,
+   "t": 1790881286017,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 14,
+   "t": 1790881287811,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 15,
+   "t": 1790881289749,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 16,
+   "t": 1790881291479,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 17,
+   "t": 1790881293345,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 18,
+   "t": 1790881295141,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 19,
+   "t": 1790881297017,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 20,
+   "t": 1790881298814,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 21,
+   "t": 1790881300686,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 22,
+   "t": 1790881302474,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 23,
+   "t": 1790881304353,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 24,
+   "t": 1790881306140,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 25,
+   "t": 1790881308030,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 26,
+   "t": 1790881309807,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 27,
+   "t": 1790881312038,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 28,
+   "t": 1790881313477,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 29,
+   "t": 1790881315362,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 30,
+   "t": 1790881317147,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 31,
+   "t": 1790881319041,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 32,
+   "t": 1790881320805,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 33,
+   "t": 1790881322703,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 34,
+   "t": 1790881324476,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 35,
+   "t": 1790881326373,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 36,
+   "t": 1790881328146,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 37,
+   "t": 1790881330048,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 38,
+   "t": 1790881331814,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 39,
+   "t": 1790881333723,
+   "frames": 33,
+   "active_prompt": null
+  }
+ ],
+ "labels": [
+  "LIVE",
+  "SIMULATED_INPUT",
+  "BUILDER_DEMO"
+ ],
+ "ladder": {
+  "fearId": "dogs",
+  "sha256": "497fb9c86c4d1689921e13a1a303693481fdfab94f0d2ce8c6c72f99ed5a677e",
+  "source": "curated",
+  "context": "park"
+ },
+ "schema": "unflinch.receipt.v1",
+ "signal": {
+  "source": "sim",
+  "samples": [
+   {
+    "t": 1790881262214,
+    "conf": 0.92,
+    "rate": 11.7,
+    "arousal": "UNKNOWN"
+   },
+   {
+    "t": 1790881264526,
+    "conf": 0.92,
+    "rate": 12.1,
+    "arousal": "UNKNOWN"
+   },
+   {
+    "t": 1790881266804,
+    "conf": 0.92,
+    "rate": 12.1,
+    "arousal": "UNKNOWN"
+   },
+   {
+    "t": 1790881267655,
+    "conf": 0.92,
+    "rate": 12.3,
+    "arousal": "UNKNOWN"
+   },
+   {
+    "t": 1790881275026,
+    "conf": 0.92,
+    "rate": 12.9,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881275028,
+    "conf": 0.92,
+    "rate": 12.9,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881275028,
+    "conf": 0.92,
+    "rate": 12.9,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881275029,
+    "conf": 0.92,
+    "rate": 12.9,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881276827,
+    "conf": 0.92,
+    "rate": 12.7,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881278665,
+    "conf": 0.92,
+    "rate": 12.6,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881281294,
+    "conf": 0.92,
+    "rate": 12.9,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881282335,
+    "conf": 0.92,
+    "rate": 13,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881284160,
+    "conf": 0.92,
+    "rate": 12.5,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881286017,
+    "conf": 0.92,
+    "rate": 12.6,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881287811,
+    "conf": 0.92,
+    "rate": 12.7,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881289749,
+    "conf": 0.92,
+    "rate": 12.5,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881291479,
+    "conf": 0.92,
+    "rate": 12.4,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881293345,
+    "conf": 0.92,
+    "rate": 12.1,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881295141,
+    "conf": 0.92,
+    "rate": 11.8,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881297017,
+    "conf": 0.92,
+    "rate": 12,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881298814,
+    "conf": 0.92,
+    "rate": 11.4,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881300686,
+    "conf": 0.92,
+    "rate": 11.4,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881302474,
+    "conf": 0.92,
+    "rate": 11.2,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881304353,
+    "conf": 0.92,
+    "rate": 11.3,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881306140,
+    "conf": 0.92,
+    "rate": 11.3,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881308030,
+    "conf": 0.92,
+    "rate": 11.1,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881309807,
+    "conf": 0.92,
+    "rate": 11.2,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881312038,
+    "conf": 0.92,
+    "rate": 11.2,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881313477,
+    "conf": 0.92,
+    "rate": 11.1,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881315362,
+    "conf": 0.92,
+    "rate": 11.6,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881317147,
+    "conf": 0.92,
+    "rate": 11.7,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881319041,
+    "conf": 0.92,
+    "rate": 11.8,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881320805,
+    "conf": 0.92,
+    "rate": 11.5,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881322703,
+    "conf": 0.92,
+    "rate": 11.9,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881324476,
+    "conf": 0.92,
+    "rate": 12,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881326373,
+    "conf": 0.92,
+    "rate": 12.3,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790881328146,
+    "conf": 0.92,
+    "rate": 12.7,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881330048,
+    "conf": 0.92,
+    "rate": 12.7,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881331814,
+    "conf": 0.92,
+    "rate": 12.7,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790881333723,
+    "conf": 0.92,
+    "rate": 12.6,
+    "arousal": "LOW"
+   }
+  ],
+  "baseline_bpm": null
+ },
+ "timing": {
+  "first_frame_ms": 12367,
+  "intake_to_first_frame_ms": 57184
+ },
+ "ratings": {
+  "feeling": null,
+  "happened": "no",
+  "suds_peak": 5,
+  "expectancy_after": 30,
+  "expectancy_before": 80
+ },
+ "session": "82697d2c-8e77-4d26-bd36-2729f35e4a43",
+ "ended_by": "EV_HELD",
+ "decisions": [
+  {
+   "t": 1790881271308,
+   "kind": "up",
+   "chunk": 3,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "UNKNOWN",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar trots onto the far end of the lawn and lies down in the grass.",
+   "reason": "SUBJECT_ENTER",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1814,
+   "level_after": 1,
+   "landed_chunk": 10,
+   "level_before": 0
+  },
+  {
+   "t": 1790881278665,
+   "kind": "selfApproach",
+   "chunk": 9,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": "The camera walks slowly forward across the grass toward the terrier and stops.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 2632,
+   "level_after": 2,
+   "landed_chunk": 12,
+   "level_before": 1
+  },
+  {
+   "t": 1790881287811,
+   "kind": "selfApproach",
+   "chunk": 14,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "WINDOW",
+    "therapist": null,
+    "breath_bpm": 12.7,
+    "breath_conf": 0.92
+   },
+   "prompt": "The camera walks slowly forward across the grass toward the terrier and stops.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1939,
+   "level_after": 3,
+   "landed_chunk": 17,
+   "level_before": 2
+  },
+  {
+   "t": 1790881295142,
+   "kind": "selfApproach",
+   "chunk": 18,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.8,
+    "breath_conf": 0.92
+   },
+   "prompt": "The camera walks slowly forward across the grass toward the terrier and stops.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1878,
+   "level_after": 4,
+   "landed_chunk": 21,
+   "level_before": 3
+  },
+  {
+   "t": 1790881302475,
+   "kind": "selfApproach",
+   "chunk": 22,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.2,
+    "breath_conf": 0.92
+   },
+   "prompt": "The camera walks slowly forward across the grass toward the terrier and stops.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1879,
+   "level_after": 5,
+   "landed_chunk": 25,
+   "level_before": 4
+  },
+  {
+   "t": 1790881309807,
+   "kind": "selfApproach",
+   "chunk": 26,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.2,
+    "breath_conf": 0.92
+   },
+   "prompt": "The camera walks slowly forward across the grass toward the terrier and stops.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 2233,
+   "level_after": 6,
+   "landed_chunk": 29,
+   "level_before": 5
+  },
+  {
+   "t": 1790881313477,
+   "kind": "ev",
+   "chunk": 28,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.1,
+    "breath_conf": 0.92
+   },
+   "prompt": "The dog trots right up to the camera and sits down at the camera's feet, tail wagging.",
+   "reason": "EXPECTANCY_TEST",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1885,
+   "level_after": 6,
+   "landed_chunk": 31,
+   "level_before": 6
+  },
+  {
+   "t": 1790881324476,
+   "kind": "vary",
+   "chunk": 34,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier scratches behind its ear with a back paw.",
+   "reason": "VARIABILITY",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1898,
+   "level_after": 6,
+   "landed_chunk": 37,
+   "level_before": 6
+  },
+  {
+   "t": 1790881331814,
+   "kind": "end_trial",
+   "chunk": 38,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "WINDOW",
+    "therapist": null,
+    "breath_bpm": 12.7,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "EV_HELD",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 6,
+   "landed_chunk": null,
+   "level_before": 6
+  }
+ ],
+ "recording": {
+  "path": "recordings/82697d2c-8e77-4d26-bd36-2729f35e4a43/1.webm",
+  "bytes": 6747693,
+  "sha256": "53cc5f71ddc64e6f334740cf60bfbe155325cd90f2a0b04b86999e1d21538020"
+ },
+ "max_chunks": 2000,
+ "resolution": "2k",
+ "audio_enabled": true,
+ "invariant_violations": []
+}

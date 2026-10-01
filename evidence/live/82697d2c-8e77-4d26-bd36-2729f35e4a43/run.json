@@ -1,0 +1,9 @@
+{
+  "fear": "Dogs",
+  "cap": 6,
+  "note": "Builder test run on 2026-10-01 against production (unflinch-zeta.vercel.app), driven by pnpm demo:live in headless Chrome with simulated input: one step closer whenever the controller was free. Round 1 (park) climbed L1 to L6 by PATIENT_CLOSER and reached the expectancy test at 52.5 s; the operator ended round 2 at once. The scene recording is in Supabase Storage at recordings/82697d2c-8e77-4d26-bd36-2729f35e4a43/1.webm, sha256 53cc5f71… matching the receipt.",
+  "findings": [
+    "Continuity: tools/cutdetect.py at the provisional threshold 0.5 found 0 cuts in 419 decoded frames over 67 s. The two lowest consecutive-frame correlations (0.631 at 33.1 s, 0.756 at 39.0 s) were inspected by eye: both are camera drift over the same bench, dog and trees, not cuts. The threshold is still uncalibrated against known-cut clips (E4).",
+    "Approach: the subject entered at L2 and stayed lying beside the bench through L6. Steps closer came from the camera creeping forward (selfApproach prompts), so at L6 ('right beside the camera') the dog was still several metres away. Only the expectancy test visibly changed the subject (it sat up facing the camera). levels.jpg shows one frame per level, L0 to L6, then the expectancy test under the rating sheet. Prompt acknowledgement is not the same as the visual change landing; E3's human-marked landing measurement is what settles this."
+  ]
+}
