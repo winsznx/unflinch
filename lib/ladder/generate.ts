@@ -15,7 +15,7 @@ export const LIVE_MODELS = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite"];
 const LIVE_BUDGET_MS = 50_000;
 
 /** Offline catalog generation (scripts/generate-catalog.ts): stronger model, no deadline. */
-export const CATALOG_MODELS = ["gemini-3.5-flash", "gemini-3.7-flash", "gemini-3.8-flash"];
+export const CATALOG_MODELS = ["gemini-3.5-flash", "gemini-3.7-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite"];
 
 export type GenerateOptions = { models?: string[]; budgetMs?: number | null; attempts?: number };
 
@@ -25,7 +25,7 @@ const SYSTEM = `You write exposure-practice ladders for Visko Orbis, a live vide
 
 Output one JSON object matching the schema. Rules:
 - Photoreal, ordinary daylight scenes. Animals, places and camera moves only. Never include people, faces, hands or text.
-- 2 or 3 contexts, each a distinct ordinary place (for spiders: a garden shed, a living room, a garage). Each context has its own distance scale and 5 or 6 levels of rising proximity or engagement. Level 1 is the subject far away and calm; the top level is right beside the camera.
+- 2 or 3 contexts, each a distinct ordinary place (for spiders: a garden shed, a living room, a garage). Each context has its own distance scale and 5 or 6 levels of rising proximity or engagement. Level 1 is the subject far away and calm; the top level is right beside the camera. Every step up brings the subject closer to the camera or makes it more active near the camera. A higher level never moves the subject away, out of frame or out of reach.
 - "safe": the empty scene before the subject arrives. WHO + WHAT + WHERE + camera, under 100 words, ending with framing and camera motion, e.g. "Wide shot, eye-level, static camera, deep depth of field."
 - "state" for each level: an absolute prompt that restates subject, pose, place and the same camera sentence, under 100 words.
 - "enter": the subject arrives by action. "exit": the subject leaves by action. For a place-based fear (heights, bridges), the camera moves instead.

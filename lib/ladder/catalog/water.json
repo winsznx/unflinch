@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "model": "gemini-3.5-flash-lite",
+    "attempts": 2,
+    "generatedAt": "2026-10-01T15:21:26.506Z",
+    "lint": []
+  },
+  "ladder": {
+    "fearId": "water",
+    "subject": "Clear open deep blue water surface and gentle ripples",
+    "contexts": [
+      {
+        "id": "wooden_dock",
+        "safe": "An empty wooden dock extends over calm open deep blue water under bright daylight. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "Clear open deep blue water ripples gently near the wooden dock.",
+        "exit": "Clear open deep blue water becomes completely still away from the wooden dock.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "Clear open deep blue water surface ripples gently near the wooden dock. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water ripples gently near the wooden dock.",
+            "down": "Clear open deep blue water becomes completely still away from the wooden dock.",
+            "holds": [
+              "Clear open deep blue water laps softly against the wooden pilings.",
+              "Sunlight reflects brightly across the surface of the open deep water."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "Clear open deep blue water surface ripples near the edge of the wooden dock. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water moves closer alongside the wooden dock planks.",
+            "down": "Clear open deep blue water recedes slightly from the wooden dock.",
+            "holds": [
+              "Clear open deep blue water flows steadily around the wooden supports.",
+              "Gentle ripples spread outward across the surface of the open deep water."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "Clear open deep blue water surface meets the bottom wooden step of the dock. Medium close-up, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water rises to touch the bottom wooden step.",
+            "down": "Clear open deep blue water lowers away from the bottom wooden step.",
+            "holds": [
+              "Clear open deep blue water bubbles softly against the wooden step.",
+              "Sunlight glints on the crest of small waves in the open deep water."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "Clear open deep blue water surface swirls directly below the wooden dock boards. Close-up, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water swirls directly beneath the wooden boards.",
+            "down": "Clear open deep blue water settles away from the wooden boards.",
+            "holds": [
+              "Clear open deep blue water eddies smoothly under the dock structure.",
+              "Tiny water droplets splash lightly onto the lowest wooden plank."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "Clear open deep blue water surface fills the entire frame beside the wooden dock. Extreme close-up, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water fills the entire frame beside the wooden dock.",
+            "down": "Clear open deep blue water pulls back from the extreme close-up view.",
+            "holds": [
+              "Clear open deep blue water rolls rhythmically in front of the lens.",
+              "Sunlight shimmers through the clear upper layer of the deep water."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "small_rowboat",
+        "safe": "An empty small rowboat floats on calm open deep blue water under bright daylight. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "Clear open deep blue water surrounds the sides of the small rowboat.",
+        "exit": "Clear open deep blue water drifts away from the small rowboat.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "Clear open deep blue water surrounds the sides of the small rowboat. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water surrounds the sides of the small rowboat.",
+            "down": "Clear open deep blue water drifts away from the small rowboat.",
+            "holds": [
+              "Clear open deep blue water supports the floating wooden hull.",
+              "Sunlight dances across the distant open deep water surface."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "Clear open deep blue water surface presses against the hull of the small rowboat. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water rises to press against the boat hull.",
+            "down": "Clear open deep blue water settles lower against the boat hull.",
+            "holds": [
+              "Clear open deep blue water rocks the boat gently from side to side.",
+              "Small ripples lap rhythmically against the painted wooden side."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "Clear open deep blue water surface rises near the oar lock of the small rowboat. Medium close-up, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water flows upward near the oar lock.",
+            "down": "Clear open deep blue water drops downward from the oar lock.",
+            "holds": [
+              "Clear open deep blue water swirls gently around the metal hardware.",
+              "Sunlight reflects off the rising open deep water surface."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "Clear open deep blue water surface rests level with the gunwale of the small rowboat. Close-up, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water reaches the edge of the gunwale.",
+            "down": "Clear open deep blue water drops below the edge of the gunwale.",
+            "holds": [
+              "Clear open deep blue water spills a tiny droplet inside the boat.",
+              "Gentle swells lift the rim of the boat above the deep water."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "Clear open deep blue water surface completely dominates the frame beside the small rowboat. Extreme close-up, eye-level, static camera, deep depth of field.",
+            "up": "Clear open deep blue water completely dominates the frame beside the boat.",
+            "down": "Clear open deep blue water recedes from the extreme close-up view.",
+            "holds": [
+              "Clear open deep blue water rolls smoothly past the wooden side.",
+              "Sunlight illuminates the deep blue currents moving past."
+            ]
+          }
+        ]
+      }
+    ],
+    "ev": [
+      {
+        "fearedOutcome": "I'll be pulled under",
+        "prompt": "Clear open deep blue water pulls the small rowboat downward smoothly and safely."
+      }
+    ],
+    "deepened": [
+      "Clear open deep blue water swirls faster around the boat."
+    ]
+  }
+}

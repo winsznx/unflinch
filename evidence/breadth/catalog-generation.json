@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-10-01T16:35:52.055Z",
+  "results": [
+    {
+      "id": "thunderstorms",
+      "ok": true,
+      "ms": 64728,
+      "attempts": 2,
+      "model": "gemini-3.5-flash-lite",
+      "error": null
+    }
+  ]
+}

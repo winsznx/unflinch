@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "model": "gemini-3.5-flash",
+    "attempts": 2,
+    "generatedAt": "2026-10-01T15:03:29.938Z",
+    "lint": []
+  },
+  "ladder": {
+    "fearId": "spiders",
+    "subject": "large brown wolf spider",
+    "contexts": [
+      {
+        "id": "garden_shed",
+        "safe": "An old wooden garden shed with dusty shelves, clay pots, and garden tools under soft daylight. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "A large brown wolf spider crawls slowly onto the bottom shelf from behind a clay pot.",
+        "exit": "The large brown wolf spider crawls back behind the clay pot and disappears.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "A large brown wolf spider sits quietly on the bottom wooden shelf of the garden shed. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "A large brown wolf spider crawls slowly onto the bottom shelf from behind a clay pot.",
+            "down": "The large brown wolf spider crawls back behind the clay pot and disappears.",
+            "selfApproach": "The camera slowly moves closer to the bottom shelf where the spider sits.",
+            "holds": [
+              "The large brown wolf spider shifts its legs slightly on the dusty wood.",
+              "The large brown wolf spider remains still on the shelf under the daylight."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "A large brown wolf spider sits on a wooden trowel handle on the middle shelf of the garden shed. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider crawls up the wooden support beam to the middle shelf.",
+            "down": "The large brown wolf spider crawls down the wooden support beam to the bottom shelf.",
+            "selfApproach": "The camera moves in closer to focus on the middle shelf and the trowel.",
+            "holds": [
+              "The large brown wolf spider adjusts its position on the wooden handle.",
+              "The large brown wolf spider turns slowly on the handle of the trowel."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "A large brown wolf spider sits on the rim of a red clay pot on the workbench. Medium close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider crawls from the shelf onto the workbench and climbs the clay pot.",
+            "down": "The large brown wolf spider crawls down the clay pot back onto the middle shelf.",
+            "selfApproach": "The camera moves forward to frame the red clay pot on the workbench.",
+            "holds": [
+              "The large brown wolf spider taps its front legs on the clay rim.",
+              "The large brown wolf spider rests quietly on the curved edge of the pot."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "A large brown wolf spider sits on a gardening glove resting on the workbench. Close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider crawls from the clay pot onto the fabric of the gardening glove.",
+            "down": "The large brown wolf spider crawls off the gardening glove back onto the clay pot.",
+            "selfApproach": "The camera advances to a close-up of the fabric gardening glove.",
+            "holds": [
+              "The large brown wolf spider moves slowly across the fingers of the glove.",
+              "The large brown wolf spider pauses on the wrist strap of the glove."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "A large brown wolf spider sits on the edge of the workbench right next to the camera lens. Extreme close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider crawls to the very edge of the workbench near the camera.",
+            "down": "The large brown wolf spider crawls back toward the center of the workbench.",
+            "selfApproach": "The camera moves to an extreme close-up at the edge of the workbench.",
+            "holds": [
+              "The large brown wolf spider moves its pedipalps slowly in front of the lens.",
+              "The large brown wolf spider stands still at the edge of the wood."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "living_room",
+        "safe": "A bright living room with a fabric sofa, a wooden coffee table, and a green houseplant in the corner. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "A large brown wolf spider crawls slowly onto the baseboard near the green houseplant.",
+        "exit": "The large brown wolf spider crawls behind the baseboard and out of view.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "A large brown wolf spider rests on the baseboard in the corner of the living room. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "A large brown wolf spider crawls slowly onto the baseboard near the green houseplant.",
+            "down": "The large brown wolf spider crawls behind the baseboard and out of view.",
+            "selfApproach": "The camera glides slowly toward the corner of the room near the floor.",
+            "holds": [
+              "The large brown wolf spider remains still against the white paint of the baseboard.",
+              "The large brown wolf spider shifts its position slightly on the wood trim."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "A large brown wolf spider sits on the lower leaf of the green houseplant. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider climbs up the stem to the lower leaf of the plant.",
+            "down": "The large brown wolf spider climbs down the stem back to the baseboard.",
+            "selfApproach": "The camera moves closer to frame the green leaves of the houseplant.",
+            "holds": [
+              "The large brown wolf spider balances on the wide green leaf.",
+              "The large brown wolf spider crawls slowly to the center of the leaf."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "A large brown wolf spider sits on the wooden surface of the coffee table. Medium close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider crawls from the plant pot onto the wooden coffee table.",
+            "down": "The large brown wolf spider crawls off the coffee table back to the plant pot.",
+            "selfApproach": "The camera moves in to focus on the top of the wooden coffee table.",
+            "holds": [
+              "The large brown wolf spider walks slowly across the polished wood grain.",
+              "The large brown wolf spider pauses near a ceramic coaster on the table."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "A large brown wolf spider sits on the armrest of the fabric sofa. Close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider crawls from the coffee table onto the fabric armrest of the sofa.",
+            "down": "The large brown wolf spider crawls off the fabric armrest back onto the coffee table.",
+            "selfApproach": "The camera moves to a close-up of the textured sofa armrest.",
+            "holds": [
+              "The large brown wolf spider grips the woven fibers of the sofa armrest.",
+              "The large brown wolf spider turns slowly on the fabric surface."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "A large brown wolf spider sits on a cushion on the sofa directly in front of the camera. Extreme close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The large brown wolf spider crawls from the armrest onto the center cushion near the camera.",
+            "down": "The large brown wolf spider crawls from the cushion back to the armrest.",
+            "selfApproach": "The camera advances to an extreme close-up of the sofa cushion.",
+            "holds": [
+              "The large brown wolf spider rests quietly on the textured cushion fabric.",
+              "The large brown wolf spider moves its legs slightly on the fabric weave."
+            ]
+          }
+        ]
+      }
+    ],
+    "ev": [
+      {
+        "fearedOutcome": "It will crawl onto me",
+        "prompt": "The large brown wolf spider crawls calmly onto a sleeve, resting quietly on the fabric."
+      }
+    ],
+    "deepened": [
+      "The large brown wolf spider carries a harmless egg sac on its back."
+    ]
+  }
+}

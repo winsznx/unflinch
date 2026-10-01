@@ -1,0 +1,10 @@
+internal/
+.env
+.env.local
+.env.*.local
+.data/
+.next/
+node_modules/
+tools/.venv/
+evidence/controller/ts/
+*.tsbuildinfo

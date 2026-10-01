@@ -4,7 +4,10 @@ export const LINT = {
   maxWordsAbsolute: 100,
   maxWordsTransition: 30,
   negation: /\b(no|not|without|never|nobody|nothing|isn't|doesn't|don't|won't)\b/i,
-  harm: /\b(bite|bites|biting|attack|lunge|growl|snarl|fall|falls|falling|crash|drown|sting|blood|injur\w*|wound|scream)\b/i,
+  harm: /\b(bite|bites|biting|attack|lunge|growl|snarl|crash|drown|sting|blood|injur\w*|wound|scream)\b/i,
+  /** "fall" is harm unless something weather-like is what falls (rain, snow, leaves, night, light). */
+  fall: /\b(fall|falls|falling|fell)\b/i,
+  benignFall: /\b(rain|raindrops?|snow|snowflakes?|leaves|leaf|petals?|night|dusk|darkness|light|sunlight|shadows?|drizzle|hail|water|droplets?)\b[^.,;]{0,32}\b(fall|falls|falling|fell)\b/i,
   people: /\b(man|woman|person|people|boy|girl|child|crowd|face|owner|stranger)\b/i,
   intentAdjectives: /\b(cinematic|dramatic|dynamic|beautiful|scary|terrifying|calming|peaceful)\b/i,
   cameraFraming: /\b(wide shot|medium wide|medium shot|medium close-up|close-up)\b/i,
@@ -30,6 +33,7 @@ export function lintPrompt(text: string, kind: PromptKind, path = "prompt"): Lin
   for (const rule of ["negation", "harm", "people", "intentAdjectives"] as const) {
     if (LINT[rule].test(text)) add(rule);
   }
+  if (LINT.fall.test(text) && !LINT.benignFall.test(text)) add("harm");
 
   if (kind === "absolute") {
     if (wordCount(text) > LINT.maxWordsAbsolute) add("maxWordsAbsolute");

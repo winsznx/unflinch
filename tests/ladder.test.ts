@@ -26,6 +26,11 @@ describe("lint", () => {
     const rules = lintPrompt("A dog in a park.", "absolute").map((i) => i.rule);
     expect(rules).toEqual(expect.arrayContaining(["cameraFraming", "cameraMotion"]));
   });
+  it("blocks a fall but allows weather that falls", () => {
+    expect(lintPrompt("The camera falls over the railing.", "transition").map((i) => i.rule)).toContain("harm");
+    expect(lintPrompt("Gray clouds gather and rain starts falling against the glass.", "transition")).toEqual([]);
+    expect(lintPrompt("Snow falls softly past the window.", "transition")).toEqual([]);
+  });
   it("rejects chained actions", () => {
     expect(lintPrompt("The dog sits then walks away.", "transition").map((i) => i.rule)).toContain("bannedConnective");
   });

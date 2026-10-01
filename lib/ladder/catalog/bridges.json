@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "model": "gemini-3.5-flash-lite",
+    "attempts": 3,
+    "generatedAt": "2026-10-01T15:25:56.713Z",
+    "lint": []
+  },
+  "ladder": {
+    "fearId": "bridges",
+    "subject": "High bridges, walking or driving across",
+    "contexts": [
+      {
+        "id": "steel-suspension-bridge",
+        "safe": "A wide steel suspension bridge spanning a broad river under bright daylight, featuring an empty pedestrian walkway with concrete barriers and metal railings. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "A pedestrian walks onto the sidewalk from the distant approach.",
+        "exit": "The pedestrian walks backward off the sidewalk toward the distant approach.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "A pedestrian stands on the sidewalk of a wide steel suspension bridge spanning a broad river under bright daylight. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "A pedestrian walks onto the sidewalk from the distant approach.",
+            "down": "The pedestrian walks backward off the sidewalk toward the distant approach.",
+            "selfApproach": "The camera moves forward along the sidewalk toward the pedestrian.",
+            "holds": [
+              "The pedestrian looks at the river below.",
+              "The pedestrian takes a slow breath."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "A pedestrian stands on the sidewalk of a wide steel suspension bridge spanning a broad river under bright daylight, positioned near a support cable. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "The pedestrian walks forward ten paces along the metal grating.",
+            "down": "The pedestrian walks backward ten paces to the previous spot.",
+            "selfApproach": "The camera moves forward along the walkway stopping beside the pedestrian.",
+            "holds": [
+              "The pedestrian rests a hand on the metal railing.",
+              "The pedestrian watches a boat pass underneath."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "A pedestrian stands beside the metal railing of a wide steel suspension bridge spanning a broad river under bright daylight. Close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The pedestrian steps closer to the outer edge of the walkway.",
+            "down": "The pedestrian steps back toward the center of the walkway.",
+            "selfApproach": "The camera moves closer positioning directly beside the pedestrian shoulder.",
+            "holds": [
+              "The pedestrian turns the head to look straight ahead.",
+              "The pedestrian stands completely still by the railing."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "A pedestrian stands directly beside the outer metal railing of a wide steel suspension bridge spanning a broad river under bright daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The pedestrian reaches out to touch the vertical steel cable.",
+            "down": "The pedestrian lowers the hand back down to the side.",
+            "selfApproach": "The camera glides forward until touching the railing surface.",
+            "holds": [
+              "The pedestrian holds the metal cable gently.",
+              "The pedestrian blinks in the bright sunlight."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "A pedestrian holds the vertical steel cable of a wide steel suspension bridge spanning a broad river under bright daylight. Extreme close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The pedestrian leans slightly toward the open space above the river.",
+            "down": "The pedestrian straightens posture back away from the edge.",
+            "selfApproach": "The camera moves in very close beside the hands on the railing.",
+            "holds": [
+              "The pedestrian maintains a steady grip on the railing.",
+              "The pedestrian breathes evenly in the open air."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "concrete-viaduct",
+        "safe": "A high concrete viaduct curving across a green valley under bright daylight, featuring an empty wide pedestrian path and solid concrete walls. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "A pedestrian steps onto the curved pathway from the entry ramp.",
+        "exit": "The pedestrian steps backward off the curved pathway toward the entry ramp.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "A pedestrian stands on the curved pathway of a high concrete viaduct spanning a green valley under bright daylight. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "A pedestrian steps onto the curved pathway from the entry ramp.",
+            "down": "The pedestrian steps backward off the curved pathway toward the entry ramp.",
+            "selfApproach": "The camera moves forward along the concrete path toward the pedestrian.",
+            "holds": [
+              "The pedestrian looks across the wide green valley.",
+              "The pedestrian stands balanced on both feet."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "A pedestrian stands on the curved pathway of a high concrete viaduct spanning a green valley under bright daylight, near a low safety wall. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "The pedestrian walks forward toward the center span.",
+            "down": "The pedestrian walks backward toward the entry ramp.",
+            "selfApproach": "The camera moves forward along the path stopping near the pedestrian.",
+            "holds": [
+              "The pedestrian checks the view of the valley below.",
+              "The pedestrian adjusts a jacket pocket."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "A pedestrian stands beside the low safety wall of a high concrete viaduct spanning a green valley under bright daylight. Close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The pedestrian moves closer to the concrete wall edge.",
+            "down": "The pedestrian moves away from the concrete wall edge.",
+            "selfApproach": "The camera glides closer placing the pedestrian in full focus.",
+            "holds": [
+              "The pedestrian rests fingertips on the concrete top.",
+              "The pedestrian listens to the wind sound."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "A pedestrian rests fingertips on the concrete safety wall of a high concrete viaduct spanning a green valley under bright daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The pedestrian leans both forearms onto the concrete wall top.",
+            "down": "The pedestrian lifts the forearms off the concrete wall top.",
+            "selfApproach": "The camera moves forward until nearly touching the wall surface.",
+            "holds": [
+              "The pedestrian gazes steadily at the horizon.",
+              "The pedestrian keeps a relaxed posture."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "A pedestrian leans forearms on the concrete safety wall of a high concrete viaduct spanning a green valley under bright daylight. Extreme close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The pedestrian shifts weight forward against the wall safely.",
+            "down": "The pedestrian shifts weight backward onto both heels.",
+            "selfApproach": "The camera moves directly beside the resting arms on the wall.",
+            "holds": [
+              "The pedestrian remains calm against the safety wall.",
+              "The pedestrian looks at the distant hills."
+            ]
+          }
+        ]
+      }
+    ],
+    "ev": [
+      {
+        "fearedOutcome": "I'll lose control near the edge",
+        "prompt": "The pedestrian stands securely by the bridge railing while the wind blows gently."
+      }
+    ],
+    "deepened": [
+      "The wind gusts slightly stronger against the bridge railing."
+    ]
+  }
+}

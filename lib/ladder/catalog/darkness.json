@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "model": "gemini-3.5-flash-lite",
+    "attempts": 3,
+    "generatedAt": "2026-10-01T15:27:08.576Z",
+    "lint": []
+  },
+  "ladder": {
+    "fearId": "darkness",
+    "subject": "darkness in a dim room at night",
+    "contexts": [
+      {
+        "id": "bedroom",
+        "safe": "An empty bedroom at night illuminated by moonlight shining through a window, casting quiet shadows across the hardwood floor and wardrobe. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "Shadows stretch across the floor as the darkness deepens.",
+        "exit": "Moonlight brightens the room and the shadows recede.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "Darkness in a dim room at night filling the corner near the window, resting quietly against the wall. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "Shadows stretch across the floor as the darkness deepens.",
+            "down": "Moonlight brightens the room and the shadows recede.",
+            "selfApproach": "The camera drifts forward toward the dark corner.",
+            "holds": [
+              "Dust motes drift slowly through the dim air.",
+              "Moonlight shifts slightly across the floorboards."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "Darkness in a dim room at night filling the center of the bedroom, resting quietly against the carpet. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "The darkness spreads further across the center of the rug.",
+            "down": "The darkness contracts back toward the corner.",
+            "selfApproach": "The camera moves closer toward the center of the room.",
+            "holds": [
+              "A faint breeze rustles the curtains gently.",
+              "Shadows pulse softly in the dim space."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "Darkness in a dim room at night surrounding the bed, resting quietly beside the wooden frame. Medium close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The darkness gathers thickly around the bed frame.",
+            "down": "The darkness recedes away from the bed.",
+            "selfApproach": "The camera glides closer to the bedside.",
+            "holds": [
+              "Fabric folds on the blanket shift slightly.",
+              "The air currents swirl gently in place."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "Darkness in a dim room at night pressing close against the pillow, resting quietly upon the mattress. Close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The darkness pools densely right beside the pillow.",
+            "down": "The darkness thins out near the pillow.",
+            "selfApproach": "The camera moves directly up to the pillow.",
+            "holds": [
+              "Quiet air ripples across the fabric.",
+              "A faint shadow shimmers softly on the sheet."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "Darkness in a dim room at night enveloping the camera lens, resting quietly right beside the viewpoint. Extreme close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The darkness completely surrounds the lens in rich shadow.",
+            "down": "The darkness pulls back slightly from the lens.",
+            "selfApproach": "The camera moves fully inside the dark space.",
+            "holds": [
+              "Subtle currents swirl gently in the darkness.",
+              "A soft shadow pulses quietly against the lens."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hallway",
+        "safe": "An empty hallway at night illuminated by distant ambient light from an open doorway, casting quiet shadows across the carpet. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "Shadows gather along the hallway walls as the darkness expands.",
+        "exit": "Ambient light brightens the hallway and the shadows shrink.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "Darkness in a dim room at night settling at the far end of the hallway, resting quietly near the wall. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "Shadows gather along the hallway walls as the darkness expands.",
+            "down": "Ambient light brightens the hallway and the shadows shrink.",
+            "selfApproach": "The camera slides down the hallway toward the shadow.",
+            "holds": [
+              "Ambient light flickers softly in the distance.",
+              "Baseboard shadows rest quietly on the floor."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "Darkness in a dim room at night filling the middle of the hallway, resting quietly across the carpet. Medium shot, eye-level, static camera, deep depth of field.",
+            "up": "The darkness flows further along the hallway carpet.",
+            "down": "The darkness pulls back toward the far end.",
+            "selfApproach": "The camera glides forward to the middle of the hall.",
+            "holds": [
+              "Wallpaper patterns blend into the dim light.",
+              "Carpet fibers rest still in the shadow."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "Darkness in a dim room at night surrounding the doorway, resting quietly beside the wooden frame. Medium close-up shot, eye-level, static camera, deep depth of field.",
+            "up": "The darkness pools densely around the doorway frame.",
+            "down": "The darkness retreats away from the doorway.",
+            "selfApproach": "The camera moves right up to the doorway.",
+            "holds": [
+              "Wood grain texture shows faintly in the dimness.",
+              "A cool draft moves softly through the frame."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "Darkness in a dim room at night pressing close against the doorhandle, resting quietly upon the metal. Close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The darkness wraps tightly around the brass handle.",
+            "down": "The darkness thins out near the handle.",
+            "selfApproach": "The camera inches forward to touch the handle.",
+            "holds": [
+              "Metal catches a tiny gleam of ambient light.",
+              "Quiet air ripples across the metallic surface."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "Darkness in a dim room at night enveloping the camera lens, resting quietly right beside the viewpoint. Extreme close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The darkness completely surrounds the lens in heavy shadow.",
+            "down": "The darkness pulls back slightly from the lens.",
+            "selfApproach": "The camera moves fully inside the dark hallway.",
+            "holds": [
+              "Subtle currents swirl gently in the darkness.",
+              "A soft shadow pulses quietly against the lens."
+            ]
+          }
+        ]
+      }
+    ],
+    "ev": [
+      {
+        "fearedOutcome": "Something will be there in the dark",
+        "prompt": "A friendly cat steps quietly out of the shadows into the warm light."
+      }
+    ],
+    "deepened": [
+      "A soft whisper echoes gently from the corner of the room."
+    ]
+  }
+}

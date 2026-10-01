@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "model": "gemini-3.5-flash-lite",
+    "attempts": 5,
+    "generatedAt": "2026-10-01T16:34:11.194Z",
+    "lint": []
+  },
+  "ladder": {
+    "fearId": "elevators",
+    "subject": "A modern passenger elevator car",
+    "contexts": [
+      {
+        "id": "office_building",
+        "safe": "A bright modern office building elevator lobby with polished marble floors and closed metal doors. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "A modern passenger elevator car arrives and opens its doors.",
+        "exit": "A modern passenger elevator car closes its doors and departs upward.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "A modern passenger elevator car waits with open doors in the bright lobby. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "A modern passenger elevator car arrives and opens its doors.",
+            "down": "A modern passenger elevator car closes its doors and departs upward.",
+            "selfApproach": "The camera moves forward into the open elevator doorway.",
+            "holds": [
+              "The elevator interior lights glow steadily.",
+              "The floor indicator panel displays the ground floor."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "A modern passenger elevator car waits inside the brightly lit cabin with open doors facing the hallway. Medium shot, eye-level, static camera, medium depth of field.",
+            "up": "The elevator doors slide closed quietly.",
+            "down": "The elevator doors slide open to reveal the hallway.",
+            "selfApproach": "The camera moves further into the center of the elevator cabin.",
+            "holds": [
+              "The illuminated floor buttons glow softly.",
+              "The ventilation fan hums quietly overhead."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "A modern passenger elevator car travels upward inside the bright shaft showing passing floors through the glass walls. Medium shot, eye-level, static camera, medium depth of field.",
+            "up": "The elevator car accelerates upward smoothly.",
+            "down": "The elevator car slows its ascent gradually.",
+            "selfApproach": "The camera moves closer to the illuminated floor display panel.",
+            "holds": [
+              "The digital floor number updates continuously.",
+              "The cable machinery hums rhythmically above."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "A modern passenger elevator car halts its motion between floors with the digital floor display glowing steadily. Medium shot, eye-level, static camera, medium depth of field.",
+            "up": "The elevator car remains stationary between floors.",
+            "down": "The elevator car resumes its upward journey.",
+            "selfApproach": "The camera moves closer to the closed elevator doors.",
+            "holds": [
+              "The digital floor display maintains a steady reading.",
+              "The interior lighting remains bright and steady."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "A modern passenger elevator car rests completely still between floors while the digital display glows continuously. Close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The elevator car stays paused in place.",
+            "down": "The elevator car restarts its movement.",
+            "selfApproach": "The camera edges directly against the elevator control panel.",
+            "holds": [
+              "The elevator ventilation system runs steadily.",
+              "The digital floor counter remains illuminated."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hotel_tower",
+        "safe": "A luxury hotel elevator lobby featuring polished wood walls and closed brass doors. Wide shot, eye-level, static camera, deep depth of field.",
+        "enter": "A hotel elevator cabin arrives and opens its brass doors.",
+        "exit": "A hotel elevator cabin closes its brass doors and ascends.",
+        "levels": [
+          {
+            "level": 1,
+            "state": "A hotel elevator cabin waits with open brass doors in the hallway. Wide shot, eye-level, static camera, deep depth of field.",
+            "up": "A hotel elevator cabin arrives and opens its brass doors.",
+            "down": "A hotel elevator cabin closes its brass doors and ascends.",
+            "selfApproach": "The camera steps forward into the elevator threshold.",
+            "holds": [
+              "The brass floor indicator glows clearly.",
+              "The hallway lighting shines brightly overhead."
+            ]
+          },
+          {
+            "level": 2,
+            "state": "A hotel elevator cabin stands with open doors overlooking the carpeted hallway. Medium shot, eye-level, static camera, medium depth of field.",
+            "up": "The brass elevator doors close gently.",
+            "down": "The brass elevator doors open fully.",
+            "selfApproach": "The camera advances toward the back wall of the cabin.",
+            "holds": [
+              "The wood paneled walls gleam softly.",
+              "The ceiling lights cast a warm glow."
+            ]
+          },
+          {
+            "level": 3,
+            "state": "A hotel elevator cabin travels upward between floors while the digital floor counter updates steadily. Medium shot, eye-level, static camera, medium depth of field.",
+            "up": "The cabin glides upward along the shaft.",
+            "down": "The cabin slows its movement downward.",
+            "selfApproach": "The camera moves nearer to the corner mirror.",
+            "holds": [
+              "The digital display numbers change sequentially.",
+              "The interior atmosphere remains calm."
+            ]
+          },
+          {
+            "level": 4,
+            "state": "A hotel elevator cabin pauses its travel between floors while the digital floor display glows steadily. Medium shot, eye-level, static camera, medium depth of field.",
+            "up": "The cabin maintains a stationary position.",
+            "down": "The cabin continues its upward motion.",
+            "selfApproach": "The camera glides closer to the closed doors.",
+            "holds": [
+              "The floor indicator numbers stay illuminated.",
+              "The cabin ambient sound remains quiet."
+            ]
+          },
+          {
+            "level": 5,
+            "state": "A hotel elevator cabin rests motionless between floors under bright interior lighting. Close-up shot, eye-level, static camera, shallow depth of field.",
+            "up": "The cabin remains stationary in the shaft.",
+            "down": "The cabin resumes upward travel.",
+            "selfApproach": "The camera moves right beside the glowing control buttons.",
+            "holds": [
+              "The digital floor display stays brightly lit.",
+              "The ventilation system maintains airflow."
+            ]
+          }
+        ]
+      }
+    ],
+    "ev": [
+      {
+        "fearedOutcome": "It will get stuck with me inside",
+        "prompt": "The elevator car pauses briefly between floors smoothly opening its doors to the top lobby."
+      }
+    ],
+    "deepened": [
+      "The elevator car remains stationary for an extended duration while interior lights hum softly.",
+      "The digital floor display flashes slowly before settling into a steady glow."
+    ]
+  }
+}
