@@ -1,0 +1,16 @@
+.env.local
+.next/
+node_modules/
+npm-debug.log*
+*.tsbuildinfo
+.reactor-dev-sessions.json
+.reactor-dev-sessions.json.*.tmp
+
+internal/
+.DS_Store
+.env
+.vercel
+coverage/
+__pycache__/
+*.pyc
+.venv/
