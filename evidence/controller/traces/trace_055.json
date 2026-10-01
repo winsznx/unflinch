@@ -1,0 +1,935 @@
+{
+ "schema": "unflinch.controller_trace.v1",
+ "id": "trace_055",
+ "seed": 2026,
+ "config": {
+  "cap": 5,
+  "autoMode": false,
+  "trialMax": 48,
+  "startLevel": 1
+ },
+ "chunkS": 1.833,
+ "ticks": [
+  {
+   "chunkIndex": 0,
+   "arousal": "WINDOW",
+   "suds": null,
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 1,
+   "arousal": "HIGH",
+   "suds": null,
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 2,
+   "arousal": "HIGH",
+   "suds": null,
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 3,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 1.262
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 4,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 3.095
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 5,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 4.928
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 6,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 6.761
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 7,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 8.594
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 8,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 10.427
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 9,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 12.26
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 10,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 14.093
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 11,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 15.926
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 12,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 17.759
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 13,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 19.592
+   },
+   "intent": "closer",
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold",
+    "intent"
+   ]
+  },
+  {
+   "chunkIndex": 14,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 21.425
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 15,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 1.181
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold",
+    "suds_low"
+   ]
+  },
+  {
+   "chunkIndex": 16,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 3.014
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 17,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 4.847
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold_overload",
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 18,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 6.68
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold_overload",
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 19,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 0.259
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold",
+    "suds_low"
+   ]
+  },
+  {
+   "chunkIndex": 20,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 2.092
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 21,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 3.925
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 22,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 2,
+    "ageS": 5.758
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike_onset",
+    "breath_hold"
+   ]
+  },
+  {
+   "chunkIndex": 23,
+   "arousal": "OVERLOAD",
+   "suds": {
+    "value": 2,
+    "ageS": 7.591
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike",
+    "breath_hold_overload"
+   ]
+  },
+  {
+   "chunkIndex": 24,
+   "arousal": "OVERLOAD",
+   "suds": {
+    "value": 7,
+    "ageS": 0.633
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike",
+    "breath_hold_overload"
+   ]
+  },
+  {
+   "chunkIndex": 25,
+   "arousal": "OVERLOAD",
+   "suds": {
+    "value": 7,
+    "ageS": 2.466
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike",
+    "breath_hold_overload"
+   ]
+  },
+  {
+   "chunkIndex": 26,
+   "arousal": "OVERLOAD",
+   "suds": {
+    "value": 7,
+    "ageS": 4.299
+   },
+   "intent": "back",
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike",
+    "intent"
+   ]
+  },
+  {
+   "chunkIndex": 27,
+   "arousal": "OVERLOAD",
+   "suds": {
+    "value": 7,
+    "ageS": 6.132
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike"
+   ]
+  },
+  {
+   "chunkIndex": 28,
+   "arousal": "OVERLOAD",
+   "suds": {
+    "value": 7,
+    "ageS": 7.965
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike"
+   ]
+  },
+  {
+   "chunkIndex": 29,
+   "arousal": "OVERLOAD",
+   "suds": {
+    "value": 7,
+    "ageS": 9.798
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "spike"
+   ]
+  },
+  {
+   "chunkIndex": 30,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 7,
+    "ageS": 11.631
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 31,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 7,
+    "ageS": 13.464
+   },
+   "intent": "resume",
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "stray_resume"
+   ]
+  },
+  {
+   "chunkIndex": 32,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 15.297
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 33,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 17.13
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 34,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 18.963
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 35,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 20.796
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 36,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 22.629
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 37,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 24.462
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 38,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 26.295
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 39,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 28.128
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 40,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 29.961
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 41,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 31.794
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 42,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 0.088
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 43,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 1.921
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 44,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 3.754
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 45,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 5.587
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 46,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 7.42
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 47,
+   "arousal": "LOW",
+   "suds": {
+    "value": 7,
+    "ageS": 9.253
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 48,
+   "arousal": "LOW",
+   "suds": {
+    "value": 9,
+    "ageS": 1.153
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "suds_high"
+   ]
+  },
+  {
+   "chunkIndex": 49,
+   "arousal": "LOW",
+   "suds": {
+    "value": 9,
+    "ageS": 2.986
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 50,
+   "arousal": "LOW",
+   "suds": {
+    "value": 9,
+    "ageS": 4.819
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 51,
+   "arousal": "LOW",
+   "suds": {
+    "value": 10,
+    "ageS": 0.212
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": [
+    "suds_high"
+   ]
+  },
+  {
+   "chunkIndex": 52,
+   "arousal": "LOW",
+   "suds": {
+    "value": 10,
+    "ageS": 2.045
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 53,
+   "arousal": "LOW",
+   "suds": {
+    "value": 10,
+    "ageS": 3.878
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 54,
+   "arousal": "HIGH",
+   "suds": {
+    "value": 10,
+    "ageS": 5.711
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 55,
+   "arousal": "HIGH",
+   "suds": {
+    "value": 3,
+    "ageS": 0.534
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 56,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 2.367
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 57,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 4.2
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 58,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 6.033
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 59,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 7.866
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 60,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 9.699
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 61,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 11.532
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 62,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 13.365
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 63,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 15.198
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 64,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 17.031
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 65,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 18.864
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 66,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 20.697
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 67,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 22.53
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 68,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 24.363
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 69,
+   "arousal": "LOW",
+   "suds": {
+    "value": 3,
+    "ageS": 26.196
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 70,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 28.029
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 71,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 29.862
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  },
+  {
+   "chunkIndex": 72,
+   "arousal": "WINDOW",
+   "suds": {
+    "value": 3,
+    "ageS": 1.344
+   },
+   "intent": null,
+   "therapist": null,
+   "generationComplete": false,
+   "tags": []
+  }
+ ]
+}

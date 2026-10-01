@@ -1,0 +1,69 @@
+{
+ "traces": 100,
+ "ticks": 4573,
+ "invariants": {
+  "INV1": {
+   "pass": true,
+   "violations": 0,
+   "examples": []
+  },
+  "INV2": {
+   "pass": true,
+   "violations": 0,
+   "examples": []
+  },
+  "INV3": {
+   "pass": true,
+   "violations": 0,
+   "examples": []
+  },
+  "INV4": {
+   "pass": true,
+   "violations": 0,
+   "examples": []
+  },
+  "INV5": {
+   "pass": true,
+   "violations": 0,
+   "examples": []
+  },
+  "INV6": {
+   "pass": true,
+   "violations": 0,
+   "examples": []
+  },
+  "INV8": {
+   "pass": true,
+   "violations": 0,
+   "examples": []
+  },
+  "INV7": {
+   "pass": null,
+   "note": "N/A: controller traces carry no prompt text; lint is checked in \u00a74.6"
+  }
+ },
+ "reasons": {
+  "IN_WINDOW": 2340,
+  "LANDING": 660,
+  "COOLDOWN": 359,
+  "VARIABILITY": 211,
+  "UNDER_ENGAGED": 209,
+  "CEILING_HOLD": 113,
+  "NO_SIGNAL": 100,
+  "STALL_NUDGE": 94,
+  "PAUSED": 82,
+  "TRIAL_MAX": 76,
+  "CEILING_SUDS": 65,
+  "PATIENT_CLOSER": 57,
+  "PATIENT_BACK": 51,
+  "CEILING_BODY": 39,
+  "EXPECTANCY_TEST": 28,
+  "PAUSE": 22,
+  "RESUME": 22,
+  "EV_HELD": 21,
+  "THERAPIST_BACK": 9,
+  "THERAPIST": 7,
+  "THERAPIST_VARY": 5,
+  "PATIENT_END": 3
+ }
+}
