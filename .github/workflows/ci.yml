@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Controller vs independent oracle (G2)
+        run: |
+          pip install -r tools/requirements.txt
+          pnpm controller:run
+          python tools/oracle_controller.py --traces evidence/controller/traces --out /tmp/oracle --compare evidence/controller/ts
+      - run: pnpm build
