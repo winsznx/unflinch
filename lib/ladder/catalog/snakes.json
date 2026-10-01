@@ -20,7 +20,6 @@
             "state": "A garter snake rests quietly on the grass twenty feet away in the sunny backyard garden. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "A garter snake slithers out from the flowerbed onto the green grass.",
             "down": "The garter snake slithers back into the flowerbed and disappears.",
-            "selfApproach": "The camera slowly glides forward across the lawn toward the garter snake.",
             "holds": [
               "The garter snake lifts its head slightly to look around.",
               "The garter snake flicks its tongue into the warm air."
@@ -31,7 +30,6 @@
             "state": "A garter snake rests quietly on the grass ten feet away in the sunny backyard garden. Medium wide shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers forward across the grass to a spot ten feet away.",
             "down": "The garter snake slithers backward to a spot twenty feet away on the lawn.",
-            "selfApproach": "The camera moves closer to the garter snake across the green grass.",
             "holds": [
               "The garter snake coils its body loosely on the warm lawn.",
               "The garter snake turns its head toward the garden path."
@@ -42,7 +40,6 @@
             "state": "A garter snake rests quietly on the grass five feet away in the sunny backyard garden. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers closer to a spot five feet away on the lawn.",
             "down": "The garter snake slithers backward to a spot ten feet away on the grass.",
-            "selfApproach": "The camera advances slowly to a medium distance from the garter snake.",
             "holds": [
               "The garter snake shifts its weight on the green grass.",
               "The garter snake slowly blinks its eyes in the sunlight."
@@ -53,7 +50,6 @@
             "state": "A garter snake rests quietly on the grass three feet away in the sunny backyard garden. Medium close-up shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers forward to a spot three feet away on the lawn.",
             "down": "The garter snake slithers backward to a spot five feet away on the grass.",
-            "selfApproach": "The camera moves down and closer to the garter snake on the lawn.",
             "holds": [
               "The garter snake adjusts its position on the warm soil.",
               "The garter snake flicks its tongue twice in the quiet garden."
@@ -64,7 +60,6 @@
             "state": "A garter snake rests quietly on the grass one foot away in the sunny backyard garden. Close-up shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers forward to a spot one foot away on the lawn.",
             "down": "The garter snake slithers backward to a spot three feet away on the grass.",
-            "selfApproach": "The camera glides very close to the garter snake on the green grass.",
             "holds": [
               "The garter snake breathes slowly and remains still on the grass.",
               "The garter snake gently curves its tail on the lawn."
@@ -83,7 +78,6 @@
             "state": "A garter snake rests quietly on the deck fifteen feet away under bright daylight. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "A garter snake slithers from behind a potted fern onto the wooden deck.",
             "down": "The garter snake slithers back behind the potted fern and disappears.",
-            "selfApproach": "The camera glides forward along the wooden deck toward the garter snake.",
             "holds": [
               "The garter snake basks in the warm sunlight on the deck.",
               "The garter snake slowly raises its head above the wooden planks."
@@ -94,7 +88,6 @@
             "state": "A garter snake rests quietly on the deck eight feet away under bright daylight. Medium wide shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers forward along the cedar planks to eight feet away.",
             "down": "The garter snake slithers backward along the cedar planks to fifteen feet away.",
-            "selfApproach": "The camera moves closer along the wooden deck toward the garter snake.",
             "holds": [
               "The garter snake flicks its tongue while resting on the wood.",
               "The garter snake slides its tail slightly to the left."
@@ -105,7 +98,6 @@
             "state": "A garter snake rests quietly on the deck four feet away under bright daylight. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers forward along the cedar planks to four feet away.",
             "down": "The garter snake slithers backward along the cedar planks to eight feet away.",
-            "selfApproach": "The camera advances to a medium distance from the garter snake.",
             "holds": [
               "The garter snake coils loosely on the warm wooden deck.",
               "The garter snake turns its head toward the edge of the deck."
@@ -116,7 +108,6 @@
             "state": "A garter snake rests quietly on the deck two feet away under bright daylight. Medium close-up shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers forward along the cedar planks to two feet away.",
             "down": "The garter snake slithers backward along the cedar planks to four feet away.",
-            "selfApproach": "The camera moves down closer to the garter snake on the deck.",
             "holds": [
               "The garter snake flicks its tongue in the warm air.",
               "The garter snake remains still on the sunny wooden planks."
@@ -127,7 +118,6 @@
             "state": "A garter snake rests quietly on the deck six inches away under bright daylight. Close-up shot, eye-level, static camera, deep depth of field.",
             "up": "The garter snake slithers forward along the cedar planks to six inches away.",
             "down": "The garter snake slithers backward along the cedar planks to two feet away.",
-            "selfApproach": "The camera moves extremely close to the garter snake on the deck.",
             "holds": [
               "The garter snake breathes calmly on the warm wooden deck.",
               "The garter snake slowly curves its body on the cedar planks."

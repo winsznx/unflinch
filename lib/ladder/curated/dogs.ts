@@ -12,7 +12,6 @@ type DogContext = {
   poses: [string, string, string, string, string, string];
   ups: [string, string, string, string, string];
   downs: [string, string, string, string, string];
-  selfApproach: string;
   holds: string[];
 };
 
@@ -27,7 +26,6 @@ function compose(context: DogContext): LadderContext {
       state: `${context.subject} ${pose} ${context.place}. ${context.camera}`,
       up: index === 0 ? context.enter : context.ups[index - 1]!,
       down: index === 0 ? context.exit : context.downs[index - 1]!,
-      selfApproach: context.selfApproach,
       holds: context.holds,
     })),
   };
@@ -64,7 +62,6 @@ const park: DogContext = {
     "The terrier steps back a few meters and sits down on the grass.",
     "The terrier stands up and sniffs the grass beside the camera.",
   ],
-  selfApproach: "The camera walks slowly forward across the grass toward the terrier and stops.",
   holds: [
     "The terrier scratches behind its ear with a back paw.",
     "The terrier sniffs the grass and takes one step to the side.",
@@ -104,7 +101,6 @@ const sidewalk: DogContext = {
     "The beagle steps back a few meters along the sidewalk and sits down.",
     "The beagle stands up and sniffs the hedge beside the camera.",
   ],
-  selfApproach: "The camera walks slowly forward along the sidewalk toward the beagle and stops.",
   holds: [
     "The beagle sniffs the base of the lamp post.",
     "The beagle shakes its long ears.",
@@ -144,7 +140,6 @@ const livingroom: DogContext = {
     "The retriever steps back across the rug and sits down.",
     "The retriever stands up and sniffs the rug beside the camera.",
   ],
-  selfApproach: "The camera moves slowly forward across the rug toward the retriever and stops.",
   holds: [
     "The retriever yawns and settles its head on its paws.",
     "The retriever turns to look at the window.",

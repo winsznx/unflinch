@@ -20,7 +20,6 @@
             "state": "A pigeon stands quietly on the grass far away near a park bench under daylight. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "A pigeon waddles out from behind a wooden bench.",
             "down": "The pigeon flaps its wings and flies away across the grass.",
-            "selfApproach": "The camera glides forward closer to the resting pigeon on the grass.",
             "holds": [
               "The pigeon turns its head and preaks its feathers.",
               "The pigeon pecks softly at a green blade of grass."
@@ -31,7 +30,6 @@
             "state": "A pigeon stands on the grass path mid distance from the camera under daylight. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The pigeon hops forward onto the concrete pathway.",
             "down": "The pigeon waddles backward onto the grassy area.",
-            "selfApproach": "The camera moves closer toward the pigeon on the concrete path.",
             "holds": [
               "The pigeon blinks its orange eyes and stretches its wings.",
               "The pigeon shifts its weight from one foot to the other."
@@ -42,7 +40,6 @@
             "state": "A pigeon stands close to the camera on the concrete park path under daylight. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The pigeon takes a short flight and lands closer on the ground.",
             "down": "The pigeon hops backward a short distance on the concrete.",
-            "selfApproach": "The camera moves right up to a short distance from the pigeon.",
             "holds": [
               "The pigeon fluffs its chest feathers and looks around.",
               "The pigeon scratches its neck with a pink foot."
@@ -53,7 +50,6 @@
             "state": "A pigeon stands right beside the camera on a low stone ledge under daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pigeon flutters up and lands right beside the camera.",
             "down": "The pigeon steps down from the ledge to the ground below.",
-            "selfApproach": "The camera slides right up beside the perched pigeon.",
             "holds": [
               "The pigeon turns its head sideways to look around.",
               "The pigeon ruffles its wing feathers in the breeze."
@@ -64,7 +60,6 @@
             "state": "A pigeon perches directly beside the camera on a wooden fence rail under daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pigeon flaps its wings upward to perch on the fence rail.",
             "down": "The pigeon drops down from the rail to the ground.",
-            "selfApproach": "The camera glides directly adjacent to the rail beside the pigeon.",
             "holds": [
               "The pigeon coos softly while tilting its glossy head.",
               "The pigeon shakes its feathers and rests quietly."
@@ -83,7 +78,6 @@
             "state": "A pigeon stands near the far corner of an empty wooden balcony under daylight. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "A pigeon flies onto the wooden balcony floor.",
             "down": "The pigeon launches off the railing and flies out of view.",
-            "selfApproach": "The camera moves closer across the balcony toward the pigeon.",
             "holds": [
               "The pigeon stands still and looks over the courtyard.",
               "The pigeon pecks gently at a stray seed."
@@ -94,7 +88,6 @@
             "state": "A pigeon stands mid distance on the wooden balcony boards under daylight. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The pigeon waddles closer across the wooden planks.",
             "down": "The pigeon walks back toward the far balcony corner.",
-            "selfApproach": "The camera slides forward across the wooden deck toward the pigeon.",
             "holds": [
               "The pigeon stretches one grey wing outward.",
               "The pigeon blinks and turns its head toward the sky."
@@ -105,7 +98,6 @@
             "state": "A pigeon stands close on the wooden balcony floor under daylight. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The pigeon hops up onto a small stool on the balcony.",
             "down": "The pigeon steps down from the stool to the floor.",
-            "selfApproach": "The camera moves closer to the pigeon on the wooden planks.",
             "holds": [
               "The pigeon puffs its iridescent neck feathers.",
               "The pigeon taps its beak softly against the wood."
@@ -116,7 +108,6 @@
             "state": "A pigeon stands beside the camera on the balcony railing under daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pigeon flies up to land on the metal balcony railing.",
             "down": "The pigeon drops down from the railing to the floor.",
-            "selfApproach": "The camera glides right up beside the railing pigeon.",
             "holds": [
               "The pigeon looks around the sunny balcony space.",
               "The pigeon smooths its tail feathers with its beak."
@@ -127,7 +118,6 @@
             "state": "A pigeon perches directly beside the camera on the balcony post under daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pigeon hops onto the top of the wooden balcony post.",
             "down": "The pigeon steps down onto the metal railing bar.",
-            "selfApproach": "The camera shifts directly beside the wooden balcony post.",
             "holds": [
               "The pigeon stands calmly in the warm daylight.",
               "The pigeon closes its eyes briefly in the sunlight."

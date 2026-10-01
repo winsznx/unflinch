@@ -1,0 +1,10 @@
+{
+  "fear": "Dogs",
+  "cap": 6,
+  "note": "Builder test run on 2026-10-01 against a local build with the step-closer fix (a patient's step closer sends the level's up prompt, not a camera move), driven by pnpm demo:live in headless Chrome with simulated input. Round 1 (park) climbed L1 to L6 by PATIENT_CLOSER and reached the expectancy test at 53.2 s. Same ladder, same input pattern as 82697d2c-8e77-4d26-bd36-2729f35e4a43, which ran before the fix.",
+  "findings": [
+    "Approach: the subject now moves at each step. It enters at L1, sits up facing the camera at L2 to L3, and walks along the bench toward the foreground at L4 to L6. L5 and L6 still fall short of 'right beside the camera': Orbis moved the dog sideways and somewhat forward, not up to the lens. Only the expectancy test brought it into the foreground. levels.jpg samples the recording at the chunk before each next decision, when the level has settled.",
+    "Subject: Orbis drew a pug-like dog instead of the 'wiry terrier' in the prompts, from the first frame. The same dog held through every level and the expectancy test.",
+    "Continuity: tools/cutdetect.py at the provisional threshold 0.5 found 0 cuts in 1242 decoded frames."
+  ]
+}

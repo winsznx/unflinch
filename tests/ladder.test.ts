@@ -4,6 +4,7 @@ import { CATALOG } from "@/lib/ladder/catalog";
 import { CURATED } from "@/lib/ladder/curated";
 import { structureIssues } from "@/lib/ladder/generate";
 import { lintContext, lintLadder, lintPrompt } from "@/lib/ladder/lint";
+import { promptFor } from "@/lib/ladder/resolve";
 import { Ladder } from "@/lib/ladder/schema";
 
 describe("curated ladders", () => {
@@ -52,5 +53,23 @@ describe("lintContext", () => {
     expect(lintContext(context)).toEqual([]);
     const bad = { ...context, enter: "The terrier lunges and bites at the camera." };
     expect(lintContext(bad).map((i) => i.rule)).toContain("harm");
+  });
+});
+
+describe("promptFor", () => {
+  it("shows the subject's own step when the patient steps closer", () => {
+    const ladder = CURATED.dogs!;
+    const context = ladder.contexts[0]!;
+    for (let level = 2; level <= context.levels.length; level += 1) {
+      const choice = promptFor("selfApproach", {
+        ladder,
+        context,
+        levelBefore: level - 1,
+        levelAfter: level,
+        fearedOutcome: "It will jump on me",
+        lastHoldIndex: null,
+      });
+      expect(choice?.prompt).toBe(context.levels[level - 1]!.up);
+    }
   });
 });

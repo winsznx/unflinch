@@ -61,9 +61,6 @@ export function lintContext(context: LadderContext, base = "context"): LintIssue
     issues.push(...lintPrompt(level.state, "absolute", `${lp}.state`));
     issues.push(...lintPrompt(level.up, "transition", `${lp}.up`));
     issues.push(...lintPrompt(level.down, "transition", `${lp}.down`));
-    if (level.selfApproach) {
-      issues.push(...lintPrompt(level.selfApproach, "transition", `${lp}.selfApproach`));
-    }
     level.holds.forEach((hold, h) => issues.push(...lintPrompt(hold, "transition", `${lp}.holds[${h}]`)));
   });
   return issues;

@@ -20,7 +20,6 @@
             "state": "A dark rain cloud releasing distant lightning bolts over a house viewed through a living room window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Dark gray clouds roll into the sky and distant lightning flashes.",
             "down": "The dark clouds move away and clear blue sky returns.",
-            "selfApproach": "The camera slowly moves closer to the glass window.",
             "holds": [
               "Raindrops gently tap against the glass window pane.",
               "Distant lightning flickers softly in the background clouds."
@@ -31,7 +30,6 @@
             "state": "A dark rain cloud releasing moderate lightning bolts approaching the house viewed through a living room window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "The rain falls harder and brighter lightning flashes appear closer.",
             "down": "The rain slows down and lightning moves further away.",
-            "selfApproach": "The camera moves closer to the window sill.",
             "holds": [
               "Rainwater streams steadily down the outside glass.",
               "Lightning illuminates the overcast sky with a brief glow."
@@ -42,7 +40,6 @@
             "state": "A dark rain cloud releasing close lightning bolts near the house viewed through a living room window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Heavy rain pours down and bright lightning strikes near the house roof.",
             "down": "The heavy rain lightens and lightning moves away from the house.",
-            "selfApproach": "The camera approaches right up to the window glass.",
             "holds": [
               "Water cascades heavily across the window pane.",
               "Bright lightning flashes quickly illuminate the entire yard."
@@ -53,7 +50,6 @@
             "state": "A dark rain cloud releasing very close lightning bolts directly above the house viewed through a living room window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Torrential rain beats down and intense lightning strikes right above the roof.",
             "down": "Torrential rain eases into steady drops and lightning moves higher.",
-            "selfApproach": "The camera presses close against the window frame.",
             "holds": [
               "Heavy water ripples across the glass surface.",
               "Intense lightning lights up the room interior with a flash."
@@ -64,7 +60,6 @@
             "state": "A dark rain cloud releasing brilliant lightning bolts touching the house roof viewed through a living room window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Massive rain sheets fall and bright lightning connects harmlessly with the rooftop.",
             "down": "Massive rain sheets thin out and lightning pulls away from the roof.",
-            "selfApproach": "The camera rests right against the front window glass.",
             "holds": [
               "Water splashes heavily against the glass pane.",
               "Bright lightning touches the rooftop and fades into glowing light."
@@ -83,7 +78,6 @@
             "state": "A dark rain cloud releasing distant lightning bolts over a house viewed through a bedroom window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Dark storm clouds gather quickly above and lightning sparks.",
             "down": "Storm clouds part to reveal the sunny afternoon sky.",
-            "selfApproach": "The camera slowly glides toward the bedroom window.",
             "holds": [
               "Gentle wind rustles the trees outside the window.",
               "Soft lightning glows faintly behind the gray clouds."
@@ -94,7 +88,6 @@
             "state": "A dark rain cloud releasing moderate lightning bolts approaching the house viewed through a bedroom window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Wind picks up speed and sharper lightning flashes appear.",
             "down": "Wind calms down and lightning returns to the distance.",
-            "selfApproach": "The camera moves closer to the wooden window sill.",
             "holds": [
               "Raindrops begin sliding down the bedroom glass.",
               "Lightning illuminates the bedroom curtains gently."
@@ -105,7 +98,6 @@
             "state": "A dark rain cloud releasing close lightning bolts near the house viewed through a bedroom window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Gusts of wind blow rain against the glass and bright lightning strikes near.",
             "down": "Wind slows down and rain drops slow their pace.",
-            "selfApproach": "The camera approaches near the glass pane.",
             "holds": [
               "Rainwater coats the entire window in a shimmering sheet.",
               "Bright lightning flashes reflect on the bedroom floor."
@@ -116,7 +108,6 @@
             "state": "A dark rain cloud releasing very close lightning bolts directly above the house viewed through a bedroom window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Strong winds push heavy rain and vivid lightning strikes just above the roof.",
             "down": "Strong winds subside and rain turns into a gentle shower.",
-            "selfApproach": "The camera moves right up to touch the window pane.",
             "holds": [
               "Water streams rapidly down the glass surface.",
               "Vivid lightning lights up the bedroom walls brightly."
@@ -127,7 +118,6 @@
             "state": "A dark rain cloud releasing brilliant lightning bolts touching the house roof viewed through a bedroom window. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "Gale winds push torrential rain and bright lightning connects safely with the roof.",
             "down": "Gale winds drop and heavy rain slows to a steady drizzle.",
-            "selfApproach": "The camera rests right against the glass looking outward.",
             "holds": [
               "Water droplets race downward across the glass.",
               "Bright lightning touches the rooftop and dissolves into soft light."

@@ -55,10 +55,10 @@ export function promptFor(
   switch (action) {
     case "up":
       return { prompt: context.levels[levelAfter - 1]!.up };
-    case "selfApproach": {
-      const level = context.levels[levelAfter - 1]!;
-      return { prompt: level.selfApproach ?? level.up };
-    }
+    // A patient's step closer shows the subject's step up the ladder. A camera-move prompt left the
+    // subject where it was, so the level rose while the scene stayed at L1 (evidence/live/82697d2c…).
+    case "selfApproach":
+      return { prompt: context.levels[levelAfter - 1]!.up };
     case "down":
       return { prompt: context.levels[levelBefore - 1]!.down };
     case "ev":

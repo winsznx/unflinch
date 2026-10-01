@@ -20,7 +20,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds resting peacefully in the bright morning sunlight. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "An airplane wing and engine enter the frame from the left side.",
             "down": "The airplane wing and engine drift away to the left side.",
-            "selfApproach": "The camera pans slowly closer toward the airplane window.",
             "holds": [
               "Sunlight glints softly on the metal wing surface.",
               "White clouds drift slowly past the window glass."
@@ -31,7 +30,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds with sunlight reflecting off the metal panels. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The camera moves closer to the window glass revealing wing rivet details.",
             "down": "The camera pulls back slightly from the airplane window.",
-            "selfApproach": "The camera slides forward toward the window edge.",
             "holds": [
               "A gentle breeze ripples across the distant cloud tops.",
               "The engine cowling gleams brightly in the daylight."
@@ -42,7 +40,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds showing clear metallic textures on the engine casing. Medium close-up, eye-level, static camera, deep depth of field.",
             "up": "The camera shifts nearer to the window pane showcasing the wing structure.",
             "down": "The camera moves back to the previous window view.",
-            "selfApproach": "The camera inches forward toward the cabin window frame.",
             "holds": [
               "Sunlight shifts across the painted airline logo on the wing.",
               "Fluffy white clouds pass slowly beneath the metal structure."
@@ -53,7 +50,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds with crisp details visible on the turbine blades inside. Close-up, eye-level, static camera, deep depth of field.",
             "up": "The camera advances directly up to the passenger window glass.",
             "down": "The camera retreats slightly from the window pane.",
-            "selfApproach": "The camera glides closer until touching the window surface.",
             "holds": [
               "A tiny reflection appears on the clear glass surface.",
               "The engine fan blades spin smoothly inside the metal housing."
@@ -64,7 +60,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds positioned right beside the clear glass pane. Extreme close-up, eye-level, static camera, deep depth of field.",
             "up": "The camera presses firmly against the clear window pane.",
             "down": "The camera pulls back from the window glass.",
-            "selfApproach": "The camera moves right up against the glass surface.",
             "holds": [
               "Daylight shines brightly through the window pane.",
               "The metal wing surface fills the entire field of view."
@@ -83,7 +78,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds glowing with warm sunset colors in the evening sky. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "An airplane wing enters the frame against the glowing sunset sky.",
             "down": "The airplane wing slides away from the glowing sunset sky.",
-            "selfApproach": "The camera drifts slowly toward the sunset view.",
             "holds": [
               "Golden sunlight reflects brightly off the metallic wing flap.",
               "Orange clouds float peacefully across the distant horizon."
@@ -94,7 +88,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds reflecting orange and purple hues from the sunset. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The camera moves closer to the window revealing sunset reflections.",
             "down": "The camera pulls back to the wider sunset vista.",
-            "selfApproach": "The camera slides forward toward the warm window light.",
             "holds": [
               "Warm light sweeps across the painted wing surface.",
               "A distant cloud bank catches the last rays of daylight."
@@ -105,7 +98,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds with vibrant sunset shades filling the glass pane. Medium close-up, eye-level, static camera, deep depth of field.",
             "up": "The camera shifts nearer to the glass highlighting sunset colors.",
             "down": "The camera moves back from the sunset window view.",
-            "selfApproach": "The camera inches forward toward the glowing window frame.",
             "holds": [
               "The engine housing glows softly in the warm evening light.",
               "Wispy clouds drift slowly past the window edge."
@@ -116,7 +108,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds framed tightly against the bright sunset glow. Close-up, eye-level, static camera, deep depth of field.",
             "up": "The camera advances directly up to the window glass.",
             "down": "The camera retreats slightly from the sunset pane.",
-            "selfApproach": "The camera glides closer until touching the glass surface.",
             "holds": [
               "Sunset light creates bright highlights on the wing panels.",
               "The turbine engine remains steady in the evening air."
@@ -127,7 +118,6 @@
             "state": "A commercial airplane wing and engine seen from a passenger window seat above fluffy white clouds resting right beside the clear glass during sunset. Extreme close-up, eye-level, static camera, deep depth of field.",
             "up": "The camera presses firmly against the clear window pane.",
             "down": "The camera pulls back from the sunset window glass.",
-            "selfApproach": "The camera moves right up against the warm glass surface.",
             "holds": [
               "Warm daylight radiates through the passenger window glass.",
               "The textured wing surface fills the entire field of view."

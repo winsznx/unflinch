@@ -29,8 +29,8 @@ Output one JSON object matching the schema. Rules:
 - "safe": the empty scene before the subject arrives. WHO + WHAT + WHERE + camera, under 100 words, ending with framing and camera motion, e.g. "Wide shot, eye-level, static camera, deep depth of field."
 - "state" for each level: an absolute prompt that restates subject, pose, place and the same camera sentence, under 100 words.
 - "enter": the subject arrives by action. "exit": the subject leaves by action. For a place-based fear (heights, bridges), the camera moves instead.
-- Direction matters. levels[k].up moves the scene from level k-1 INTO level k, so levels[0].up is exactly the same text as "enter". levels[k].down moves the scene from level k BACK to level k-1, so levels[0].down is exactly the same text as "exit". levels[k].selfApproach is the camera moving closer, arriving at level k. holds are small actions that keep the subject at that level.
-- "up", "down", "selfApproach", "enter", "exit" and each "holds" item: one visible action, under 30 words, at most two "and", at most two commas, never the word "then". Transitions describe only what changes, without camera framing words.
+- Direction matters. levels[k].up moves the scene from level k-1 INTO level k, so levels[0].up is exactly the same text as "enter". levels[k].down moves the scene from level k BACK to level k-1, so levels[0].down is exactly the same text as "exit". holds are small actions that keep the subject at that level.
+- "up", "down", "enter", "exit" and each "holds" item: one visible action, under 30 words, at most two "and", at most two commas, never the word "then". Transitions describe only what changes, without camera framing words.
 - Use the same subject wording in every prompt. Positive phrasing only: never write no, not, without, never, nothing.
 - Never describe harm: no biting, attacking, lunging, growling, falling, crashing, drowning, stinging, blood, injury, screaming.
 - No adjectives of intent such as cinematic, dramatic, beautiful, scary, calming.

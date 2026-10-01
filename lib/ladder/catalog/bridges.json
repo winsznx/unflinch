@@ -20,7 +20,6 @@
             "state": "A pedestrian stands on the sidewalk of a wide steel suspension bridge spanning a broad river under bright daylight. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "A pedestrian walks onto the sidewalk from the distant approach.",
             "down": "The pedestrian walks backward off the sidewalk toward the distant approach.",
-            "selfApproach": "The camera moves forward along the sidewalk toward the pedestrian.",
             "holds": [
               "The pedestrian looks at the river below.",
               "The pedestrian takes a slow breath."
@@ -31,7 +30,6 @@
             "state": "A pedestrian stands on the sidewalk of a wide steel suspension bridge spanning a broad river under bright daylight, positioned near a support cable. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The pedestrian walks forward ten paces along the metal grating.",
             "down": "The pedestrian walks backward ten paces to the previous spot.",
-            "selfApproach": "The camera moves forward along the walkway stopping beside the pedestrian.",
             "holds": [
               "The pedestrian rests a hand on the metal railing.",
               "The pedestrian watches a boat pass underneath."
@@ -42,7 +40,6 @@
             "state": "A pedestrian stands beside the metal railing of a wide steel suspension bridge spanning a broad river under bright daylight. Close-up shot, eye-level, static camera, deep depth of field.",
             "up": "The pedestrian steps closer to the outer edge of the walkway.",
             "down": "The pedestrian steps back toward the center of the walkway.",
-            "selfApproach": "The camera moves closer positioning directly beside the pedestrian shoulder.",
             "holds": [
               "The pedestrian turns the head to look straight ahead.",
               "The pedestrian stands completely still by the railing."
@@ -53,7 +50,6 @@
             "state": "A pedestrian stands directly beside the outer metal railing of a wide steel suspension bridge spanning a broad river under bright daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pedestrian reaches out to touch the vertical steel cable.",
             "down": "The pedestrian lowers the hand back down to the side.",
-            "selfApproach": "The camera glides forward until touching the railing surface.",
             "holds": [
               "The pedestrian holds the metal cable gently.",
               "The pedestrian blinks in the bright sunlight."
@@ -64,7 +60,6 @@
             "state": "A pedestrian holds the vertical steel cable of a wide steel suspension bridge spanning a broad river under bright daylight. Extreme close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pedestrian leans slightly toward the open space above the river.",
             "down": "The pedestrian straightens posture back away from the edge.",
-            "selfApproach": "The camera moves in very close beside the hands on the railing.",
             "holds": [
               "The pedestrian maintains a steady grip on the railing.",
               "The pedestrian breathes evenly in the open air."
@@ -83,7 +78,6 @@
             "state": "A pedestrian stands on the curved pathway of a high concrete viaduct spanning a green valley under bright daylight. Wide shot, eye-level, static camera, deep depth of field.",
             "up": "A pedestrian steps onto the curved pathway from the entry ramp.",
             "down": "The pedestrian steps backward off the curved pathway toward the entry ramp.",
-            "selfApproach": "The camera moves forward along the concrete path toward the pedestrian.",
             "holds": [
               "The pedestrian looks across the wide green valley.",
               "The pedestrian stands balanced on both feet."
@@ -94,7 +88,6 @@
             "state": "A pedestrian stands on the curved pathway of a high concrete viaduct spanning a green valley under bright daylight, near a low safety wall. Medium shot, eye-level, static camera, deep depth of field.",
             "up": "The pedestrian walks forward toward the center span.",
             "down": "The pedestrian walks backward toward the entry ramp.",
-            "selfApproach": "The camera moves forward along the path stopping near the pedestrian.",
             "holds": [
               "The pedestrian checks the view of the valley below.",
               "The pedestrian adjusts a jacket pocket."
@@ -105,7 +98,6 @@
             "state": "A pedestrian stands beside the low safety wall of a high concrete viaduct spanning a green valley under bright daylight. Close-up shot, eye-level, static camera, deep depth of field.",
             "up": "The pedestrian moves closer to the concrete wall edge.",
             "down": "The pedestrian moves away from the concrete wall edge.",
-            "selfApproach": "The camera glides closer placing the pedestrian in full focus.",
             "holds": [
               "The pedestrian rests fingertips on the concrete top.",
               "The pedestrian listens to the wind sound."
@@ -116,7 +108,6 @@
             "state": "A pedestrian rests fingertips on the concrete safety wall of a high concrete viaduct spanning a green valley under bright daylight. Close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pedestrian leans both forearms onto the concrete wall top.",
             "down": "The pedestrian lifts the forearms off the concrete wall top.",
-            "selfApproach": "The camera moves forward until nearly touching the wall surface.",
             "holds": [
               "The pedestrian gazes steadily at the horizon.",
               "The pedestrian keeps a relaxed posture."
@@ -127,7 +118,6 @@
             "state": "A pedestrian leans forearms on the concrete safety wall of a high concrete viaduct spanning a green valley under bright daylight. Extreme close-up shot, eye-level, static camera, shallow depth of field.",
             "up": "The pedestrian shifts weight forward against the wall safely.",
             "down": "The pedestrian shifts weight backward onto both heels.",
-            "selfApproach": "The camera moves directly beside the resting arms on the wall.",
             "holds": [
               "The pedestrian remains calm against the safety wall.",
               "The pedestrian looks at the distant hills."

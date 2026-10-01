@@ -5,7 +5,6 @@ export const Level = z.object({
   state: z.string(),
   up: z.string(),
   down: z.string(),
-  selfApproach: z.string().optional(),
   holds: z.array(z.string()).min(2).max(4),
 });
 

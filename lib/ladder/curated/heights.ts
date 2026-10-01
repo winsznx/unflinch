@@ -48,7 +48,6 @@ export const HEIGHTS_LADDER: Ladder = {
         state: `${SCENE}. ${position} ${CAMERA}`,
         up: UPS[index]!,
         down: DOWNS[index]!,
-        selfApproach: UPS[index]!,
         holds: HOLDS,
       })),
     },
