@@ -518,7 +518,8 @@ export class SessionRuntime {
   }
 
   private needsSudsPrompt(t: number): boolean {
-    if (this.config.signal !== "suds" && this.snap.sensor !== "stale") return false;
+    // Without a live breath signal the controller holds on NO_SIGNAL, so keep asking for a rating.
+    if (this.config.signal !== "suds" && this.snap.sensor === "live") return false;
     return t - this.lastSudsAsk > POLICY.sudsReaskS * 1000;
   }
 
