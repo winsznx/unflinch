@@ -71,7 +71,7 @@ export type Receipt = {
   invariant_violations: { id: string; chunk: number; detail: string }[];
   timing: { first_frame_ms: number | null; intake_to_first_frame_ms: number | null };
   labels: ReceiptLabel[];
-  ended_by: ReasonCode | "CONNECTION_LOST" | "USER_END" | null;
+  ended_by: ReasonCode | "CONNECTION_LOST" | "USER_END" | "SESSION_CAP" | null;
 };
 
 export type RunMetrics = {
