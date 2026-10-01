@@ -294,6 +294,8 @@ export class SessionRuntime {
     } else if (isType(envelope, "wave") && envelope.from === "phone" && this.config.signal === "phone") {
       const { t0, dt, s } = envelope.payload;
       this.pushWave(s.map((v, i) => ({ t: t0 + i * dt, v })));
+      // The therapist can't verify the phone's key, so the patient re-signs the trace for them.
+      if (this.config.mode === "therapist") void this.channel?.send("wave", envelope.payload, this.config.key);
     } else if (isType(envelope, "suds")) {
       this.reportSuds(envelope.payload.v);
     } else if (isType(envelope, "intent")) {
