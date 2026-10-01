@@ -15,6 +15,8 @@ Measured so far:
 
 Five more claims are pending. Each one has a threshold, an artifact path and an n in [docs/CLAIM_LEDGER.md](docs/CLAIM_LEDGER.md). Nothing in this repo has been measured against a live Orbis session yet, so no latency, cut or persistence number exists.
 
+Demo video (2 min): [youtu.be/2KqNIp9v5wA](https://youtu.be/2KqNIp9v5wA).
+
 Routes: `/runs/canonical` (watch a recorded live run), `/try` (try it, no signup), `/proof` (claims and raw evidence). Live URL: [https://unflinch-zeta.vercel.app](https://unflinch-zeta.vercel.app). Not a medical device.
 
 ## What it is

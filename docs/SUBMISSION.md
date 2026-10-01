@@ -52,14 +52,14 @@ If the Orbis slot is busy, `/try` says so and offers the recorded run.
 | Team Members and Emails | Timothy Popoola, winsznx@gmail.com |
 | Project Description | "What it is" and "How Orbis is used" above, plus the live links |
 | Project Repository URL | https://github.com/winsznx/unflinch |
-| Demo Video URL | to be added |
+| Demo Video URL | https://youtu.be/2KqNIp9v5wA |
 | Additional materials | Screenshots of the landing page, a live judge session, the run receipt page and /proof |
 
 ## Links
 
 - Repo: https://github.com/winsznx/unflinch
 - Live URL: https://unflinch-zeta.vercel.app
-- Video: to be added after recording ([DEMO_SCRIPT](DEMO_SCRIPT.md))
+- Video: https://youtu.be/2KqNIp9v5wA (2-minute walkthrough of the deployed site)
 - Proof: https://unflinch-zeta.vercel.app/proof
 - Watch a run: https://unflinch-zeta.vercel.app/runs/canonical (builder test run with simulated input until the phone canonical run is recorded)
 - Try it: https://unflinch-zeta.vercel.app/try
