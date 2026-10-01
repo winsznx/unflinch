@@ -1,0 +1,14 @@
+{
+  "schema": "unflinch.evidence.v1",
+  "claims": [
+    { "id": "F-TTF", "label": "Sentence to live scene", "metric": "median seconds, intake submit to first real frame", "threshold": "median ≤ 60 s", "status": "pending", "value": null, "n": 0, "artifact": "evidence/breadth/ttf.csv" },
+    { "id": "F-RESP", "label": "Eases off after overwhelm", "metric": "decision to changed prompt, chunks", "threshold": "median ≤ 2, p90 ≤ 3 (n ≥ 20)", "status": "pending", "value": null, "n": 0, "artifact": "evidence/live/latency.csv" },
+    { "id": "F-CUT", "label": "Within-trial cuts", "metric": "hard cuts inside a trial", "threshold": "0 in ≥ 15 live trials", "status": "pending", "value": null, "n": 0, "artifact": "evidence/ablation/cuts.csv" },
+    { "id": "F-PERSIST", "label": "Same subject throughout", "metric": "blind rater, same subject across a sequence", "threshold": "≥ 80% of sequences", "status": "pending", "value": null, "n": 0, "artifact": "evidence/live/persistence.csv" },
+    { "id": "F-BREADTH", "label": "Any fear from a sentence", "metric": "fears with ≥ 5 of 7 levels matching", "threshold": "≥ 7 of 10 fears", "status": "pending", "value": null, "n": 0, "artifact": "evidence/breadth/" },
+    { "id": "F-SIGNAL", "label": "Phone tracks breathing", "metric": "paced-breath MAE, bpm", "threshold": "≤ 2.0 bpm", "status": "pending", "value": null, "n": 0, "artifact": "evidence/breath/accuracy.csv" },
+    { "id": "F-CTRL", "label": "Controller is correct", "metric": "oracle agreement / invariants on 100 traces", "threshold": "≥ 99% / 100%", "status": "pending", "value": null, "n": 0, "artifact": "evidence/controller/agreement.json" },
+    { "id": "F-HEALTHY", "label": "Doesn't fire blindly", "metric": "automatic retreats per 10 min on calm breathing", "threshold": "≤ 1", "status": "pending", "value": null, "n": 0, "artifact": "evidence/live/healthy.json" },
+    { "id": "F-NEUTRAL", "label": "Changes come from decisions", "metric": "decision-linked rate vs spontaneous rate", "threshold": "≥ 3×", "status": "pending", "value": null, "n": 0, "artifact": "evidence/live/neutral.csv" }
+  ]
+}
