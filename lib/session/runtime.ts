@@ -1,5 +1,7 @@
 "use client";
 
+import { RateLimitedError } from "@reactor-team/js-sdk";
+
 import { applyConfig, decide, initialControllerState } from "@/lib/controller/decide";
 import { checkInvariants } from "@/lib/controller/invariants";
 import { CHUNK_SECONDS, POLICY } from "@/lib/controller/policy";
@@ -139,6 +141,7 @@ const UNLANDED_CHUNKS = 4;
 
 type PendingSend = {
   decision: ReceiptDecision;
+  retried?: boolean;
   ackedAtChunk: number | null;
   activeBefore: string | null;
 };
@@ -457,12 +460,30 @@ export class SessionRuntime {
     this.startTimers();
     try {
       await this.client.connect();
-      this.startedAt = now();
+      this.startedAt ||= now();
       this.set({ phase: "priming", stream: this.client.stream });
-      await this.startTrialRun(1, true);
+      // After a lost connection, the same round restarts as a new take; calibration isn't repeated.
+      const resumeTrial = this.snap.trial > 0 ? this.snap.trial : null;
+      await this.startTrialRun(resumeTrial ?? 1, resumeTrial === null);
     } catch (error) {
+      if (error instanceof RateLimitedError) {
+        await this.client?.disconnect().catch(() => undefined);
+        this.client = null;
+        await this.releaseSlot();
+        this.set({ phase: "busy", error: "Orbis is at capacity right now." });
+        return;
+      }
       await this.fail(error);
     }
+  }
+
+  private async releaseSlot() {
+    await fetch("/api/slot/release", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sessionId: this.config.sessionId, key: this.config.key, end: false }),
+      keepalive: true,
+    }).catch(() => undefined);
   }
 
   private wireClient(client: OrbisClient) {
@@ -616,6 +637,10 @@ export class SessionRuntime {
   private async enterSubject() {
     if (!this.client || !this.receipt) return;
     const prompt = this.context.enter;
+    if (lintPrompt(prompt, "transition").length) {
+      await this.fail(new Error("Enter prompt failed lint"));
+      return;
+    }
     this.receipt.start = { ...this.receipt.start, level: 1, prompt, t: now() };
     this.beginController(1, this.receipt.max_chunks);
     // The enter prompt counts as a send, so the first decision respects the landing window.
@@ -757,9 +782,26 @@ export class SessionRuntime {
         send.decision.outcome = "executed";
       } else if (send.ackedAtChunk !== null && chunk.chunkIndex - send.ackedAtChunk > UNLANDED_CHUNKS) {
         send.decision.outcome = "unlanded";
+        this.onUnlanded(send);
       }
     }
     this.pending = this.pending.filter((p) => p.decision.landed_chunk === null && p.decision.outcome !== "unlanded");
+  }
+
+  /** PRD §4.2: an unlanded prompt is resent once; if that doesn't land either, pause and say so. */
+  private onUnlanded(send: PendingSend) {
+    this.log("prompt_unlanded", { chunk: send.decision.chunk, prompt: send.decision.prompt, retried: send.retried });
+    if (!send.retried && send.decision.prompt) {
+      const retry: PendingSend = { ...send, retried: true, ackedAtChunk: null };
+      retry.decision.outcome = "requested";
+      void this.client?.setPrompt(send.decision.prompt).then((ack) => {
+        retry.ackedAtChunk = ack.accepted ? this.lastChunk : null;
+        if (ack.accepted) this.pending.push(retry);
+      });
+      return;
+    }
+    this.set({ error: "The scene didn't change as planned. Pausing so you stay in control." });
+    this.intent("pause");
   }
 
   private tickInput(chunkIndex: number): TickInput {
@@ -1009,10 +1051,14 @@ export class SessionRuntime {
     if (this.ending) return;
     this.ending = true;
     this.log("end", { reason });
-    if (this.receipt && ["trial", "paused", "calibrating", "priming"].includes(this.snap.phase)) {
+    const unsaved = this.receipt && !this.saved.has(this.receipt.trial);
+    if (this.receipt && unsaved && ["trial", "paused", "calibrating", "priming"].includes(this.snap.phase)) {
       this.receipt.ended_by = reason === "SESSION_CAP" ? "SESSION_CAP" : "USER_END";
       const recording = await this.recorder.stop().catch(() => null);
       if (recording) this.receipt.recording = { path: "", sha256: recording.sha256, bytes: recording.bytes };
+    }
+    // A round that ended but was never rated still gets its receipt, with ratings left empty.
+    if (this.receipt && unsaved && ["trial", "paused", "calibrating", "priming", "rating", "handoff"].includes(this.snap.phase)) {
       const trialId = await this.saveTrial(this.receipt);
       this.set({ summaries: [...this.snap.summaries, this.summarize(this.receipt, trialId)] });
     }

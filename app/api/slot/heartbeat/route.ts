@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 
 const Body = z.object({ sessionId: z.uuid(), key: z.string().min(16) });
 
-/** Extends the lease, never past the mode's cap measured from the first connect. */
+/** Extends the lease in 2-minute steps. The Reactor JWT's max_session_duration_seconds is the hard ceiling. */
 export async function POST(request: Request) {
   const body = await parseBody(request, Body);
   if (body instanceof Response) return body;

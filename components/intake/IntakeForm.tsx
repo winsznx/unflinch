@@ -163,7 +163,7 @@ export function IntakeForm() {
         </label>
         <label className="in-check">
           <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
-          Save a recording of the generated scene. Unflinch never opens your camera.
+          Save a recording of the generated scene. Anyone with this session's run link can watch it. Unflinch never opens your camera.
         </label>
       </fieldset>
 

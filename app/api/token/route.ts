@@ -24,14 +24,15 @@ export async function POST(request: Request) {
 
   const db = store();
   const firstConnect = session.status === "created";
-  if (firstConnect && !(await db.bumpQuota(hashIp(clientIp(request)), env.quotaPerDay()))) {
-    return fail(429, "QUOTA", "You've used today's live sessions from this network.");
-  }
-
   const sessionS = SESSION_S[session.mode]();
   if (!(await db.acquireSlot(session.id, sessionS + 60))) {
     const slot = await db.slotHolder();
     return json({ error: "SLOT_BUSY", message: "Someone is in a live session right now.", leaseUntil: slot.leaseUntil }, 409);
+  }
+  // Quota is charged only once a session actually gets the slot, so waiting in the queue is free.
+  if (firstConnect && !(await db.bumpQuota(hashIp(clientIp(request)), env.quotaPerDay()))) {
+    await db.releaseSlot(session.id);
+    return fail(429, "QUOTA", "You've used today's live sessions from this network.");
   }
 
   try {

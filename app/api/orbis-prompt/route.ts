@@ -11,6 +11,10 @@ const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
+  // Starter example behind /lab/orbis. It spends GEMINI_API_KEY without a session, so it never ships.
+  if (process.env.NODE_ENV === "production") {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
