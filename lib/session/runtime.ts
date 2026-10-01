@@ -474,6 +474,14 @@ export class SessionRuntime {
       const resumeTrial = this.snap.trial > 0 ? this.snap.trial : null;
       await this.startTrialRun(resumeTrial ?? 1, resumeTrial === null);
     } catch (error) {
+      if (/credits_depleted|\b402\b/.test(error instanceof Error ? error.message : String(error))) {
+        await this.client?.disconnect().catch(() => undefined);
+        this.client = null;
+        await this.releaseSlot();
+        this.log("credits_depleted", {});
+        this.set({ phase: "error", error: "Live sessions are paused: the Orbis credit balance ran out. The recorded run shows the full loop." });
+        return;
+      }
       if (error instanceof RateLimitedError) {
         await this.client?.disconnect().catch(() => undefined);
         this.client = null;
@@ -651,12 +659,18 @@ export class SessionRuntime {
       await this.fail(new Error("Enter prompt failed lint"));
       return;
     }
-    this.receipt.start = { ...this.receipt.start, level: 1, prompt, t: now() };
+    // The run started from the empty scene (start.prompt stays the absolute safe prompt). The subject's
+    // arrival is the first send, recorded as its own decision so its landing is measured like any other.
+    const chunk = Math.max(this.lastChunk, 0);
+    const record = this.receiptDecision(
+      { chunk, action: "up", reason: "SUBJECT_ENTER", levelBefore: 0, levelAfter: 1 },
+      prompt,
+    );
+    this.receipt.decisions.push(record);
     this.beginController(1, this.receipt.max_chunks);
-    // The enter prompt counts as a send, so the first decision respects the landing window.
-    this.controller = { ...this.controller!, lastSendChunk: Math.max(this.lastChunk, 0) };
-    const ack = await this.client.setPrompt(prompt);
-    this.log("enter", { prompt, ack });
+    this.controller = { ...this.controller!, lastSendChunk: chunk };
+    await this.send(record, prompt);
+    this.log("enter", { prompt, accepted_ms: record.accepted_ms });
   }
 
   private beginController(startLevel: number, maxChunks: number | null) {

@@ -65,7 +65,14 @@ async function main(): Promise<number> {
     if (prev && (c.i <= prev.i || c.t < prev.t)) fail(`chunk ${c.i}: out of order after chunk ${prev.i}`);
   });
 
-  const issues: LintIssue[] = [...lintPrompt(receipt.start.prompt, "absolute", "start.prompt")];
+  // Receipts written before the SUBJECT_ENTER decision existed stored the entrance prompt as start.prompt
+  // with start.level 1. Lint those as the transition they are, and say so.
+  const legacyStart =
+    receipt.start.level === 1 && !receipt.decisions.some((d) => (d.reason as string) === "SUBJECT_ENTER") && receipt.trial === 1;
+  if (legacyStart) console.log("note      legacy receipt: start.prompt holds the subject entrance");
+  const issues: LintIssue[] = [
+    ...lintPrompt(receipt.start.prompt, legacyStart ? "transition" : "absolute", "start.prompt"),
+  ];
   receipt.decisions.forEach((d, i) => {
     if (d.prompt !== null) issues.push(...lintPrompt(d.prompt, "transition", `decisions[${i}].prompt`));
   });

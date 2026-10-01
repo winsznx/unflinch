@@ -60,6 +60,7 @@ export type ReasonCode =
   | "VARIABILITY"
   | "THERAPIST_VARY"
   | "IN_WINDOW"
+  | "SUBJECT_ENTER"
   | "ENDED";
 
 export type QueuedIntent = { kind: IntentKind; chunk: number };

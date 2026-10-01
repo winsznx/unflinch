@@ -5,7 +5,8 @@ Each gate from PRD §6.1, with its result and the artifact that proves it. Failu
 | Gate | Status | Evidence | Notes |
 |---|---|---|---|
 | G0 Setup | in progress | | Starter imported, pnpm, icon and `/api/og` render locally. Vercel preview pending. |
-| G1 Orbis truth | blocked | | Needs `REACTOR_API_KEY`. |
+| G1 Orbis truth | partial | `docs/DECISIONS.md` M1–M4, `evidence/live/0d8a26be-4785-46b9-a7db-7f0f8a63ba4f/` | Four live runs on 2026-10-01 measured chunk period, first-chunk frames, `active_prompt` absence and ack latency. Drift onset, seed hunt and the restate-vs-delta A/B are not run: the Reactor credit balance ran out (402 `credits_depleted`) after the fourth run. |
+| G3 Live loop (sim input) | **pass** | `evidence/live/0d8a26be-4785-46b9-a7db-7f0f8a63ba4f/` | Simulated spike → `CEILING_BODY` retreat, SUDS 9 → `CEILING_SUDS` retreat, step closer → `PATIENT_CLOSER`. Reason codes logged, receipts saved and verified with `pnpm verify:receipt`. Two rounds ran with reset and a context change (park → sidewalk). |
 | G2 Controller (offline) | **pass** | `evidence/controller/agreement.json`, `evidence/controller/oracle_invariants.json` | TS controller vs independent Python oracle on 100 seeded traces (4,573 ticks): 100% agreement (4,573 / 4,573), 0 invariant violations from the TS runtime checker and from the oracle's independent checker. |
 
 ## G2 log

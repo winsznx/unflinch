@@ -38,7 +38,7 @@ async function main() {
 
   for (const fear of fears) {
     const started = Date.now();
-    const result = await generateLadder(fear.prompt, fear.fearedOutcome, { models: CATALOG_MODELS, budgetMs: null, attempts: 5 });
+    const result = await generateLadder(fear.prompt, fear.fearedOutcome, { models: CATALOG_MODELS, budgetMs: null, attempts: 6 });
     const ms = Date.now() - started;
     const ok = result.source === "generated";
     results.push({ id: fear.id, ok, ms, attempts: result.attempts, model: result.model, error: result.error });

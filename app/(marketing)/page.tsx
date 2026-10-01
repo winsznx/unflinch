@@ -250,7 +250,15 @@ export default function MarketingHome() {
         </div>
 
         <div className="m-hero-panels">
-          <div className="m-panel-art m-art-neutral">
+          <div className="m-panel-art m-art-neutral m-art-still">
+            <img
+              className="m-still"
+              src="/stills/sidewalk-beagle.jpg"
+              alt="A beagle on a sunny sidewalk, generated live by Visko Orbis during a test session"
+              width={1066}
+              height={600}
+            />
+            <span className="m-still-label">Live Orbis frame · round 2 · simulated input</span>
             <div className="m-float-card">
               <span className="m-float-mark m-float-keep" aria-hidden="true">
                 ↘
@@ -511,6 +519,19 @@ export default function MarketingHome() {
             says pending.
           </p>
         </div>
+        <figure className="m-evidence-shot">
+          <img
+            src="/stills/player-judge.jpg"
+            alt="The judge view during a live session: the Orbis scene on the left, the simulated breath trace, level line and decision log on the right"
+            width={1440}
+            height={900}
+            loading="lazy"
+          />
+          <figcaption>
+            A live judge session on Visko Orbis. Each logged decision shows the chunk it was made on, how long the
+            scene took to acknowledge it and where it landed. Input here is simulated and labelled as such.
+          </figcaption>
+        </figure>
         <div className="m-evidence-grid">
           {headlineClaims.map((claim) => (
             <EvidenceCard key={claim.id} claim={claim} />

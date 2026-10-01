@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
 import { ImageResponse } from "next/og";
 import type { ReactNode } from "react";
 
@@ -125,7 +128,27 @@ function ProofGrid() {
   );
 }
 
-function Card({ headline, children }: { headline: string; children?: ReactNode }) {
+/** A real Orbis frame from a live test run (simulated input), shown beside the headline. */
+const STILL = path.join(process.cwd(), "public/stills/sidewalk-beagle.jpg");
+let stillDataUri: Promise<string | null> | null = null;
+
+function loadStill(): Promise<string | null> {
+  stillDataUri ??= readFile(STILL)
+    .then((bytes) => `data:image/jpeg;base64,${bytes.toString("base64")}`)
+    .catch(() => null);
+  return stillDataUri;
+}
+
+function Still({ src }: { src: string }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 10, marginLeft: 28 }}>
+      <img src={src} width={420} height={236} style={{ borderRadius: 22, objectFit: "cover" }} alt="" />
+      <div style={{ display: "flex", fontSize: 17, color: INK_MUTED }}>Live Orbis frame · simulated input</div>
+    </div>
+  );
+}
+
+function Card({ headline, children, still }: { headline: string; children?: ReactNode; still?: string | null }) {
   return (
     <div
       style={{
@@ -152,11 +175,14 @@ function Card({ headline, children }: { headline: string; children?: ReactNode }
           <Mark size={48} />
           <span style={{ fontSize: 34, letterSpacing: "-0.02em" }}>Unflinch</span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 30 }}>
-          <div style={{ display: "flex", fontSize: 76, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            {headline}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 30, flex: 1 }}>
+            <div style={{ display: "flex", fontSize: still ? 66 : 76, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
+              {headline}
+            </div>
+            {children}
           </div>
-          {children}
+          {still ? <Still src={still} /> : null}
         </div>
         <div style={{ display: "flex", fontSize: 22, color: INK_MUTED }}>
           Not a medical device · Visko Orbis via Reactor
@@ -166,7 +192,9 @@ function Card({ headline, children }: { headline: string; children?: ReactNode }
   );
 }
 
-export function GET(request: Request): ImageResponse {
+const WITH_STILL: ReadonlySet<OgKind> = new Set(["home", "try", "start"]);
+
+export async function GET(request: Request): Promise<ImageResponse> {
   const params = new URL(request.url).searchParams;
   const rawKind = params.get("kind");
   const kind: OgKind = isOgKind(rawKind) ? rawKind : "home";
@@ -174,7 +202,8 @@ export function GET(request: Request): ImageResponse {
   const body =
     kind === "run" ? <RunDetails params={params} /> : kind === "proof" ? <ProofGrid /> : null;
 
-  return new ImageResponse(<Card headline={HEADLINES[kind]}>{body}</Card>, {
+  const still = WITH_STILL.has(kind) ? await loadStill() : null;
+  return new ImageResponse(<Card headline={HEADLINES[kind]} still={still}>{body}</Card>, {
     width: WIDTH,
     height: HEIGHT,
   });

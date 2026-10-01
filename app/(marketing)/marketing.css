@@ -1734,3 +1734,65 @@ a.m-inner-button-glass:hover {
     display: none;
   }
 }
+
+/* ---------- real Orbis stills ---------- */
+
+.m-art-still {
+  background: #0b0b0c;
+}
+
+.m-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.m-art-still::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 11, 12, 0.45) 0%, rgba(11, 11, 12, 0) 45%);
+  pointer-events: none;
+}
+
+.m-art-still .m-float-card {
+  position: relative;
+  z-index: 1;
+}
+
+.m-still-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 1;
+  font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(11, 11, 12, 0.45);
+  border-radius: 6px;
+  padding: 4px 9px;
+}
+
+.m-evidence-shot {
+  margin: 0 0 22px;
+  background: var(--m-panel);
+  border-radius: var(--radius-card);
+  padding: 14px;
+}
+
+.m-evidence-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.m-evidence-shot figcaption {
+  font-size: 13px;
+  color: var(--ink-muted);
+  padding: 12px 6px 2px;
+  max-width: 80ch;
+}

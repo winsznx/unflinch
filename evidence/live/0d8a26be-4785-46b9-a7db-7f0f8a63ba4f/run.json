@@ -1,0 +1,5 @@
+{
+  "fear": "Dogs",
+  "cap": 6,
+  "note": "Builder test run on 2026-10-01 driven by pnpm test:live in headless Chrome. Input is simulated (keyboard spike, SUDS 9, SUDS 2, one step closer). Round 1 park ended at the 48-chunk trial cap before the expectancy test; round 2 sidewalk was ended by the operator. Recording was off. This stands in at /runs/canonical until the phone-sensor canonical run (PRD §6.2) is recorded."
+}

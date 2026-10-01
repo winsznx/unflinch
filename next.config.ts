@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     "/runs/[id]/receipt": ["./evidence/live/**/*"],
     "/runs/[id]/recording": ["./evidence/live/**/*"],
     "/proof": ["./evidence/live/**/*", "./evidence/hashes.json"],
+    "/api/og": ["./public/stills/*"],
   },
 };
 

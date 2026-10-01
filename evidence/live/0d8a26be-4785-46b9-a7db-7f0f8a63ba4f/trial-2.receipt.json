@@ -1,0 +1,276 @@
+{
+ "ev": null,
+ "sdk": "@reactor-team/js-sdk@3.0.2",
+ "mode": "sim",
+ "seed": 2026,
+ "suds": [],
+ "model": "reactor/visko-orbis-stable",
+ "start": {
+  "t": 1790868590578,
+  "level": 1,
+  "prompt": "A medium tricolor beagle with long floppy ears sits beside the garden gate far down the sidewalk on a quiet residential sidewalk on a bright morning, a brick wall and garden gate beside it. Wide shot, eye-level, static camera, deep depth of field.",
+  "image_sha256": null
+ },
+ "trial": 2,
+ "chunks": [
+  {
+   "i": 0,
+   "t": 1790868592428,
+   "frames": 0,
+   "active_prompt": null
+  },
+  {
+   "i": 1,
+   "t": 1790868594166,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 2,
+   "t": 1790868596014,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 3,
+   "t": 1790868597810,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 4,
+   "t": 1790868599610,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 5,
+   "t": 1790868601448,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 6,
+   "t": 1790868603313,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 7,
+   "t": 1790868605121,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 8,
+   "t": 1790868606977,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 9,
+   "t": 1790868608786,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 10,
+   "t": 1790868610629,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 11,
+   "t": 1790868612450,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 12,
+   "t": 1790868614276,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 13,
+   "t": 1790868616112,
+   "frames": 33,
+   "active_prompt": null
+  },
+  {
+   "i": 14,
+   "t": 1790868617957,
+   "frames": 33,
+   "active_prompt": null
+  }
+ ],
+ "labels": [
+  "LIVE",
+  "SIMULATED_INPUT"
+ ],
+ "ladder": {
+  "fearId": "dogs",
+  "sha256": "497fb9c86c4d1689921e13a1a303693481fdfab94f0d2ce8c6c72f99ed5a677e",
+  "source": "curated",
+  "context": "sidewalk"
+ },
+ "schema": "unflinch.receipt.v1",
+ "signal": {
+  "source": "sim",
+  "samples": [
+   {
+    "t": 1790868592428,
+    "conf": 0.92,
+    "rate": 11.7,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868594166,
+    "conf": 0.92,
+    "rate": 11.6,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868596014,
+    "conf": 0.92,
+    "rate": 11.8,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868597810,
+    "conf": 0.92,
+    "rate": 11.6,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868599610,
+    "conf": 0.92,
+    "rate": 12.3,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868601448,
+    "conf": 0.92,
+    "rate": 12,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868603313,
+    "conf": 0.92,
+    "rate": 12.5,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868605121,
+    "conf": 0.92,
+    "rate": 12.4,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868606977,
+    "conf": 0.92,
+    "rate": 12.4,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868608786,
+    "conf": 0.92,
+    "rate": 12.4,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868610629,
+    "conf": 0.92,
+    "rate": 12.8,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790868612450,
+    "conf": 0.92,
+    "rate": 12.9,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790868614276,
+    "conf": 0.92,
+    "rate": 12.6,
+    "arousal": "LOW"
+   },
+   {
+    "t": 1790868616112,
+    "conf": 0.92,
+    "rate": 12.7,
+    "arousal": "WINDOW"
+   },
+   {
+    "t": 1790868617957,
+    "conf": 0.92,
+    "rate": 12.6,
+    "arousal": "LOW"
+   }
+  ],
+  "baseline_bpm": 12
+ },
+ "timing": {
+  "first_frame_ms": 12019,
+  "intake_to_first_frame_ms": null
+ },
+ "ratings": {
+  "feeling": null,
+  "happened": null,
+  "suds_peak": null,
+  "expectancy_after": null,
+  "expectancy_before": 50
+ },
+ "session": "0d8a26be-4785-46b9-a7db-7f0f8a63ba4f",
+ "ended_by": "USER_END",
+ "decisions": [
+  {
+   "t": 1790868601448,
+   "kind": "up",
+   "chunk": 5,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12,
+    "breath_conf": 0.92
+   },
+   "prompt": "The beagle stands up and looks down the sidewalk toward the camera.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1867,
+   "level_after": 2,
+   "landed_chunk": 8,
+   "level_before": 1
+  },
+  {
+   "t": 1790868612450,
+   "kind": "vary",
+   "chunk": 11,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "WINDOW",
+    "therapist": null,
+    "breath_bpm": 12.9,
+    "breath_conf": 0.92
+   },
+   "prompt": "The beagle shakes its long ears.",
+   "reason": "VARIABILITY",
+   "outcome": "executed",
+   "landed_by": "next_boundary",
+   "accepted_ms": 1830,
+   "level_after": 2,
+   "landed_chunk": 14,
+   "level_before": 2
+  }
+ ],
+ "recording": null,
+ "max_chunks": 2000,
+ "resolution": "1080p",
+ "audio_enabled": true,
+ "invariant_violations": []
+}
