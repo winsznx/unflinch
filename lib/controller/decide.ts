@@ -158,12 +158,6 @@ function choose(
     return { action: "up", reason: "THERAPIST" };
   }
   const evDone = state.evChunk !== null;
-  if (therapist === "ev_now" && level > 0 && !evDone) {
-    return { action: "ev", reason: "EXPECTANCY_TEST" };
-  }
-  if (therapist === "vary" && level > 0) {
-    return { action: "vary", reason: "THERAPIST_VARY" };
-  }
   if (intent?.kind === "closer" && level < config.cap) {
     return {
       action: "selfApproach",
@@ -171,7 +165,8 @@ function choose(
       consumeIntent: true,
     };
   }
-  if (level === config.cap && !evDone) {
+  // Therapist cues sit on the rows they ask for: the expectancy test (12) and a variant (16).
+  if ((level === config.cap || (therapist === "ev_now" && level > 0)) && !evDone) {
     return { action: "ev", reason: "EXPECTANCY_TEST" };
   }
   if (counters.chunksSinceEv !== null && counters.chunksSinceEv >= POLICY.evHoldChunks) {
@@ -190,6 +185,9 @@ function choose(
     !state.nudgedLevels.includes(level)
   ) {
     return { action: "nudge", reason: "STALL_NUDGE" };
+  }
+  if (therapist === "vary" && level > 0) {
+    return { action: "vary", reason: "THERAPIST_VARY" };
   }
   if (level > 0 && counters.chunksSinceVary >= POLICY.varyEveryChunks) {
     return { action: "vary", reason: "VARIABILITY" };
