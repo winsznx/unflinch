@@ -130,7 +130,7 @@ runs.
 Every open item below is also marked `INTERPRETATION:` in
 `oracle_controller.py`. Numbers in the text refer to decision-table rows.
 Items marked "Resolved by Cn" now follow `docs/DECISIONS.md` (controller spec
-clarifications C1–C6), and the matching code carries a `Cn` comment. The
+clarifications C1–C7), and the matching code carries a `Cn` comment. The
 oracle was updated from that document, not from the TS source.
 
 Signal and SUDS
@@ -141,10 +141,15 @@ Signal and SUDS
    not `ceilingActive`, and it clears NO_SIGNAL.
 3. Fresh SUDS ≥ 9 leaves the breath class alone and sets `ceilingActive`
    directly.
-4. A SUDS sample arrives on a tick when the `suds` view goes from null to a
-   value or when `ageS` drops below the previous tick's. `newSudsHigh` means
-   the latest SUDS ≥ 9 arrival chunk is strictly greater than
-   `lastCeilingChunk` (or there's been no ceiling yet).
+4. Resolved by C7. A SUDS sample is a new report when its arrival chunk,
+   `chunkIndex − ageS / chunkS` with `chunkS` from the trace, is later than
+   the previous sample's arrival by more than 1e-6. A sample that only aged
+   isn't new, and a null tick doesn't reset the previous arrival. The old
+   "ageS dropped" rule missed a second report landing on the next tick with a
+   larger `ageS`. Still an interpretation: `newSudsHigh` means the latest
+   SUDS ≥ 9 report arrived on a chunk strictly greater than
+   `lastCeilingChunk` (or there's been no ceiling yet). The INV4 obligation
+   and its refire exemption use the same C7 arrivals.
 5. When fresh SUDS ≥ 9 and OVERLOAD hold at once, row 5 reports
    `CEILING_SUDS`.
 6. One SUDS 9 stays fresh for about 16 chunks, so it keeps `ceilingActive`

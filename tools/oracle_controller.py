@@ -87,15 +87,38 @@ def no_signal(tick: dict) -> bool:
     return effective_arousal(tick) == "UNKNOWN" and fresh_suds(tick) is None
 
 
-def suds_arrived(tick: dict, prev_tick: dict | None) -> bool:
-    # INTERPRETATION: the suds field is the latest-sample view. A new sample
-    # arrived on this tick when the view goes from null to a value, or when
-    # ageS drops below the previous tick's ageS.
-    suds = tick.get("suds")
-    if suds is None:
-        return False
-    prev = prev_tick.get("suds") if prev_tick else None
-    return prev is None or suds["ageS"] < prev["ageS"]
+ARRIVAL_EPSILON_CHUNKS = 1e-6
+DEFAULT_CHUNK_S = 1.833
+
+
+class SudsArrivals:
+    """C7: a SUDS sample is a new report when its arrival chunk
+    (chunkIndex − ageS / chunkS) is later than the previous sample's arrival
+    by more than ARRIVAL_EPSILON_CHUNKS. A sample that only aged keeps the
+    same arrival and is not new. Null ticks don't reset the previous arrival."""
+
+    def __init__(self, chunk_s: float):
+        self.chunk_s = chunk_s
+        self.last_arrival: float | None = None
+
+    def observe(self, tick: dict) -> bool:
+        suds = tick.get("suds")
+        if suds is None:
+            return False
+        arrival = tick["chunkIndex"] - suds["ageS"] / self.chunk_s
+        if self.last_arrival is not None and arrival <= self.last_arrival + ARRIVAL_EPSILON_CHUNKS:
+            return False
+        self.last_arrival = arrival
+        return True
+
+
+def new_high_suds_chunks(trace: dict) -> set[int]:
+    """Chunks on which a new SUDS >= 9 report arrived (C7)."""
+    arrivals = SudsArrivals(trace.get("chunkS", DEFAULT_CHUNK_S))
+    return {
+        t["chunkIndex"] for t in trace["ticks"]
+        if arrivals.observe(t) and t["suds"]["value"] >= SUDS_CEILING
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -139,7 +162,7 @@ def _ceiling_reason(tick: dict) -> str:
     return "CEILING_SUDS" if suds_ceiling(tick) else "CEILING_BODY"
 
 
-def step(state: ControllerState, tick: dict, prev_tick: dict | None) -> dict:
+def step(state: ControllerState, tick: dict, new_suds_report: bool) -> dict:
     """Process one chunk tick. Returns the decision; mutates state."""
     chunk = tick["chunkIndex"]
     intent = tick.get("intent")
@@ -149,7 +172,7 @@ def step(state: ControllerState, tick: dict, prev_tick: dict | None) -> dict:
     # C2: lowStreakChunks counts consecutive effective-LOW ticks including
     # this one; _send() resets it after up/selfApproach. Paused ticks count (C1).
     state.low_streak = state.low_streak + 1 if arousal == "LOW" else 0
-    if suds_arrived(tick, prev_tick) and tick["suds"]["value"] >= SUDS_CEILING:
+    if new_suds_report and tick["suds"]["value"] >= SUDS_CEILING:  # C7
         state.last_high_suds_chunk = chunk
 
     # INTERPRETATION: queued intents expire INTENT_TTL_CHUNKS after the chunk
@@ -304,12 +327,11 @@ def simulate(trace: dict) -> list[dict]:
     if trace["ticks"]:
         first = trace["ticks"][0]["chunkIndex"]
         state.trial_start_chunk = state.level_since_chunk = state.last_vary_chunk = first  # C1
+    arrivals = SudsArrivals(trace.get("chunkS", DEFAULT_CHUNK_S))
     decisions = []
-    prev = None
     for tick in trace["ticks"]:
-        decision = step(state, tick, prev)
+        decision = step(state, tick, arrivals.observe(tick))
         decisions.append(decision)
-        prev = tick
         if decision["action"] == "end_trial":
             break
     return decisions
@@ -324,8 +346,7 @@ def check_invariants(trace: dict, decisions: list[dict]) -> dict[str, list[str]]
     cfg = trace["config"]
     cap = cfg["cap"]
     ticks = {t["chunkIndex"]: t for t in trace["ticks"]}
-    order = [t["chunkIndex"] for t in trace["ticks"]]
-    prev_of = {c: (ticks[order[i - 1]] if i else None) for i, c in enumerate(order)}
+    new_high = new_high_suds_chunks(trace)  # C7
     v: dict[str, list[str]] = {f"INV{i}": [] for i in range(1, 9)}
 
     level = cfg.get("startLevel", 1)
@@ -370,7 +391,7 @@ def check_invariants(trace: dict, decisions: list[dict]) -> dict[str, list[str]]
         # INV4, part 1: a new SUDS >= 9 or an OVERLOAD onset opens a pending
         # retreat obligation, discharged at the first eligible tick.
         overload = effective_arousal(tick) == "OVERLOAD"
-        if suds_arrived(tick, prev_of[c]) and tick["suds"]["value"] >= SUDS_CEILING:
+        if c in new_high:
             pending_retreat.append((c, "new SUDS>=9"))
         if overload and not prev_overload:
             refire_ok = last_ceiling is None or c >= last_ceiling + CEILING_REFIRE_CHUNKS
@@ -391,11 +412,7 @@ def check_invariants(trace: dict, decisions: list[dict]) -> dict[str, list[str]]
         # INV4, part 2: automatic retreats >= 6 apart unless a new SUDS >= 9 arrived between.
         if action == "down" and reason in CEILING_REASONS:
             if last_ceiling is not None and c - last_ceiling < CEILING_REFIRE_CHUNKS:
-                new_high = any(
-                    suds_arrived(ticks[k], prev_of[k]) and ticks[k]["suds"]["value"] >= SUDS_CEILING
-                    for k in order if last_ceiling < k <= c
-                )
-                if not new_high:
+                if not any(last_ceiling < k <= c for k in new_high):
                     v["INV4"].append(f"chunk {c}: automatic retreat {c - last_ceiling} chunks after the last one")
             last_ceiling = c
             cooldown_until = c + COOLDOWN_CHUNKS_AFTER_RETREAT
