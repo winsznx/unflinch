@@ -28,11 +28,24 @@ export function unwrapOrbisMessage(raw: unknown): OrbisMessage {
   return raw as OrbisMessage;
 }
 
+/** Dev playground only (/lab/orbis): mint a throwaway judge session, then a token for it. */
 export async function requestReactorJwt() {
-  const response = await fetch("/api/token", { method: "POST" });
-  const result = (await response.json()) as { jwt?: string; error?: string };
+  const created = await fetch("/api/session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ fear: "lab playground", mode: "judge" }),
+  });
+  const session = (await created.json()) as { id?: string; remoteKey?: string; message?: string };
+  if (!created.ok || !session.id) throw new Error(session.message || "Could not create a lab session");
+
+  const response = await fetch("/api/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ sessionId: session.id, key: session.remoteKey }),
+  });
+  const result = (await response.json()) as { jwt?: string; message?: string; error?: string };
   if (!response.ok || !result.jwt) {
-    throw new Error(result.error || "Could not create a Reactor token");
+    throw new Error(result.message || result.error || "Could not create a Reactor token");
   }
   return result.jwt;
 }

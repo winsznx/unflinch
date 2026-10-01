@@ -1,0 +1,27 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm build",
+  "headers": [
+    {
+      "source": "/s/(.*)",
+      "headers": [
+        { "key": "Permissions-Policy", "value": "accelerometer=(self), gyroscope=(self), screen-wake-lock=(self)" }
+      ]
+    },
+    {
+      "source": "/lab/breath",
+      "headers": [
+        { "key": "Permissions-Policy", "value": "accelerometer=(self), gyroscope=(self), screen-wake-lock=(self)" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
