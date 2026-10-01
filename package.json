@@ -10,7 +10,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
-    "controller:run": "tsx scripts/controller-cli.ts"
+    "controller:run": "tsx scripts/controller-cli.ts",
+    "verify:receipt": "tsx scripts/verify-receipt.ts",
+    "build:evidence": "tsx scripts/build-evidence.ts"
   },
   "dependencies": {
     "@google/genai": "^2.22.0",
