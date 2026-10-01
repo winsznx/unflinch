@@ -297,7 +297,11 @@ function JudgePanel({ runtime, snap }: { runtime: SessionRuntime; snap: Snapshot
         </span>
       </div>
       <ol className="pl-log">
-        {[...snap.decisions].reverse().slice(0, 12).map((d) => (
+        {[...snap.decisions]
+          .reverse()
+          .filter((d) => d.kind !== "hold")
+          .slice(0, 12)
+          .map((d) => (
           <li key={`${d.chunk}-${d.reason}-${d.t}`} className={`is-${d.kind}`}>
             <code>c{d.chunk}</code>
             <span>{d.reason}</span>

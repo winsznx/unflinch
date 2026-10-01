@@ -262,7 +262,15 @@ export class SessionRuntime {
     const markFrame = () => {
       if (!this.firstFrameAt && video.videoWidth > 0) {
         this.firstFrameAt = now();
-        this.log("first_frame", { ms_from_intake: this.config.intakeAt ? this.firstFrameAt - this.config.intakeAt : null });
+        const fromIntake = this.config.intakeAt ? this.firstFrameAt - this.config.intakeAt : null;
+        this.log("first_frame", { ms_from_intake: fromIntake });
+        // The receipt exists before the first frame decodes, so fill its timing in now.
+        if (this.receipt && this.receipt.trial === 1) {
+          this.receipt.timing = {
+            first_frame_ms: this.startedAt ? this.firstFrameAt - this.startedAt : null,
+            intake_to_first_frame_ms: fromIntake,
+          };
+        }
       }
       this.set({ hasFrames: true });
     };

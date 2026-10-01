@@ -184,6 +184,9 @@ export class OrbisClient {
 
   /** PRD §4.2 run start order: resolution → audio → seed → image → prompt → start. */
   async startRun(args: { prompt: string; seed: number; image?: Blob | null; audio: boolean }): Promise<RunStarted> {
+    // The first state snapshot can land after connect() resolves; without it set_resolution is skipped
+    // and Orbis falls back to its 2k default (seen in the first live run).
+    if (!this.availableResolutions.length) await this.waitFor("state", 5_000).catch(() => undefined);
     const resolution =
       this.availableResolutions.find((r) => r === "1080p") ?? this.availableResolutions[0] ?? null;
     if (resolution) await this.command("set_resolution", { resolution });
