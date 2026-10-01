@@ -66,9 +66,9 @@
       "label": "Controller is correct",
       "metric": "oracle agreement / invariants on 100 traces",
       "threshold": "≥ 99% / 100%",
-      "status": "pass",
-      "value": "99.65% / 0 violations",
-      "n": 100,
+      "status": "pending",
+      "value": null,
+      "n": 0,
       "artifact": "evidence/controller/agreement.json"
     },
     {

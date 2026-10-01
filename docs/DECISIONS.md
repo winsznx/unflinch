@@ -14,5 +14,6 @@ The independent oracle (`tools/oracle_controller.py`) was written from PRD §4.4
 | C4 | Can a hold variant run at L0? | No. Rows 16 (`VARIABILITY`) and therapist `vary` need `level > 0`. | L0 is the safe scene with no subject. Hold prompts describe the subject ("The terrier scratches behind its ear"), so a variant at L0 would make the feared subject appear without an `enter` decision. |
 | C5 | Reason code for a therapist "vary". | `THERAPIST_VARY`, distinct from automatic `VARIABILITY`. Therapist `ev_now` also needs `level > 0`. | INV6 asks every send to carry its provenance, so the receipt should show who caused the change. |
 | C6 | What happens to intents typed while paused? | Dropped, except `resume`. | Matches the pause screen ("Take your time. Resume when ready."), so nothing queued before resuming fires on resume. |
+| C7 | When is a SUDS sample a *new* report (for `newSudsHigh`)? | Its arrival chunk is `chunkIndex − ageS / chunkS`. A sample is new when that arrival is later than the previous sample's arrival. Growth in `ageS` doesn't matter. | Detecting new reports only when `ageS` drops misses a second press that lands within one chunk of the first. INV4 owes a retreat for every new SUDS ≥ 9. |
 
 Other interpretations from the oracle README (`tools/README.md`, Ambiguities) were already shared by both implementations.
