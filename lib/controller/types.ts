@@ -75,16 +75,15 @@ export type ControllerState = {
   level: number;
   paused: boolean;
   ended: boolean;
+  /** Chunk index of the first tick; every "chunks since" counter is a chunk-index distance. */
+  trialStartChunk: number | null;
   lastSendChunk: number;
   cooldownUntil: number;
   lastCeilingChunk: number;
   lowStreakChunks: number;
-  chunksSinceVary: number;
-  chunksAtLevel: number;
+  levelSinceChunk: number | null;
   nudgedLevels: number[];
-  evDone: boolean;
-  chunksSinceEv: number;
-  trialChunks: number;
+  evChunk: number | null;
   queuedIntent: QueuedIntent | null;
 };
 

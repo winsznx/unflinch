@@ -70,13 +70,13 @@ describe("decide", () => {
     expect(decisions[0]).toMatchObject({ action: "selfApproach", reason: "PATIENT_CLOSER", levelAfter: 2 });
     const ev = decisions.find((d) => d.action === "ev")!;
     expect(ev.chunk).toBe(2);
-    expect(decisions.find((d) => d.action === "end_trial")).toMatchObject({ reason: "EV_HELD", chunk: 13 });
+    expect(decisions.find((d) => d.action === "end_trial")).toMatchObject({ reason: "EV_HELD", chunk: 12 });
   });
 
   it("presses on when under-engaged in auto mode", () => {
     const ticks = Array.from({ length: 8 }, (_, i) => tick(i, { suds: { value: 1, ageS: 0 } }));
     const { decisions } = run(initialControllerState(config, 1), ticks);
-    expect(decisions.find((d) => d.reason === "UNDER_ENGAGED")?.chunk).toBe(6);
+    expect(decisions.find((d) => d.reason === "UNDER_ENGAGED")?.chunk).toBe(5);
   });
 
   it("nudges once on a stall without sending", () => {

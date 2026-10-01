@@ -39,7 +39,7 @@ export function checkInvariants(
     before.level > 0 &&
     !before.paused &&
     chunk - before.lastSendChunk >= POLICY.minChunksBetweenSends &&
-    before.trialChunks < before.config.trialMax;
+    chunk - (before.trialStartChunk ?? chunk) < before.config.trialMax;
   if (
     eligibleForRetreat &&
     signal.ceilingActive &&

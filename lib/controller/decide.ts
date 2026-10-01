@@ -22,16 +22,14 @@ export function initialControllerState(
     level: Math.min(Math.max(startLevel, 0), config.cap),
     paused: false,
     ended: false,
+    trialStartChunk: null,
     lastSendChunk: NEVER,
     cooldownUntil: NEVER,
     lastCeilingChunk: NEVER,
     lowStreakChunks: 0,
-    chunksSinceVary: 0,
-    chunksAtLevel: 0,
+    levelSinceChunk: null,
     nudgedLevels: [],
-    evDone: false,
-    chunksSinceEv: 0,
-    trialChunks: 0,
+    evChunk: null,
     queuedIntent: null,
   };
 }
@@ -73,6 +71,27 @@ function liveIntent(
   return chunk - queued.chunk < POLICY.intentTtlChunks ? queued : null;
 }
 
+/** Counters the decision table reads, all as chunk-index distances (docs/DECISIONS.md C1). */
+export type Counters = {
+  trialChunks: number;
+  chunksAtLevel: number;
+  chunksSinceVary: number;
+  chunksSinceEv: number | null;
+  lowStreakChunks: number;
+};
+
+function countersAt(state: ControllerState, chunk: number, lowNow: boolean): Counters {
+  const start = state.trialStartChunk ?? chunk;
+  const lastChange = Number.isFinite(state.lastSendChunk) ? state.lastSendChunk : start;
+  return {
+    trialChunks: chunk - start,
+    chunksAtLevel: chunk - (state.levelSinceChunk ?? start),
+    chunksSinceVary: chunk - lastChange,
+    chunksSinceEv: state.evChunk === null ? null : chunk - state.evChunk,
+    lowStreakChunks: lowNow ? state.lowStreakChunks + 1 : 0,
+  };
+}
+
 type Verdict = {
   action: ActionKind;
   reason: ReasonCode;
@@ -86,6 +105,7 @@ function choose(
   input: TickInput,
   signal: EffectiveSignal,
   intent: QueuedIntent | null,
+  counters: Counters,
 ): Verdict {
   const { level, config } = state;
   const chunk = input.chunkIndex;
@@ -100,7 +120,7 @@ function choose(
     }
     return { action: "none", reason: "PAUSED" };
   }
-  if (state.trialChunks >= config.trialMax || input.generationComplete) {
+  if (counters.trialChunks >= config.trialMax || input.generationComplete) {
     return { action: "end_trial", reason: "TRIAL_MAX" };
   }
   if (intent?.kind === "end") {
@@ -137,7 +157,8 @@ function choose(
   if (therapist === "approach" && level < config.cap) {
     return { action: "up", reason: "THERAPIST" };
   }
-  if (therapist === "ev_now" && level > 0 && !state.evDone) {
+  const evDone = state.evChunk !== null;
+  if (therapist === "ev_now" && level > 0 && !evDone) {
     return { action: "ev", reason: "EXPECTANCY_TEST" };
   }
   if (therapist === "vary" && level > 0) {
@@ -150,27 +171,27 @@ function choose(
       consumeIntent: true,
     };
   }
-  if (level === config.cap && !state.evDone) {
+  if (level === config.cap && !evDone) {
     return { action: "ev", reason: "EXPECTANCY_TEST" };
   }
-  if (state.evDone && state.chunksSinceEv >= POLICY.evHoldChunks) {
+  if (counters.chunksSinceEv !== null && counters.chunksSinceEv >= POLICY.evHoldChunks) {
     return { action: "end_trial", reason: "EV_HELD" };
   }
   if (
     config.autoMode &&
-    state.lowStreakChunks >= POLICY.lowStableChunks &&
+    counters.lowStreakChunks >= POLICY.lowStableChunks &&
     level < config.cap
   ) {
     return { action: "up", reason: "UNDER_ENGAGED" };
   }
   if (
     level < config.cap &&
-    state.chunksAtLevel >= POLICY.stallNudgeChunks &&
+    counters.chunksAtLevel >= POLICY.stallNudgeChunks &&
     !state.nudgedLevels.includes(level)
   ) {
     return { action: "nudge", reason: "STALL_NUDGE" };
   }
-  if (level > 0 && state.chunksSinceVary >= POLICY.varyEveryChunks) {
+  if (level > 0 && counters.chunksSinceVary >= POLICY.varyEveryChunks) {
     return { action: "vary", reason: "VARIABILITY" };
   }
   return { action: "none", reason: "IN_WINDOW" };
@@ -204,14 +225,13 @@ export function decide(state: ControllerState, input: TickInput): Step {
     };
   }
 
-  const incoming: QueuedIntent | null = input.intent
-    ? { kind: input.intent, chunk }
-    : null;
-  let queued = liveIntent(incoming ?? state.queuedIntent, chunk);
-  // Stepping closer at the cap has nowhere to go; the UI says so and the intent is dropped.
-  if (queued?.kind === "closer" && state.level >= state.config.cap) queued = null;
+  // While paused only a resume gets through; anything else typed meanwhile is dropped (C6).
+  const accepted = state.paused && input.intent !== "resume" ? null : input.intent;
+  const incoming: QueuedIntent | null = accepted ? { kind: accepted, chunk } : null;
+  const queued = liveIntent(incoming ?? state.queuedIntent, chunk);
+  const counters = countersAt(state, chunk, signal.arousal === "LOW");
 
-  const verdict = choose(state, input, signal, queued);
+  const verdict = choose(state, input, signal, queued, counters);
   const sends = SENDING_ACTIONS.has(verdict.action);
   const levelAfter = Math.min(
     Math.max(state.level + levelDelta(verdict.action), 0),
@@ -238,22 +258,15 @@ export function decide(state: ControllerState, input: TickInput): Step {
     cooldownUntil: isCeiling
       ? chunk + POLICY.cooldownChunksAfterRetreat
       : state.cooldownUntil,
-    lowStreakChunks:
-      signal.arousal === "LOW" && !isApproach ? state.lowStreakChunks + 1 : 0,
-    chunksSinceVary: sends ? 0 : state.chunksSinceVary + 1,
-    chunksAtLevel: levelChanged ? 0 : state.chunksAtLevel + 1,
+    trialStartChunk: state.trialStartChunk ?? chunk,
+    // An approach answers under-engagement; the streak starts over (C2).
+    lowStreakChunks: isApproach ? 0 : counters.lowStreakChunks,
+    levelSinceChunk: levelChanged ? chunk : (state.levelSinceChunk ?? chunk),
     nudgedLevels:
       verdict.action === "nudge"
         ? [...state.nudgedLevels, state.level]
         : state.nudgedLevels,
-    evDone: state.evDone || verdict.action === "ev",
-    chunksSinceEv:
-      verdict.action === "ev"
-        ? 0
-        : state.evDone
-          ? state.chunksSinceEv + 1
-          : 0,
-    trialChunks: state.paused ? state.trialChunks : state.trialChunks + 1,
+    evChunk: verdict.action === "ev" ? chunk : state.evChunk,
     queuedIntent: verdict.consumeIntent ? null : queued,
   };
 
