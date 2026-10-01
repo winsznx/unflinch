@@ -17,3 +17,13 @@ The independent oracle (`tools/oracle_controller.py`) was written from PRD §4.4
 | C7 | When is a SUDS sample a *new* report (for `newSudsHigh`)? | Its arrival chunk is `chunkIndex − ageS / chunkS`. A sample is new when that arrival is later than the previous sample's arrival. Growth in `ageS` doesn't matter. | Detecting new reports only when `ageS` drops misses a second press that lands within one chunk of the first. INV4 owes a retreat for every new SUDS ≥ 9. |
 
 Other interpretations from the oracle README (`tools/README.md`, Ambiguities) were already shared by both implementations.
+
+## Platform
+
+| ID | Decision | Why |
+|---|---|---|
+| P1 | `/runs/canonical` is a page that redirects to `CANONICAL_RUN_ID`, not a `vercel.json` route. | Vercel rejects `routes` alongside `headers`, and the phone page needs the Permissions-Policy header. PRD §4.11 names this fallback. |
+| P2 | The landing, intake, proof and report use the Closeout marketing system (white canvas, grey panels, black pills, blue accent, Instrument Sans + IBM Plex Mono) instead of the PRD's neon `#0a0a0f` / `#00ff94` system. | Owner's direction. The patient view keeps the PRD exception: dark stage, no red, no glow, HUD text at 70%. |
+| P3 | One run = one session id. `/runs/[id]` shows every trial of a session, with a trial switcher. | The canonical run spans two contexts (park, sidewalk), so its receipts belong together. |
+| P4 | Supabase is optional in development. Without it, the same `Store` interface writes to `.data/store.json` and realtime falls back to `BroadcastChannel`. | Lets the whole judge path run locally before keys exist. Phone pairing across devices needs Supabase. |
+| P5 | `chunk_complete.active_prompt` isn't in the published schema. When it's absent, a send is marked landed at the boundary after its acknowledgement and labelled `landed_by: next_boundary`. | Receipts must say how the landing chunk is known. Measured, not assumed, once G1 confirms the field. |
