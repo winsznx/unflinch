@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 
+import { CATALOG } from "@/lib/ladder/catalog";
 import { CURATED } from "@/lib/ladder/curated";
+import { structureIssues } from "@/lib/ladder/generate";
 import { lintLadder, lintPrompt } from "@/lib/ladder/lint";
 import { Ladder } from "@/lib/ladder/schema";
 
@@ -27,4 +29,14 @@ describe("lint", () => {
   it("rejects chained actions", () => {
     expect(lintPrompt("The dog sits then walks away.", "transition").map((i) => i.rule)).toContain("bannedConnective");
   });
+});
+
+describe("generated catalog", () => {
+  for (const [id, entry] of Object.entries(CATALOG)) {
+    it(`${id} matches the schema, lint and structure rules`, () => {
+      expect(Ladder.safeParse(entry.ladder).success).toBe(true);
+      expect(lintLadder(entry.ladder)).toEqual([]);
+      expect(structureIssues(entry.ladder)).toEqual([]);
+    });
+  }
 });

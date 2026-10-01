@@ -20,7 +20,7 @@ pnpm dev          # http://localhost:3000
 |---|---|---|---|---|
 | `REACTOR_API_KEY` | server | none | `/api/token` uses it to mint the scoped Reactor JWT. The dev wrapper uses it to delete leftover playground sessions. | `/api/token` returns 503 `REACTOR_NOT_CONFIGURED`. No live scene. |
 | `GEMINI_API_KEY` | server | none | Generates ladders for fears without a curated ladder. Also used by the starter playground routes. | Those fears fall back to the closest curated ladder. |
-| `GEMINI_MODEL` | server | `gemini-2.5-flash` | Model for ladder generation. | Default is used. |
+| `GEMINI_MODEL` | server | `gemini-3.8-flash` | Model for ladder generation. | Default is used. |
 | `SUPABASE_SERVICE_ROLE_KEY` | server | none | Service-role client for all table access, the slot lease and signed recording URLs. | With the URL also unset, the app uses the local file store. |
 | `IP_HASH_SALT` | server | fixed development salt | Salt for hashing IPs in the daily quota. | The development salt is used. Set a random value in production, for example `openssl rand -hex 32`. |
 | `NEXT_PUBLIC_SUPABASE_URL` | public | none | Project URL for the server client and the browser's realtime channel. | Realtime falls back to same-browser `BroadcastChannel`. |

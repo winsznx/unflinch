@@ -22,25 +22,45 @@ export async function POST(request: Request) {
   const fearHash = sha256Hex(`${session.fear.toLowerCase()}\u0000${(session.feared_outcome ?? "").toLowerCase()}`);
   const started = Date.now();
 
-  let row = await db.getLadderByHash(fearHash);
-  if (!row) {
-    const result = await generateLadder(session.fear, session.feared_outcome ?? "");
-    row = await db.saveLadder({
+  const cached = await db.getLadderByHash(fearHash);
+  if (cached) {
+    await db.updateSession(session.id, { ladder_id: cached.id });
+    return json({
+      ladder: cached.plan,
+      ladderId: cached.id,
+      source: cached.source,
+      sha256: sha256Hex(canonicalJson(cached.plan)),
+      lint: cached.lint ?? [],
+      fallbackReason: null,
+      generatedMs: 0,
+    });
+  }
+
+  const result = await generateLadder(session.fear, session.feared_outcome ?? "");
+  const generatedMs = Date.now() - started;
+  // A fallback is never cached: the next request for this fear should try generation again.
+  let ladderId: string | null = null;
+  if (result.source !== "fallback") {
+    const row = await db.saveLadder({
       fear_hash: fearHash,
       fear: session.fear,
       source: result.source,
       plan: result.ladder,
       lint: result.lint.length ? result.lint : null,
     });
+    ladderId = row.id;
+    await db.updateSession(session.id, { ladder_id: row.id });
+  } else {
+    console.error(`[ladder] fell back for "${session.fear}": ${result.error}`);
   }
-  await db.updateSession(session.id, { ladder_id: row.id });
 
   return json({
-    ladder: row.plan,
-    ladderId: row.id,
-    source: row.source,
-    sha256: sha256Hex(canonicalJson(row.plan)),
-    lint: row.lint ?? [],
-    cached: Date.now() - started < 50,
+    ladder: result.ladder,
+    ladderId,
+    source: result.source,
+    sha256: sha256Hex(canonicalJson(result.ladder)),
+    lint: result.lint,
+    fallbackReason: result.error,
+    generatedMs,
   });
 }

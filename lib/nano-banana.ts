@@ -1,4 +1,4 @@
-export const NANO_BANANA_MODEL = "gemini-2.5-flash-image";
+export const NANO_BANANA_MODEL = "gemini-3.1-flash-image";
 
 export const NANO_BANANA_PROMPT = `Edit this image so the same golden retriever
 is sleeping comfortably next to a glowing firepit. Keep the scene

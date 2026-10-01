@@ -189,7 +189,7 @@ Invariants. `checkInvariants` evaluates INV1 to INV5 and INV8 on every decision.
 A ladder has contexts, each with a safe scene, an `enter` and `exit` action and 4 to 6 levels. Each level has an absolute `state` prompt, `up`, `down`, optional `selfApproach` and 2 to 4 `holds`. The ladder also carries up to 3 expectancy tests (`ev`) and up to 3 therapist-only `deepened` cues. `capOf(context)` is the number of levels, 6 for dogs and 5 for heights.
 
 1. `matchCurated` matches the fear text against keyword patterns. Dogs and heights return a hand-written ladder with no model call.
-2. Otherwise `generateLadder` asks `GEMINI_MODEL` (default `gemini-2.5-flash`) for JSON that matches the zod schema, with the fear and feared outcome each cut to 240 characters. The result is parsed, then `lintLadder` checks every string. Failures go back to the model with the lint report. There are 3 attempts in total.
+2. Otherwise `generateLadder` asks `GEMINI_MODEL` (default `gemini-3.8-flash`, then `gemini-3.7-flash` and `gemini-3.5-flash` on overload) for JSON that matches the zod schema, with the fear and feared outcome each cut to 240 characters. The result is parsed, then `lintLadder` checks every string. Failures go back to the model with the lint report. There are 3 attempts in total.
 3. With no `GEMINI_API_KEY`, or after 3 failed attempts, `closestCurated` returns heights for place-like words (bridge, elevator, flying, water and similar) and dogs otherwise. The plan screen tells the user a closest hand-written ladder was used (`source: fallback`).
 4. `/api/ladder` caches by `sha256(lowercase fear, NUL, lowercase feared outcome)` in the `ladders` table.
 

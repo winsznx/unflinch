@@ -12,7 +12,8 @@
     "lint": "tsc --noEmit",
     "controller:run": "tsx scripts/controller-cli.ts",
     "verify:receipt": "tsx scripts/verify-receipt.ts",
-    "build:evidence": "tsx scripts/build-evidence.ts"
+    "build:evidence": "tsx scripts/build-evidence.ts",
+    "catalog:generate": "tsx scripts/generate-catalog.ts"
   },
   "dependencies": {
     "@google/genai": "^2.22.0",

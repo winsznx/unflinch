@@ -19,7 +19,7 @@ const CONTEXT_NAMES: Record<string, string> = {
 
 const TRIALS = 3;
 
-type Plan = { ladder: Ladder; source: LadderSource; sha256: string };
+type Plan = { ladder: Ladder; source: LadderSource; sha256: string; fallbackReason: string | null };
 
 function planLine(ladder: Ladder): string {
   const contexts = Array.from({ length: TRIALS }, (_, i) => ladder.contexts[i % ladder.contexts.length]!.id);
@@ -33,6 +33,7 @@ export function SessionApp({ id }: { id: string }) {
   );
   const [plan, setPlan] = useState<Plan | null>(null);
   const [planError, setPlanError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!local) return;
@@ -45,7 +46,9 @@ export function SessionApp({ id }: { id: string }) {
       .then(async (response) => {
         const body = (await response.json()) as Partial<Plan> & { message?: string };
         if (!response.ok || !body.ladder) throw new Error(body.message ?? "Could not build the plan.");
-        if (!cancelled) setPlan({ ladder: body.ladder, source: body.source!, sha256: body.sha256! });
+        if (!cancelled) {
+          setPlan({ ladder: body.ladder, source: body.source!, sha256: body.sha256!, fallbackReason: body.fallbackReason ?? null });
+        }
       })
       .catch((error: unknown) => {
         if (!cancelled) setPlanError(error instanceof Error ? error.message : String(error));
@@ -53,7 +56,13 @@ export function SessionApp({ id }: { id: string }) {
     return () => {
       cancelled = true;
     };
-  }, [local]);
+  }, [local, attempt]);
+
+  const retryPlan = () => {
+    setPlan(null);
+    setPlanError(null);
+    setAttempt((n) => n + 1);
+  };
 
   if (local === undefined) return null;
   if (local === null) {
@@ -84,6 +93,30 @@ export function SessionApp({ id }: { id: string }) {
         <span className="pl-spinner" aria-hidden="true" />
         <h1>Building your plan…</h1>
         <p>Turning &ldquo;{local.fear}&rdquo; into small, single steps.</p>
+      </div>
+    );
+  }
+  if (plan.source === "fallback") {
+    return (
+      <div className="pl-center">
+        <h1>We couldn&apos;t build a plan for &ldquo;{local.fear}&rdquo; right now.</h1>
+        <p>
+          The ladder generator didn&apos;t return a plan that passed our safety checks in time. You can try again,
+          or practise with our closest hand-written ladder ({plan.ladder.fearId}) instead.
+        </p>
+        <div className="pl-overlay-actions">
+          <button type="button" className="m-button" onClick={retryPlan}>
+            Try again
+          </button>
+          <button
+            type="button"
+            className="m-button m-button-secondary"
+            onClick={() => setPlan({ ...plan, source: "curated", fallbackReason: null })}
+          >
+            Use the {plan.ladder.fearId} ladder
+          </button>
+        </div>
+        {plan.fallbackReason && <p className="pl-fineprint">Reason: {plan.fallbackReason}</p>}
       </div>
     );
   }
