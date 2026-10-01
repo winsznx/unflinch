@@ -27,3 +27,12 @@ Other interpretations from the oracle README (`tools/README.md`, Ambiguities) we
 | P3 | One run = one session id. `/runs/[id]` shows every trial of a session, with a trial switcher. | The canonical run spans two contexts (park, sidewalk), so its receipts belong together. |
 | P4 | Supabase is optional in development. Without it, the same `Store` interface writes to `.data/store.json` and realtime falls back to `BroadcastChannel`. | Lets the whole judge path run locally before keys exist. Phone pairing across devices needs Supabase. |
 | P5 | `chunk_complete.active_prompt` isn't in the published schema. When it's absent, a send is marked landed at the boundary after its acknowledgement and labelled `landed_by: next_boundary`. | Receipts must say how the landing chunk is known. Measured, not assumed, once G1 confirms the field. |
+
+## Measured overrides (G1)
+
+| ID | PRD value | Measured | New value | Evidence |
+|---|---|---|---|---|
+| M1 | `set_prompt` ack timeout 2 s, then resend, then pause | `prompt_accepted` arrives at the next chunk boundary: 1,720–1,950 ms after sending (n = 9, live run 1). With 2 s, normal acks timed out in run 2, the resend timed out, and the session paused itself. | 3.7 s (two chunks) | run 1 receipt, run 2 event log (`prompt_unacked`) |
+| M2 | Chunk period 1.833 s | Median 1,839 ms between `chunk_complete` messages (n = 54). | Unchanged | run 1 receipt |
+| M3 | First chunk emits 0 frames (docs) vs frames (Beacon) | First chunk: 0 frames. Every later chunk: 33. | Unchanged | run 1 receipt |
+| M4 | `chunk_complete.active_prompt` | Absent from every `chunk_complete` (0 of 55). | Landing is inferred (`landed_by: next_boundary`) until human-annotated onset in E3. | run 1 receipt |

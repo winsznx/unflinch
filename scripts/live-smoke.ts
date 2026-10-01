@@ -92,7 +92,22 @@ async function main() {
   await page.keyboard.press("2");
   if (!(await watch(30_000))) process.exit(1);
 
-  await page.screenshot({ path: "/tmp/unflinch-live.png" });
+  // Round 1 ends on the expectancy test or the trial cap; answer the sheet and run round 2.
+  const sheet = await page.waitForSelector(".pl-sheet", { timeout: 90_000 }).catch(() => null);
+  if (sheet) {
+    log("rating sheet shown");
+    await page.screenshot({ path: "/tmp/unflinch-live.png" });
+    await page.getByRole("radio", { name: "No" }).click();
+    await page.getByRole("button", { name: /Next round|See what changed/ }).click();
+    log("rating submitted");
+    const next = await page
+      .waitForFunction(() => /Round 2/.test(document.querySelector(".pl-meta")?.textContent ?? ""), undefined, { timeout: 90_000 })
+      .then(() => true)
+      .catch(() => false);
+    log(next ? "round 2 started" : "round 2 did NOT start");
+    if (!(await watch(30_000))) process.exit(1);
+  }
+  await page.screenshot({ path: "/tmp/unflinch-live2.png" });
   log("ending session");
   await page.getByRole("button", { name: "End" }).click().catch(() => undefined);
   await page.waitForSelector(".pl-report, .pl-center", { timeout: 30_000 }).catch(() => undefined);

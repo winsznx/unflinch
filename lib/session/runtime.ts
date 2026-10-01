@@ -617,6 +617,8 @@ export class SessionRuntime {
     if (lintPrompt(prompt, "absolute").length) throw new Error("Start prompt failed lint");
 
     this.generationComplete = false;
+    // Chunk indices restart with every run, so chunk-indexed UI timers from the last round must too.
+    this.nudgeUntilChunk = -1;
     this.lastChunk = -1;
     this.lastActivePrompt = null;
     this.pending = [];
