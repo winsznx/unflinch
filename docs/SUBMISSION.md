@@ -1,6 +1,6 @@
 # Submission
 
-Draft for the Visko Orbis Online Challenge form. The form needs Google sign-in, so its real fields are not known yet. Paste them under "Form fields" once the form is open. Numbers stay pending until measured, and every line here must match [CLAIM_LEDGER](CLAIM_LEDGER.md) when the form is sent.
+What was submitted to the Visko Orbis Online Challenge form. Numbers stay pending until measured, and every line here matches [CLAIM_LEDGER](CLAIM_LEDGER.md).
 
 ## Entry
 
@@ -9,12 +9,12 @@ Draft for the Visko Orbis Online Challenge form. The form needs Google sign-in, 
 | Name | Unflinch |
 | One-liner | Exposure practice that moves at the speed of your nervous system. |
 | License | MIT |
-| Built with | Visko Orbis through Reactor, Next.js, Supabase, Gemini, Vercel (deploy target, not deployed yet) |
+| Built with | Visko Orbis through Reactor, Next.js, Supabase, Gemini, Vercel |
 | Team | Solo, Timothy Popoola (winsznx) |
 
 ## What it is
 
-Specific phobias are common, and graded exposure is the best-supported treatment, but the feared thing has to be present at the right intensity. Therapists improvise with screen-shared videos that cannot wait, press on or back off. Unflinch generates a person's fear as one live scene on Orbis. A deterministic controller reads breathing from a phone on the chest, distress ratings and the person's own step-closer choices on every chunk, and changes the scene with one single-action prompt at most every two chunks. Each trial ends by staging a harmless version of the dreaded outcome, then asks the person to re-rate it. Dogs and heights have hand-written ladders and other fears are generated and linted. It is a practice tool for clients and therapists, not a medical device. Controller correctness is measured: 100% agreement with an independent oracle on 100 traces. Latency, cut count and persistence are pending live runs.
+Specific phobias are common, and graded exposure is the best-supported treatment, but the feared thing has to be present at the right intensity. Therapists improvise with screen-shared videos that cannot wait, press on or back off. Unflinch generates a person's fear as one live scene on Orbis. A deterministic controller reads breathing from a phone on the chest, distress ratings and the person's own step-closer choices on every chunk, and changes the scene with one single-action prompt at most every two chunks. Each trial ends by staging a harmless version of the dreaded outcome, then asks the person to re-rate it. Dogs and heights have hand-written ladders and other fears are generated and linted. It is a practice tool for clients and therapists, not a medical device. Controller correctness is measured: 100% agreement with an independent oracle on 100 traces, 0 invariant violations. Live runs on Orbis measured a 1.84 s chunk period and a prompt acknowledgement of about 1.8 s. Latency, cut count and persistence stay pending until the proof campaign runs.
 
 ## How Orbis is used
 
@@ -29,10 +29,10 @@ Specific phobias are common, and graded exposure is the best-supported treatment
 |---|---|
 | `/try` | Live Orbis generation and a live controller. The breathing input is simulated from the keyboard and labelled SIMULATED INPUT. |
 | `/start` | Live Orbis generation. Breathing comes from a phone on the chest, or from distress ratings. |
-| `/runs/canonical` | A recorded run from a real live session, once it is recorded. Fast breathing in it is induced on purpose and labelled so. Ratings are labelled BUILDER DEMO. |
+| `/runs/canonical` | A real two-round live Orbis session (park, then sidewalk) driven by `pnpm test:live` with simulated input, labelled as such. It will be replaced by the phone-sensor canonical run (PRD §6.2). |
 | `/proof` and `evidence/controller` | Offline results. The 100 controller traces are generated inputs, not people. |
 
-No live Orbis measurement exists yet.
+Live measurements so far are in [DECISIONS](DECISIONS.md) M1–M4 and [GATES](GATES.md) G1 and G3.
 
 ## Judge path
 
@@ -43,6 +43,17 @@ No live Orbis measurement exists yet.
 | Verify | `/proof`, `pnpm test`, `pnpm verify:receipt evidence/live/<run-id>/trial-1.receipt.json`, `python tools/cutdetect.py <webm>` |
 
 If the Orbis slot is busy, `/try` says so and offers the recorded run.
+
+## Form fields
+
+| Field | Value |
+|---|---|
+| Team Name | Unflinch |
+| Team Members and Emails | Timothy Popoola, winsznx@gmail.com |
+| Project Description | "What it is" and "How Orbis is used" above, plus the live links |
+| Project Repository URL | https://github.com/winsznx/unflinch |
+| Demo Video URL | to be added |
+| Additional materials | Screenshots of the landing page, a live judge session, the run receipt page and /proof |
 
 ## Links
 
