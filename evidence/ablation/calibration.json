@@ -1,0 +1,24 @@
+{
+ "clips": [
+  "splice_00.mp4",
+  "splice_01.mp4",
+  "splice_02.mp4",
+  "splice_03.mp4",
+  "splice_04.mp4",
+  "splice_05.mp4",
+  "splice_06.mp4",
+  "splice_07.mp4",
+  "splice_08.mp4",
+  "splice_09.mp4"
+ ],
+ "cut_frames": 10,
+ "non_cut_frames": 2814,
+ "cut_corr_max": 0.908,
+ "non_cut_corr_min": 0.8171,
+ "non_cut_corr_p01": 0.9584,
+ "separable": false,
+ "suggested_threshold": 0.8171,
+ "misclassified_at_suggested": 3,
+ "frozen_threshold": 0.5,
+ "method": "spliced pairs of different campaign recordings, 8 s each side, re-encoded at 18 fps"
+}

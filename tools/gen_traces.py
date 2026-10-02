@@ -136,6 +136,17 @@ def plant_pause(b: TraceBuilder) -> None:
             b.tags[mid].append("intent_while_paused")
 
 
+def plant_safe(b: TraceBuilder) -> None:
+    """A safe place (C8), sometimes during a spike, followed by a resume."""
+    t = b.free_slot(6, b.n - 12)
+    b.intent[t] = "safe"
+    b.tags[t].append("safe")
+    gap = b.rng.randint(3, 10)
+    if t + gap < b.n and b.intent[t + gap] is None:
+        b.intent[t + gap] = "resume"
+        b.tags[t + gap].append("resume")
+
+
 def plant_stray_resume(b: TraceBuilder) -> None:
     t = b.free_slot(2, b.n - 2)
     if b.intent[t] is None:
@@ -177,6 +188,7 @@ PLANTERS = (
     (plant_therapist, 0.45, (1, 1)),
     (plant_end, 0.12, (1, 1)),
     (plant_generation_complete, 0.15, (1, 1)),
+    (plant_safe, 0.35, (1, 1)),
 )
 
 

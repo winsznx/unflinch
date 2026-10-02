@@ -3,7 +3,7 @@
  "id": "trace_094",
  "seed": 2026,
  "config": {
-  "cap": 4,
+  "cap": 5,
   "autoMode": true,
   "trialMax": 48,
   "startLevel": 1
@@ -15,7 +15,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 0.342
+    "ageS": 0.271
    },
    "intent": null,
    "therapist": null,
@@ -27,7 +27,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 2.175
+    "ageS": 2.104
    },
    "intent": null,
    "therapist": null,
@@ -39,7 +39,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 4.008
+    "ageS": 3.937
    },
    "intent": null,
    "therapist": null,
@@ -51,7 +51,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 5.841
+    "ageS": 5.77
    },
    "intent": null,
    "therapist": null,
@@ -63,7 +63,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 7.674
+    "ageS": 7.603
    },
    "intent": null,
    "therapist": null,
@@ -75,7 +75,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 9.507
+    "ageS": 9.436
    },
    "intent": null,
    "therapist": null,
@@ -87,7 +87,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 11.34
+    "ageS": 11.269
    },
    "intent": null,
    "therapist": null,
@@ -99,7 +99,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 13.173
+    "ageS": 13.102
    },
    "intent": null,
    "therapist": null,
@@ -111,7 +111,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 15.006
+    "ageS": 14.935
    },
    "intent": null,
    "therapist": null,
@@ -123,7 +123,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 16.839
+    "ageS": 16.768
    },
    "intent": null,
    "therapist": null,
@@ -135,7 +135,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 18.672
+    "ageS": 18.601
    },
    "intent": null,
    "therapist": null,
@@ -147,7 +147,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 20.505
+    "ageS": 20.434
    },
    "intent": null,
    "therapist": null,
@@ -159,7 +159,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 4,
-    "ageS": 22.338
+    "ageS": 22.267
    },
    "intent": null,
    "therapist": null,
@@ -171,7 +171,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 24.171
+    "ageS": 24.1
    },
    "intent": null,
    "therapist": null,
@@ -185,7 +185,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 26.004
+    "ageS": 25.933
    },
    "intent": null,
    "therapist": null,
@@ -199,7 +199,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 4,
-    "ageS": 27.837
+    "ageS": 27.766
    },
    "intent": null,
    "therapist": "vary",
@@ -214,7 +214,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 0.195
+    "ageS": 1.479
    },
    "intent": null,
    "therapist": null,
@@ -228,7 +228,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 2.028
+    "ageS": 3.312
    },
    "intent": null,
    "therapist": null,
@@ -242,7 +242,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 3.861
+    "ageS": 5.145
    },
    "intent": null,
    "therapist": null,
@@ -256,7 +256,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 5.694
+    "ageS": 6.978
    },
    "intent": null,
    "therapist": null,
@@ -270,13 +270,14 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 7.527
+    "ageS": 8.811
    },
-   "intent": null,
+   "intent": "safe",
    "therapist": null,
    "generationComplete": false,
    "tags": [
-    "low_stretch"
+    "low_stretch",
+    "safe"
    ]
   },
   {
@@ -284,7 +285,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 9.36
+    "ageS": 10.644
    },
    "intent": "pause",
    "therapist": null,
@@ -299,7 +300,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 11.193
+    "ageS": 12.477
    },
    "intent": null,
    "therapist": null,
@@ -313,7 +314,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 13.026
+    "ageS": 14.31
    },
    "intent": null,
    "therapist": null,
@@ -327,7 +328,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 14.859
+    "ageS": 16.143
    },
    "intent": null,
    "therapist": null,
@@ -341,13 +342,14 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 16.692
+    "ageS": 17.976
    },
-   "intent": null,
+   "intent": "resume",
    "therapist": null,
    "generationComplete": false,
    "tags": [
-    "low_stretch"
+    "low_stretch",
+    "resume"
    ]
   },
   {
@@ -355,7 +357,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 18.525
+    "ageS": 19.809
    },
    "intent": null,
    "therapist": null,
@@ -369,7 +371,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 20.358
+    "ageS": 21.642
    },
    "intent": null,
    "therapist": null,
@@ -383,7 +385,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 22.191
+    "ageS": 23.475
    },
    "intent": "resume",
    "therapist": null,
@@ -398,7 +400,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 6,
-    "ageS": 24.024
+    "ageS": 25.308
    },
    "intent": null,
    "therapist": null,
@@ -410,7 +412,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 25.857
+    "ageS": 27.141
    },
    "intent": null,
    "therapist": null,
@@ -422,7 +424,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 27.69
+    "ageS": 28.974
    },
    "intent": null,
    "therapist": null,
@@ -434,7 +436,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 29.523
+    "ageS": 30.807
    },
    "intent": null,
    "therapist": null,
@@ -446,7 +448,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 0.947
+    "ageS": 0.071
    },
    "intent": null,
    "therapist": null,
@@ -458,7 +460,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 2.78
+    "ageS": 1.904
    },
    "intent": null,
    "therapist": null,
@@ -470,7 +472,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 4.613
+    "ageS": 3.737
    },
    "intent": null,
    "therapist": null,
@@ -482,7 +484,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 6.446
+    "ageS": 5.57
    },
    "intent": null,
    "therapist": null,
@@ -494,7 +496,7 @@
    "arousal": "WINDOW",
    "suds": {
     "value": 6,
-    "ageS": 8.279
+    "ageS": 7.403
    },
    "intent": null,
    "therapist": null,
@@ -506,7 +508,7 @@
    "arousal": "HIGH",
    "suds": {
     "value": 6,
-    "ageS": 10.112
+    "ageS": 9.236
    },
    "intent": null,
    "therapist": null,
@@ -520,7 +522,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 6,
-    "ageS": 11.945
+    "ageS": 11.069
    },
    "intent": null,
    "therapist": null,
@@ -534,7 +536,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 6,
-    "ageS": 13.778
+    "ageS": 12.902
    },
    "intent": null,
    "therapist": null,
@@ -548,7 +550,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 6,
-    "ageS": 15.611
+    "ageS": 14.735
    },
    "intent": null,
    "therapist": null,
@@ -562,7 +564,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 0.271
+    "ageS": 1.2
    },
    "intent": null,
    "therapist": null,
@@ -576,7 +578,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 2.104
+    "ageS": 3.033
    },
    "intent": null,
    "therapist": null,
@@ -590,7 +592,7 @@
    "arousal": "HIGH",
    "suds": {
     "value": 3,
-    "ageS": 3.937
+    "ageS": 4.866
    },
    "intent": null,
    "therapist": null,
@@ -604,7 +606,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 5.77
+    "ageS": 6.699
    },
    "intent": null,
    "therapist": null,
@@ -618,7 +620,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 7.603
+    "ageS": 8.532
    },
    "intent": "closer",
    "therapist": null,
@@ -633,7 +635,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 9.436
+    "ageS": 10.365
    },
    "intent": null,
    "therapist": null,
@@ -647,7 +649,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 11.269
+    "ageS": 12.198
    },
    "intent": null,
    "therapist": null,
@@ -661,7 +663,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 13.102
+    "ageS": 14.031
    },
    "intent": null,
    "therapist": null,
@@ -675,7 +677,7 @@
    "arousal": "HIGH",
    "suds": {
     "value": 3,
-    "ageS": 14.935
+    "ageS": 15.864
    },
    "intent": null,
    "therapist": null,
@@ -690,7 +692,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 16.768
+    "ageS": 17.697
    },
    "intent": null,
    "therapist": null,
@@ -705,7 +707,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 18.601
+    "ageS": 19.53
    },
    "intent": null,
    "therapist": null,
@@ -720,7 +722,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 20.434
+    "ageS": 21.363
    },
    "intent": null,
    "therapist": null,
@@ -734,7 +736,7 @@
    "arousal": "OVERLOAD",
    "suds": {
     "value": 3,
-    "ageS": 22.267
+    "ageS": 23.196
    },
    "intent": null,
    "therapist": null,
@@ -748,7 +750,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 3,
-    "ageS": 24.1
+    "ageS": 25.029
    },
    "intent": null,
    "therapist": null,
@@ -760,7 +762,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 3,
-    "ageS": 25.933
+    "ageS": 26.862
    },
    "intent": null,
    "therapist": null,
@@ -772,7 +774,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 3,
-    "ageS": 27.766
+    "ageS": 28.695
    },
    "intent": null,
    "therapist": null,
@@ -784,7 +786,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 3,
-    "ageS": 29.599
+    "ageS": 30.528
    },
    "intent": null,
    "therapist": null,
@@ -796,7 +798,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 5,
-    "ageS": 1.479
+    "ageS": 0.101
    },
    "intent": null,
    "therapist": null,
@@ -808,7 +810,7 @@
    "arousal": "LOW",
    "suds": {
     "value": 5,
-    "ageS": 3.312
+    "ageS": 1.934
    },
    "intent": null,
    "therapist": null,

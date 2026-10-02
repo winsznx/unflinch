@@ -36,11 +36,16 @@ export class TrialRecorder {
   async stop(): Promise<Recording | null> {
     const recorder = this.recorder;
     this.recorder = null;
-    if (!recorder || recorder.state === "inactive") return null;
-    await new Promise<void>((resolve) => {
-      recorder.onstop = () => resolve();
-      recorder.stop();
-    });
+    if (!recorder) return null;
+    // The browser stops the recorder itself when the stream's tracks end (a dropped connection);
+    // what it captured until then is still in this.chunks.
+    if (recorder.state !== "inactive") {
+      await new Promise<void>((resolve) => {
+        recorder.onstop = () => resolve();
+        recorder.stop();
+      });
+    }
+    if (!this.chunks.length) return null;
     const blob = new Blob(this.chunks, { type: recorder.mimeType });
     this.chunks = [];
     return { blob, sha256: await sha256OfBlob(blob), bytes: blob.size, mimeType: recorder.mimeType };

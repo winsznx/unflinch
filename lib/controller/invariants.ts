@@ -25,8 +25,10 @@ export function checkInvariants(
     flag("INV1", `${action} while ceiling, cooldown or no signal`);
   }
 
+  // One step at a time, except the patient's safe place, which drops straight to 0 (C8).
   const delta = decision.levelAfter - decision.levelBefore;
-  if (Math.abs(delta) > 1) flag("INV2", `level jumped by ${delta}`);
+  const safePlace = action === "safe" && decision.levelAfter === 0;
+  if (Math.abs(delta) > 1 && !safePlace) flag("INV2", `level jumped by ${delta}`);
   if (decision.levelAfter < 0 || decision.levelAfter > before.config.cap) {
     flag("INV2", `level ${decision.levelAfter} outside [0, ${before.config.cap}]`);
   }
@@ -46,6 +48,7 @@ export function checkInvariants(
     (signal.newSudsHigh ||
       chunk >= before.lastCeilingChunk + POLICY.ceilingRefireChunks) &&
     action !== "down" &&
+    action !== "safe" &&
     action !== "pause" &&
     action !== "end_trial"
   ) {

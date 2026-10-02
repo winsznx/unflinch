@@ -132,6 +132,10 @@ function choose(
   if (chunk - state.lastSendChunk < POLICY.minChunksBetweenSends) {
     return { action: "none", reason: "LANDING" };
   }
+  // Safe place (C8): outranks every retreat. With nothing in the scene it is a plain pause.
+  if (intent?.kind === "safe") {
+    return { action: level > 0 ? "safe" : "pause", reason: "PATIENT_SAFE", consumeIntent: true };
+  }
   if (
     level > 0 &&
     signal.ceilingActive &&
@@ -231,10 +235,10 @@ export function decide(state: ControllerState, input: TickInput): Step {
 
   const verdict = choose(state, input, signal, queued, counters);
   const sends = SENDING_ACTIONS.has(verdict.action);
-  const levelAfter = Math.min(
-    Math.max(state.level + levelDelta(verdict.action), 0),
-    state.config.cap,
-  );
+  const levelAfter =
+    verdict.action === "safe"
+      ? 0
+      : Math.min(Math.max(state.level + levelDelta(verdict.action), 0), state.config.cap);
   const levelChanged = levelAfter !== state.level;
   const isCeiling =
     verdict.reason === "CEILING_SUDS" || verdict.reason === "CEILING_BODY";
@@ -245,7 +249,7 @@ export function decide(state: ControllerState, input: TickInput): Step {
     ...state,
     level: levelAfter,
     paused:
-      verdict.action === "pause"
+      verdict.action === "pause" || verdict.action === "safe"
         ? true
         : verdict.action === "resume"
           ? false

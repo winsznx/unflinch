@@ -106,4 +106,4 @@ pnpm controller:run
 tools/.venv/bin/python tools/oracle_controller.py --traces evidence/controller/traces --out evidence/controller/oracle --compare evidence/controller/ts
 ```
 
-The last line prints `agreement: 4573/4573 = 100.0% (pass, threshold 99.0%)`. There is no live test suite and no CI workflow in the repo yet.
+The last line prints `agreement: 4646/4646 = 100.0% (pass, threshold 99.0%)`. CI (`.github/workflows/ci.yml`) runs the same checks on every push. Live checks spend Orbis credits and run by hand: `pnpm test:live` (one session), `pnpm campaign <experiment> <runs>` (proof campaign, see [EVAL_CAMPAIGN](EVAL_CAMPAIGN.md)).

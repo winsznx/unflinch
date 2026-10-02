@@ -73,3 +73,12 @@ describe("promptFor", () => {
     }
   });
 });
+
+describe("safe place prompt", () => {
+  it("is the context's own exit line", () => {
+    const ladder = CURATED.dogs!;
+    const context = ladder.contexts[1]!;
+    const choice = promptFor("safe", { ladder, context, levelBefore: 4, levelAfter: 0, fearedOutcome: "", lastHoldIndex: null });
+    expect(choice?.prompt).toBe(context.exit);
+  });
+});

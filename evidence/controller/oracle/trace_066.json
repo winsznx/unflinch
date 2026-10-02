@@ -119,7 +119,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 1.237
+     "ageS": 0.813
     },
     "intent": null,
     "queuedIntent": null,
@@ -147,7 +147,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 3.07
+     "ageS": 2.646
     },
     "intent": null,
     "queuedIntent": null,
@@ -175,7 +175,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 4.903
+     "ageS": 4.479
     },
     "intent": null,
     "queuedIntent": null,
@@ -203,7 +203,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 10,
-     "ageS": 0.813
+     "ageS": 0.689
     },
     "intent": null,
     "queuedIntent": null,
@@ -231,7 +231,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 10,
-     "ageS": 2.646
+     "ageS": 2.522
     },
     "intent": null,
     "queuedIntent": null,
@@ -259,7 +259,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 10,
-     "ageS": 4.479
+     "ageS": 4.355
     },
     "intent": null,
     "queuedIntent": null,
@@ -287,7 +287,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 0.689
+     "ageS": 0.654
     },
     "intent": null,
     "queuedIntent": null,
@@ -315,7 +315,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 2.522
+     "ageS": 2.487
     },
     "intent": null,
     "queuedIntent": null,
@@ -343,7 +343,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 4.355
+     "ageS": 4.32
     },
     "intent": null,
     "queuedIntent": null,
@@ -371,7 +371,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 6.188
+     "ageS": 6.153
     },
     "intent": null,
     "queuedIntent": null,
@@ -399,7 +399,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 8.021
+     "ageS": 7.986
     },
     "intent": null,
     "queuedIntent": null,
@@ -427,7 +427,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 9.854
+     "ageS": 9.819
     },
     "intent": null,
     "queuedIntent": null,
@@ -455,7 +455,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 11.687
+     "ageS": 11.652
     },
     "intent": null,
     "queuedIntent": null,
@@ -483,7 +483,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 13.52
+     "ageS": 13.485
     },
     "intent": null,
     "queuedIntent": null,
@@ -511,7 +511,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 9,
-     "ageS": 15.353
+     "ageS": 15.318
     },
     "intent": null,
     "queuedIntent": null,
@@ -539,7 +539,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 9,
-     "ageS": 17.186
+     "ageS": 17.151
     },
     "intent": null,
     "queuedIntent": null,
@@ -567,7 +567,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 0.654
+     "ageS": 0.96
     },
     "intent": null,
     "queuedIntent": null,
@@ -595,7 +595,7 @@
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 4,
-     "ageS": 2.487
+     "ageS": 2.793
     },
     "intent": null,
     "queuedIntent": null,
@@ -623,7 +623,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 4.32
+     "ageS": 4.626
     },
     "intent": null,
     "queuedIntent": null,
@@ -651,7 +651,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 6.153
+     "ageS": 6.459
     },
     "intent": null,
     "queuedIntent": null,
@@ -679,7 +679,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 7.986
+     "ageS": 8.292
     },
     "intent": null,
     "queuedIntent": null,
@@ -707,7 +707,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 9.819
+     "ageS": 10.125
     },
     "intent": null,
     "queuedIntent": null,
@@ -735,7 +735,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 11.652
+     "ageS": 11.958
     },
     "intent": null,
     "queuedIntent": null,
@@ -763,7 +763,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 13.485
+     "ageS": 13.791
     },
     "intent": null,
     "queuedIntent": null,
@@ -791,7 +791,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 15.318
+     "ageS": 15.624
     },
     "intent": null,
     "queuedIntent": null,
@@ -819,7 +819,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 17.151
+     "ageS": 17.457
     },
     "intent": null,
     "queuedIntent": null,
@@ -847,7 +847,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 18.984
+     "ageS": 19.29
     },
     "intent": null,
     "queuedIntent": null,
@@ -875,7 +875,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 20.817
+     "ageS": 21.123
     },
     "intent": null,
     "queuedIntent": null,
@@ -903,7 +903,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 22.65
+     "ageS": 22.956
     },
     "intent": null,
     "queuedIntent": null,
@@ -931,7 +931,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 0.96
+     "ageS": 0.205
     },
     "intent": null,
     "queuedIntent": null,
@@ -959,7 +959,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 2.793
+     "ageS": 2.038
     },
     "intent": null,
     "queuedIntent": null,
@@ -987,7 +987,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 4,
-     "ageS": 4.626
+     "ageS": 3.871
     },
     "intent": null,
     "queuedIntent": null,
@@ -1015,7 +1015,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 4,
-     "ageS": 6.459
+     "ageS": 5.704
     },
     "intent": null,
     "queuedIntent": null,
@@ -1043,7 +1043,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 1,
-     "ageS": 0.205
+     "ageS": 1.163
     },
     "intent": null,
     "queuedIntent": null,
@@ -1071,7 +1071,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 1,
-     "ageS": 2.038
+     "ageS": 2.996
     },
     "intent": null,
     "queuedIntent": null,
@@ -1099,7 +1099,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 1,
-     "ageS": 3.871
+     "ageS": 4.829
     },
     "intent": null,
     "queuedIntent": null,
@@ -1127,7 +1127,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 1.163
+     "ageS": 1.303
     },
     "intent": null,
     "queuedIntent": null,
@@ -1155,7 +1155,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 2.996
+     "ageS": 3.136
     },
     "intent": "back",
     "queuedIntent": null,
@@ -1183,7 +1183,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 4.829
+     "ageS": 4.969
     },
     "intent": null,
     "queuedIntent": "back",
@@ -1211,7 +1211,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 6.662
+     "ageS": 6.802
     },
     "intent": null,
     "queuedIntent": "back",
@@ -1239,7 +1239,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 8.495
+     "ageS": 8.635
     },
     "intent": null,
     "queuedIntent": null,
@@ -1267,7 +1267,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 10.328
+     "ageS": 10.468
     },
     "intent": null,
     "queuedIntent": null,
@@ -1295,7 +1295,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 12.161
+     "ageS": 12.301
     },
     "intent": null,
     "queuedIntent": null,
@@ -1323,7 +1323,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 13.994
+     "ageS": 14.134
     },
     "intent": null,
     "queuedIntent": null,
@@ -1351,7 +1351,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 15.827
+     "ageS": 15.967
     },
     "intent": null,
     "queuedIntent": null,

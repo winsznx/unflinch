@@ -3,7 +3,7 @@
  "trace": "trace_074",
  "producer": "oracle_controller.py",
  "config": {
-  "cap": 6,
+  "cap": 4,
   "autoMode": true,
   "trialMax": 48,
   "startLevel": 1
@@ -169,7 +169,7 @@
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 4,
-     "ageS": 1.316
+     "ageS": 0.746
     },
     "intent": null,
     "queuedIntent": null,
@@ -197,7 +197,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 3.149
+     "ageS": 2.579
     },
     "intent": null,
     "queuedIntent": null,
@@ -225,7 +225,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 4.982
+     "ageS": 4.412
     },
     "intent": null,
     "queuedIntent": null,
@@ -253,7 +253,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 6.815
+     "ageS": 6.245
     },
     "intent": null,
     "queuedIntent": null,
@@ -281,7 +281,7 @@
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 4,
-     "ageS": 8.648
+     "ageS": 8.078
     },
     "intent": null,
     "queuedIntent": null,
@@ -559,7 +559,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 8,
-     "ageS": 0.746
+     "ageS": 0.761
     },
     "intent": null,
     "queuedIntent": null,

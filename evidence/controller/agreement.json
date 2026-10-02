@@ -1,7 +1,7 @@
 {
  "traces": 100,
- "ticks": 4573,
- "agree": 4573,
+ "ticks": 4646,
+ "agree": 4646,
  "agreement_pct": 100.0,
  "pass": true,
  "threshold_pct": 99.0,

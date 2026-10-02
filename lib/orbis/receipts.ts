@@ -3,7 +3,16 @@ import type { LadderSource } from "@/lib/ladder/schema";
 
 export const RECEIPT_SCHEMA = "unflinch.receipt.v1";
 
-export type ReceiptLabel = "LIVE" | "RECORDED" | "SIMULATED_INPUT" | "BUILDER_DEMO" | "REPLAY";
+export type ReceiptLabel = "LIVE" | "RECORDED" | "SIMULATED_INPUT" | "BUILDER_DEMO" | "REPLAY" | "EXPERIMENT";
+
+/**
+ * Proof-campaign condition (docs/EVAL_CAMPAIGN.md). `morph` + `delta` is the product.
+ * `restart` re-renders every step from the last frame with an absolute prompt (E4 baseline).
+ * `nosend` runs the controller but sends nothing after the subject enters (E9 control).
+ * `restate` sends the target level's full scene instead of only the change (F4 A/B).
+ */
+export type Condition = { mode: "morph" | "restart" | "nosend"; prompts: "delta" | "restate" };
+export const PRODUCT_CONDITION: Condition = { mode: "morph", prompts: "delta" };
 
 export type SessionMode = "self" | "therapist" | "judge";
 export type SignalMode = "phone" | "sim" | "suds";
@@ -34,8 +43,8 @@ export type ReceiptDecision = {
   accepted_ms: number | null;
   /** Chunk where the prompt took effect. `landed_by` says how we know. */
   landed_chunk: number | null;
-  landed_by: "active_prompt" | "next_boundary" | null;
-  outcome: "requested" | "acknowledged" | "executed" | "unacked" | "unlanded" | null;
+  landed_by: "active_prompt" | "next_boundary" | "restart" | null;
+  outcome: "requested" | "acknowledged" | "executed" | "unacked" | "unlanded" | "not_sent" | null;
 };
 
 export type Receipt = {
@@ -71,6 +80,8 @@ export type Receipt = {
   invariant_violations: { id: string; chunk: number; detail: string }[];
   timing: { first_frame_ms: number | null; intake_to_first_frame_ms: number | null };
   labels: ReceiptLabel[];
+  /** Absent on receipts written before the campaign conditions existed; those are the product condition. */
+  condition?: Condition;
   ended_by: ReasonCode | "CONNECTION_LOST" | "USER_END" | "SESSION_CAP" | null;
 };
 

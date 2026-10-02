@@ -61,6 +61,9 @@ export function promptFor(
       return { prompt: context.levels[levelAfter - 1]!.up };
     case "down":
       return { prompt: context.levels[levelBefore - 1]!.down };
+    // The ladder's own exit: the subject leaves and the empty, already-linted scene stays.
+    case "safe":
+      return { prompt: context.exit };
     case "ev":
       return { prompt: pickExpectancyTest(args.ladder, args.fearedOutcome) };
     case "vary": {
@@ -83,6 +86,8 @@ export function captionFor(action: ActionKind, reason: string, context: LadderCo
       return "Moving a little closer.";
     case "selfApproach":
       return "You're stepping closer.";
+    case "safe":
+      return "Safe place. Stay as long as you like.";
     case "ev":
       return "Here's the moment you predicted.";
     case "vary":

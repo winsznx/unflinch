@@ -3,7 +3,7 @@
  "trace": "trace_023",
  "producer": "oracle_controller.py",
  "config": {
-  "cap": 4,
+  "cap": 6,
   "autoMode": true,
   "trialMax": 48,
   "startLevel": 1
@@ -169,7 +169,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 0.6
+     "ageS": 0.156
     },
     "intent": null,
     "queuedIntent": null,
@@ -197,7 +197,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 2.433
+     "ageS": 1.989
     },
     "intent": null,
     "queuedIntent": null,
@@ -225,7 +225,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 5,
-     "ageS": 4.266
+     "ageS": 3.822
     },
     "intent": null,
     "queuedIntent": null,
@@ -253,7 +253,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 5,
-     "ageS": 6.099
+     "ageS": 5.655
     },
     "intent": null,
     "queuedIntent": null,
@@ -281,7 +281,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 5,
-     "ageS": 7.932
+     "ageS": 7.488
     },
     "intent": null,
     "queuedIntent": null,
@@ -309,7 +309,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 5,
-     "ageS": 9.765
+     "ageS": 9.321
     },
     "intent": null,
     "queuedIntent": null,
@@ -337,7 +337,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 5,
-     "ageS": 11.598
+     "ageS": 11.154
     },
     "intent": null,
     "queuedIntent": null,
@@ -365,7 +365,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 13.431
+     "ageS": 12.987
     },
     "intent": null,
     "queuedIntent": null,
@@ -393,7 +393,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 0.156
+     "ageS": 1.412
     },
     "intent": null,
     "queuedIntent": null,
@@ -421,7 +421,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 1.989
+     "ageS": 3.245
     },
     "intent": null,
     "queuedIntent": null,
@@ -449,7 +449,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 3.822
+     "ageS": 5.078
     },
     "intent": null,
     "queuedIntent": null,
@@ -477,7 +477,7 @@
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 3,
-     "ageS": 5.655
+     "ageS": 6.911
     },
     "intent": null,
     "queuedIntent": null,
@@ -505,7 +505,7 @@
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 3,
-     "ageS": 7.488
+     "ageS": 8.744
     },
     "intent": null,
     "queuedIntent": null,
@@ -533,7 +533,7 @@
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 3,
-     "ageS": 9.321
+     "ageS": 10.577
     },
     "intent": null,
     "queuedIntent": null,
@@ -561,7 +561,7 @@
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 3,
-     "ageS": 11.154
+     "ageS": 12.41
     },
     "intent": null,
     "queuedIntent": null,
@@ -589,7 +589,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 12.987
+     "ageS": 14.243
     },
     "intent": null,
     "queuedIntent": null,
@@ -617,7 +617,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 14.82
+     "ageS": 16.076
     },
     "intent": null,
     "queuedIntent": null,
@@ -645,7 +645,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 16.653
+     "ageS": 17.909
     },
     "intent": null,
     "queuedIntent": null,
@@ -673,7 +673,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 18.486
+     "ageS": 19.742
     },
     "intent": null,
     "queuedIntent": null,
@@ -701,7 +701,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 10,
-     "ageS": 1.412
+     "ageS": 1.127
     },
     "intent": null,
     "queuedIntent": null,
@@ -729,7 +729,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 10,
-     "ageS": 3.245
+     "ageS": 2.96
     },
     "intent": null,
     "queuedIntent": null,
@@ -757,7 +757,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 10,
-     "ageS": 5.078
+     "ageS": 4.793
     },
     "intent": null,
     "queuedIntent": null,
@@ -785,7 +785,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 10,
-     "ageS": 6.911
+     "ageS": 6.626
     },
     "intent": null,
     "queuedIntent": null,
@@ -813,7 +813,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 10,
-     "ageS": 8.744
+     "ageS": 8.459
     },
     "intent": null,
     "queuedIntent": null,
@@ -841,7 +841,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 10,
-     "ageS": 10.577
+     "ageS": 10.292
     },
     "intent": null,
     "queuedIntent": null,
@@ -869,7 +869,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 1.127
+     "ageS": 0.743
     },
     "intent": null,
     "queuedIntent": null,
@@ -897,7 +897,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 2.96
+     "ageS": 2.576
     },
     "intent": null,
     "queuedIntent": null,
@@ -925,7 +925,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 4.793
+     "ageS": 4.409
     },
     "intent": null,
     "queuedIntent": null,
@@ -953,7 +953,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 6.626
+     "ageS": 6.242
     },
     "intent": "closer",
     "queuedIntent": null,
@@ -981,7 +981,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 8.459
+     "ageS": 8.075
     },
     "intent": null,
     "queuedIntent": null,
@@ -1009,7 +1009,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 10.292
+     "ageS": 9.908
     },
     "intent": null,
     "queuedIntent": null,
@@ -1037,7 +1037,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 12.125
+     "ageS": 11.741
     },
     "intent": null,
     "queuedIntent": null,
@@ -1315,7 +1315,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 5,
-     "ageS": 0.743
+     "ageS": 0.926
     },
     "intent": null,
     "queuedIntent": null,

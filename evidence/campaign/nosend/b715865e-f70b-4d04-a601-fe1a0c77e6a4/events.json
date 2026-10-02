@@ -1,0 +1,444 @@
+[
+ {
+  "t_ms": 1790890179511,
+  "trial_idx": 1,
+  "kind": "run_started",
+  "payload": {
+   "image": false,
+   "trial": 1,
+   "context": "park",
+   "max_chunks": 2000
+  }
+ },
+ {
+  "t_ms": 1790890183320,
+  "trial_idx": 1,
+  "kind": "first_frame",
+  "payload": {
+   "ms_from_intake": 25233
+  }
+ },
+ {
+  "t_ms": 1790890189787,
+  "trial_idx": 1,
+  "kind": "calibrated",
+  "payload": {
+   "samples": 19,
+   "baseline_bpm": 12
+  }
+ },
+ {
+  "t_ms": 1790890191716,
+  "trial_idx": 1,
+  "kind": "enter",
+  "payload": {
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar trots onto the far end of the lawn and lies down in the grass.",
+   "accepted_ms": 1929
+  }
+ },
+ {
+  "t_ms": 1790890199003,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890199003,
+   "kind": "up",
+   "chunk": 10,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.8,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier lifts its head from the grass and looks toward the camera.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790890210043,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890210043,
+   "kind": "vary",
+   "chunk": 16,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "WINDOW",
+    "therapist": null,
+    "breath_bpm": 12.9,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier scratches behind its ear with a back paw.",
+   "reason": "VARIABILITY",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790890217401,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890217401,
+   "kind": "nudge",
+   "chunk": 20,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "STALL_NUDGE",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790890221011,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890221011,
+   "kind": "vary",
+   "chunk": 22,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier sniffs the grass and takes one step to the side.",
+   "reason": "VARIABILITY",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790890230213,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890230213,
+   "kind": "up",
+   "chunk": 27,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.6,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks slowly to the middle of the lawn and sits down.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790890241269,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890241269,
+   "kind": "up",
+   "chunk": 33,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks closer and stops about three meters from the camera, tail wagging.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 4,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790890252190,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890252190,
+   "kind": "up",
+   "chunk": 39,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.3,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks up to the camera and sniffs near the lens.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 5,
+   "landed_chunk": null,
+   "level_before": 4
+  }
+ },
+ {
+  "t_ms": 1790890263193,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890263193,
+   "kind": "up",
+   "chunk": 45,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.3,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier sits down right beside the camera and looks up, tail wagging slowly.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 6,
+   "landed_chunk": null,
+   "level_before": 5
+  }
+ },
+ {
+  "t_ms": 1790890266857,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890266857,
+   "kind": "ev",
+   "chunk": 47,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": "The dog trots right up to the camera and sits down at the camera's feet, tail wagging.",
+   "reason": "EXPECTANCY_TEST",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 6,
+   "landed_chunk": null,
+   "level_before": 6
+  }
+ },
+ {
+  "t_ms": 1790890277937,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890277937,
+   "kind": "end_trial",
+   "chunk": 53,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.4,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "TRIAL_MAX",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 6,
+   "landed_chunk": null,
+   "level_before": 6
+  }
+ },
+ {
+  "t_ms": 1790890280087,
+  "trial_idx": 1,
+  "kind": "rating",
+  "payload": {
+   "suds": 5,
+   "feeling": null,
+   "happened": "no",
+   "expectancyAfter": 30
+  }
+ },
+ {
+  "t_ms": 1790890282420,
+  "trial_idx": 2,
+  "kind": "end",
+  "payload": {
+   "reason": "USER_END"
+  }
+ },
+ {
+  "t_ms": 1790890284455,
+  "trial_idx": 2,
+  "kind": "run_started",
+  "payload": {
+   "image": false,
+   "trial": 2,
+   "context": "sidewalk",
+   "max_chunks": 2000
+  }
+ },
+ {
+  "t_ms": 1790890294663,
+  "trial_idx": 2,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890294663,
+   "kind": "up",
+   "chunk": 5,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.2,
+    "breath_conf": 0.92
+   },
+   "prompt": "The beagle stands up and looks down the sidewalk toward the camera.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790890305765,
+  "trial_idx": 2,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890305765,
+   "kind": "up",
+   "chunk": 11,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.3,
+    "breath_conf": 0.92
+   },
+   "prompt": "The beagle trots halfway along the sidewalk and stops.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790890316657,
+  "trial_idx": 2,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890316657,
+   "kind": "up",
+   "chunk": 17,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "The beagle walks closer and stops about three meters from the camera, tail wagging.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 4,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790890327765,
+  "trial_idx": 2,
+  "kind": "decision",
+  "payload": {
+   "t": 1790890327765,
+   "kind": "vary",
+   "chunk": 23,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "WINDOW",
+    "therapist": null,
+    "breath_bpm": 12.8,
+    "breath_conf": 0.92
+   },
+   "prompt": "The beagle looks over at a bicycle by the curb.",
+   "reason": "VARIABILITY",
+   "outcome": "not_sent",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 4,
+   "landed_chunk": null,
+   "level_before": 4
+  }
+ },
+ {
+  "t_ms": 1790890333331,
+  "trial_idx": 2,
+  "kind": "recording_uploaded",
+  "payload": {
+   "path": "recordings/b715865e-f70b-4d04-a601-fe1a0c77e6a4/1.webm",
+   "bytes": 23994463,
+   "trial": 1,
+   "sha256": "fe75bcce21596183462d6f5c013eb838df813301dde3bd0a9ace14257d703dba"
+  }
+ }
+]

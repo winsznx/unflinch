@@ -1,6 +1,6 @@
 "use client";
 
-import type { SessionMode, SignalMode } from "@/lib/orbis/receipts";
+import type { Condition, SessionMode, SignalMode } from "@/lib/orbis/receipts";
 
 /**
  * Session secrets live only in the patient's tab (PRD §4.9): the phone and remote keys are minted
@@ -21,6 +21,8 @@ export type LocalSession = {
   seed: number;
   intakeAt: number;
   builderDemo: boolean;
+  /** Set only by the campaign runner (scripts/campaign.ts); sessions from the UI use the product condition. */
+  experiment?: Condition;
 };
 
 const storageKey = (id: string) => `unflinch:session:${id}`;

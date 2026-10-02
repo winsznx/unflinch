@@ -15,7 +15,9 @@
     "build:evidence": "tsx scripts/build-evidence.ts",
     "catalog:generate": "tsx scripts/generate-catalog.ts",
     "test:live": "tsx scripts/live-smoke.ts",
-    "demo:live": "tsx scripts/live-demo.ts"
+    "demo:live": "tsx scripts/live-demo.ts",
+    "campaign": "tsx scripts/campaign.ts",
+    "campaign:export": "tsx scripts/campaign-export.ts"
   },
   "dependencies": {
     "@google/genai": "^2.22.0",

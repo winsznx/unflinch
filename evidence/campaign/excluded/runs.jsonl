@@ -1,0 +1,4 @@
+{"experiment":"safe","condition":{"mode":"morph","prompts":"delta"},"session":"3801a581-d159-4f0f-bab0-93e6390044d0","trial":1,"outcome":"rated","at":"2026-10-01T23:31:41.338Z","base":"http://localhost:3000"}
+{"experiment":"safe","condition":{"mode":"morph","prompts":"delta"},"session":"4a337c1e-66ba-4ab3-a939-a8258b0e69c2","trial":1,"outcome":"rated","at":"2026-10-01T23:34:16.576Z","base":"http://localhost:3000"}
+{"experiment":"safe","condition":{"mode":"morph","prompts":"delta"},"session":"900cf0ba-d61f-4d09-87fe-9f0819bf5a97","trial":1,"outcome":"rated","at":"2026-10-01T23:36:46.829Z","base":"http://localhost:3000"}
+{"experiment":"safe","condition":{"mode":"morph","prompts":"delta"},"session":"2f411faf-9494-4723-b27b-f5fb684adb3e","trial":1,"outcome":"rated","at":"2026-10-01T23:39:18.594Z","base":"http://localhost:3000"}

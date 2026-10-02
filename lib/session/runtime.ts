@@ -6,6 +6,7 @@ import { applyConfig, decide, initialControllerState } from "@/lib/controller/de
 import { checkInvariants } from "@/lib/controller/invariants";
 import { CHUNK_SECONDS, POLICY } from "@/lib/controller/policy";
 import type {
+  ActionKind,
   Arousal,
   ControllerState,
   Decision,
@@ -20,7 +21,9 @@ import { OrbisClient, SDK_VERSION, type ChunkComplete } from "@/lib/orbis/client
 import { captureFrame, sha256OfBlob } from "@/lib/orbis/handoff";
 import { ORBIS_MODEL_NAME } from "@/lib/orbis/model";
 import {
+  PRODUCT_CONDITION,
   RECEIPT_SCHEMA,
+  type Condition,
   type Receipt,
   type ReceiptDecision,
   type ReceiptLabel,
@@ -65,6 +68,7 @@ export type SessionConfig = {
   audio: boolean;
   intakeAt: number | null;
   builderDemo: boolean;
+  condition: Condition;
   /** "Your street": a real place for the final round, opened from the person's (cleaned) photo. */
   place: { context: LadderContext; image: Blob; edited: boolean } | null;
 };
@@ -140,6 +144,8 @@ const WAVE_WINDOW_MS = 30_000;
 const EVENT_FLUSH_MS = 2_000;
 const HEARTBEAT_MS = 60_000;
 const UNLANDED_CHUNKS = 4;
+/** About 7 s of calm in the safe place before the caption invites a return. */
+const SETTLED_CHUNKS = 4;
 
 type PendingSend = {
   decision: ReceiptDecision;
@@ -170,6 +176,13 @@ export class SessionRuntime {
   private receipt: Receipt | null = null;
   private pending: PendingSend[] = [];
   private lastChunk = -1;
+  /** Restart mode starts Orbis's chunk count over on every step; trial chunk = offset + run chunk. */
+  private chunkOffset = 0;
+  /** True while resting in the safe place: generation never paused, so resume mustn't call it. */
+  private orbisRunning = false;
+  /** Consecutive calm chunks while resting in the safe place; at SETTLED_CHUNKS the caption invites a return. */
+  private settledChunks = 0;
+  private restarting = false;
   private lastActivePrompt: string | null = null;
   private lastHoldIndex: number | null = null;
   private generationComplete = false;
@@ -190,6 +203,8 @@ export class SessionRuntime {
   private calibrationStartedAt = 0;
   private sessionDeadline: number | null = null;
   private saved = new Set<number>();
+  /** Uploads still in flight; end() waits for them so a quick End doesn't drop a recording. */
+  private uploads = new Set<Promise<void>>();
 
   constructor(readonly config: SessionConfig) {
     this.context = config.ladder.contexts[0]!;
@@ -252,6 +267,8 @@ export class SessionRuntime {
     const labels: ReceiptLabel[] = ["LIVE"];
     if (this.config.signal === "sim") labels.push("SIMULATED_INPUT");
     if (this.config.builderDemo) labels.push("BUILDER_DEMO");
+    const { mode, prompts } = this.config.condition;
+    if (mode !== PRODUCT_CONDITION.mode || prompts !== PRODUCT_CONDITION.prompts) labels.push("EXPERIMENT");
     return labels;
   }
 
@@ -410,7 +427,7 @@ export class SessionRuntime {
     }
     this.pendingIntent = kind;
     // Pause, resume and end act now rather than waiting for a chunk that may never come.
-    if ((kind === "pause" || kind === "resume" || kind === "end") && this.controller) {
+    if ((kind === "pause" || kind === "resume" || kind === "end" || kind === "safe") && this.controller) {
       void this.tick(null);
     }
   }
@@ -638,11 +655,16 @@ export class SessionRuntime {
     // Chunk indices restart with every run, so chunk-indexed UI timers from the last round must too.
     this.nudgeUntilChunk = -1;
     this.lastChunk = -1;
+    this.chunkOffset = 0;
     this.lastActivePrompt = null;
     this.pending = [];
     this.set({ phase: "priming", trial, context: this.context.id, level: startLevel, cap: capOf(this.context), caption: null, nudge: false });
 
     const run = await client.startRun({ prompt, seed: this.config.seed, image, audio: this.config.audio });
+    if (this.ending) {
+      await client.reset().catch(() => undefined);
+      return;
+    }
     this.trialStartedAt = now();
     this.receipt = this.newReceipt(trial, startLevel, prompt, image ? await sha256OfBlob(image) : null, run.maxChunks, run.resolution);
     if (this.config.consent && this.snap.stream && TrialRecorder.supported()) this.recorder.start(this.snap.stream);
@@ -667,8 +689,9 @@ export class SessionRuntime {
   /** After calibration the subject arrives by action; that send opens trial 1. */
   private async enterSubject() {
     if (!this.client || !this.receipt) return;
-    const prompt = this.context.enter;
-    if (lintPrompt(prompt, "transition").length) {
+    const restated = this.restated("up", 1, this.context.enter);
+    const prompt = restated ?? this.context.enter;
+    if (lintPrompt(prompt, restated ? "absolute" : "transition").length) {
       await this.fail(new Error("Enter prompt failed lint"));
       return;
     }
@@ -682,7 +705,7 @@ export class SessionRuntime {
     this.receipt.decisions.push(record);
     this.beginController(1, this.receipt.max_chunks);
     this.controller = { ...this.controller!, lastSendChunk: chunk };
-    await this.send(record, prompt);
+    await this.send(record, prompt, true);
     this.log("enter", { prompt, accepted_ms: record.accepted_ms });
   }
 
@@ -750,6 +773,7 @@ export class SessionRuntime {
           trial === 1 && this.firstFrameAt && this.config.intakeAt ? this.firstFrameAt - this.config.intakeAt : null,
       },
       labels: this.labels(),
+      condition: this.config.condition,
       ended_by: null,
     };
   }
@@ -781,9 +805,13 @@ export class SessionRuntime {
     };
   }
 
-  private async onChunk(chunk: ChunkComplete) {
+  private async onChunk(runChunk: ChunkComplete) {
+    if (this.restarting) return;
+    const chunk = { ...runChunk, chunkIndex: this.chunkOffset + runChunk.chunkIndex };
     this.lastChunk = chunk.chunkIndex;
-    if (this.receipt) {
+    // Between rounds the next run's first chunks can arrive before its receipt exists; they must not
+    // land in the previous round's receipt (which an upload may re-save later).
+    if (this.receipt && ["priming", "calibrating", "trial", "paused"].includes(this.snap.phase)) {
       this.receipt.chunks.push({
         i: chunk.chunkIndex,
         t: now(),
@@ -801,6 +829,7 @@ export class SessionRuntime {
     }
     this.trackLanding(chunk);
     if (this.snap.phase === "trial") await this.tick(chunk);
+    else if (this.snap.phase === "paused" && this.orbisRunning) this.watchSafePlace();
   }
 
   /** Executed = first chunk with a changed active_prompt; without it, the boundary after the ack (inferred). */
@@ -889,7 +918,9 @@ export class SessionRuntime {
         this.pendingDeepened = false;
       }
       if (choice?.holdIndex !== undefined) this.lastHoldIndex = choice.holdIndex;
-      if (prompt && lintPrompt(prompt, "transition").length) {
+      const restated = prompt ? this.restated(decision.action, decision.levelAfter, prompt) : null;
+      if (restated) prompt = restated;
+      if (prompt && lintPrompt(prompt, restated ? "absolute" : "transition").length) {
         this.receipt.invariant_violations.push({ id: "INV7", chunk: chunkIndex, detail: "prompt failed lint; not sent" });
         prompt = null;
       }
@@ -922,11 +953,31 @@ export class SessionRuntime {
 
     if (prompt) await this.send(record, prompt);
     if (decision.action === "pause") await this.pauseRun();
+    if (decision.action === "safe") this.restInSafePlace();
     if (decision.action === "resume") await this.resumeRun();
     if (decision.action === "end_trial") await this.finalizeTrial(decision.reason);
   }
 
-  private async send(record: ReceiptDecision, prompt: string) {
+  /**
+   * Restate and restart conditions send the target level's full scene. A level move lands on that
+   * level's state; an expectancy test or variation keeps the current state and adds its action.
+   */
+  private restated(action: ActionKind, levelAfter: number, transition: string): string | null {
+    const { mode, prompts } = this.config.condition;
+    if (mode !== "restart" && prompts !== "restate") return null;
+    const state = absolutePrompt(this.context, levelAfter);
+    return action === "ev" || action === "vary" ? `${state} ${transition}` : state;
+  }
+
+  private async send(record: ReceiptDecision, prompt: string, setup = false) {
+    if (this.config.condition.mode === "nosend" && !setup) {
+      record.outcome = "not_sent";
+      return;
+    }
+    if (this.config.condition.mode === "restart") {
+      await this.restart(record, prompt);
+      return;
+    }
     const client = this.client!;
     const pending: PendingSend = { decision: record, ackedAtChunk: null, activeBefore: this.lastActivePrompt };
     this.pending.push(pending);
@@ -946,6 +997,33 @@ export class SessionRuntime {
     }
   }
 
+  /** E4 baseline: re-render from the last frame with an absolute prompt. Every restart is a new run. */
+  private async restart(record: ReceiptDecision, prompt: string) {
+    const client = this.client!;
+    const sentAt = now();
+    this.restarting = true;
+    const frame = this.video ? await captureFrame(this.video).catch(() => null) : null;
+    this.chunkOffset = this.lastChunk + 1;
+    try {
+      await client.reset();
+      await client.startRun({ prompt, seed: this.config.seed, image: frame, audio: this.config.audio });
+      record.accepted_ms = Math.round(now() - sentAt);
+      record.landed_chunk = this.chunkOffset;
+      record.landed_by = "restart";
+      record.outcome = "executed";
+      this.log("restart", { chunk: record.chunk, ms: record.accepted_ms, image: Boolean(frame) });
+    } catch (error) {
+      record.outcome = "unacked";
+      this.log("restart_failed", { error: error instanceof Error ? error.message : String(error) });
+      this.set({ error: "The scene didn't restart. Pausing so you stay in control." });
+      this.intent("pause");
+    } finally {
+      this.generationComplete = false;
+      this.lastActivePrompt = null;
+      this.restarting = false;
+    }
+  }
+
   private async pauseRun() {
     this.pausedAt = now();
     this.set({ phase: "paused", caption: "Take your time. Resume when ready." });
@@ -953,10 +1031,38 @@ export class SessionRuntime {
     this.broadcastState();
   }
 
+  /**
+   * Never resumes by itself: going back is the person's choice. Once breath (or a recent rating) has
+   * stayed calm for SETTLED_CHUNKS, the caption says so.
+   */
+  private watchSafePlace() {
+    const t = now();
+    const arousal = this.classifier ? this.classifier.classify(this.latestBreath, t) : "UNKNOWN";
+    const sudsCalm = this.latestSuds !== null && this.latestSuds.v <= 4 && t - this.latestSuds.t < 30_000;
+    const calm = arousal === "LOW" || arousal === "WINDOW" || sudsCalm;
+    this.settledChunks = calm ? this.settledChunks + 1 : 0;
+    if (this.settledChunks === SETTLED_CHUNKS) {
+      this.set({ caption: "You look settled. Resume when you're ready." });
+      this.log("safe_settled", { chunk: this.lastChunk });
+    }
+  }
+
+  /** The controller is paused but Orbis keeps rendering, so the person rests in a live, empty scene. */
+  private restInSafePlace() {
+    this.pausedAt = now();
+    this.orbisRunning = true;
+    this.settledChunks = 0;
+    this.set({ phase: "paused", caption: "Safe place. Stay as long as you like." });
+    this.broadcastState();
+  }
+
   private async resumeRun() {
     this.pausedAt = null;
     this.set({ phase: "trial", caption: null });
-    await this.client?.resume().catch((error: unknown) => this.log("resume_failed", { error: String(error) }));
+    if (!this.orbisRunning) {
+      await this.client?.resume().catch((error: unknown) => this.log("resume_failed", { error: String(error) }));
+    }
+    this.orbisRunning = false;
     this.broadcastState();
   }
 
@@ -974,7 +1080,7 @@ export class SessionRuntime {
       maxLevel: Math.max(receipt.start.level, ...receipt.decisions.map((d) => d.level_after)),
       cap: capOf(this.context),
       secondsAtLevel,
-      retreats: receipt.decisions.filter((d) => d.kind === "down").map((d) => ({ reason: d.reason, chunk: d.chunk })),
+      retreats: receipt.decisions.filter((d) => d.kind === "down" || d.kind === "safe").map((d) => ({ reason: d.reason, chunk: d.chunk })),
       expectancyBefore: receipt.ratings.expectancy_before,
       expectancyAfter: receipt.ratings.expectancy_after,
       happened: receipt.ratings.happened,
@@ -992,17 +1098,23 @@ export class SessionRuntime {
     await this.client?.pause().catch(() => undefined);
     if (this.video) this.lastFrame = await captureFrame(this.video).catch(() => null);
     const recording = await this.recorder.stop().catch(() => null);
-    if (recording) {
-      this.receipt.recording = { path: "", sha256: recording.sha256, bytes: recording.bytes };
-      void this.upload(this.receipt, recording.blob);
-    }
+    if (recording) this.receipt.recording = { path: "", sha256: recording.sha256, bytes: recording.bytes };
     if (reason === "CONNECTION_LOST") {
-      void this.saveTrial(this.receipt);
+      const receipt = this.receipt;
+      const saved = this.saveTrial(receipt).then(() => (recording ? this.upload(receipt, recording.blob) : undefined));
+      this.track(saved);
+      await saved;
       return;
     }
+    if (recording) this.track(this.upload(this.receipt, recording.blob));
     this.ratingShownAt = now();
     this.set({ phase: "rating" });
     this.broadcastState();
+  }
+
+  private track(upload: Promise<void>) {
+    this.uploads.add(upload);
+    void upload.finally(() => this.uploads.delete(upload));
   }
 
   private async upload(receipt: Receipt, blob: Blob) {
@@ -1060,8 +1172,12 @@ export class SessionRuntime {
       return;
     }
     try {
+      // Detach the finished round's receipt so the next run's first chunks can't land in it.
+      this.receipt = null;
       this.set({ phase: "priming", caption: null });
       await this.client!.reset();
+      // End can land while the next round is being prepared; don't start a round nobody will see.
+      if (this.ending) return;
       await this.startTrialRun(receipt.trial + 1, false);
     } catch (error) {
       await this.fail(error);
@@ -1089,16 +1205,20 @@ export class SessionRuntime {
     this.ending = true;
     this.log("end", { reason });
     const unsaved = this.receipt && !this.saved.has(this.receipt.trial);
+    let recording: Awaited<ReturnType<TrialRecorder["stop"]>> = null;
     if (this.receipt && unsaved && ["trial", "paused", "calibrating", "priming"].includes(this.snap.phase)) {
       this.receipt.ended_by = reason === "SESSION_CAP" ? "SESSION_CAP" : "USER_END";
-      const recording = await this.recorder.stop().catch(() => null);
+      recording = await this.recorder.stop().catch(() => null);
       if (recording) this.receipt.recording = { path: "", sha256: recording.sha256, bytes: recording.bytes };
     }
     // A round that ended but was never rated still gets its receipt, with ratings left empty.
     if (this.receipt && unsaved && ["trial", "paused", "calibrating", "priming", "rating", "handoff"].includes(this.snap.phase)) {
       const trialId = await this.saveTrial(this.receipt);
       this.set({ summaries: [...this.snap.summaries, this.summarize(this.receipt, trialId)] });
+      // Uploaded after the save so the re-save in upload() attaches the path to a stored receipt.
+      if (recording) await this.upload(this.receipt, recording.blob);
     }
+    await Promise.allSettled([...this.uploads]);
     await this.teardown();
     this.set({ phase: this.snap.summaries.length ? "report" : "ended", caption: null });
   }

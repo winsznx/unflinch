@@ -117,7 +117,7 @@ export function Report({ snap, local }: { snap: Snapshot; local: LocalSession })
           Export JSON
         </button>
         <button type="button" className="m-button m-button-secondary" onClick={() => window.print()}>
-          Print therapist note
+          Print or save as PDF
         </button>
         <Link className="m-button m-button-secondary" href={`/runs/${local.id}`}>
           Open the run receipt

@@ -25,10 +25,12 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-# Calibrated before scoring morph runs and must not change after. 0.5 is a
-# provisional value until `--calibrate` runs on the known-cut set; record the
-# calibration output and the commit that froze this value in evidence/ablation/.
-FROZEN_THRESHOLD = 0.5
+# Frozen on 2026-10-01 from `tools/campaign_report.py calibrate` (evidence/ablation/calibration.json):
+# 10 spliced same-scene clips against 2,814 continuous frames. The ranges overlap, so this is the
+# value with the fewest misclassifications: it catches 7 of 10 same-scene splices and flags no
+# continuous frame. Cuts between similar views of one scene can still pass under it. Must not
+# change after scoring.
+FROZEN_THRESHOLD = 0.8171
 
 H_BINS, S_BINS, V_BINS = 32, 16, 8
 

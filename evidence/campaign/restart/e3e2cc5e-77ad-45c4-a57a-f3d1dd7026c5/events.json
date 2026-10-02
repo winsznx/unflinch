@@ -1,0 +1,1006 @@
+[
+ {
+  "t_ms": 1790888324189,
+  "trial_idx": 1,
+  "kind": "run_started",
+  "payload": {
+   "image": false,
+   "trial": 1,
+   "context": "park",
+   "max_chunks": 2000
+  }
+ },
+ {
+  "t_ms": 1790888327957,
+  "trial_idx": 1,
+  "kind": "first_frame",
+  "payload": {
+   "ms_from_intake": 29362
+  }
+ },
+ {
+  "t_ms": 1790888334981,
+  "trial_idx": 1,
+  "kind": "calibrated",
+  "payload": {
+   "samples": 20,
+   "baseline_bpm": 12
+  }
+ },
+ {
+  "t_ms": 1790888338563,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888343761,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 8779,
+   "chunk": 5,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888343761,
+  "trial_idx": 1,
+  "kind": "enter",
+  "payload": {
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar lies in the grass at the far end of the lawn in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "accepted_ms": 8779
+  }
+ },
+ {
+  "t_ms": 1790888344522,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888347300,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888347300,
+   "kind": "selfApproach",
+   "chunk": 7,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits at the far end of the lawn, looking toward the camera in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790888350718,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888353212,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 5912,
+   "chunk": 7,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888356670,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888356670,
+   "kind": "selfApproach",
+   "chunk": 9,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits in the middle of the lawn in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888357717,
+  "trial_idx": 1,
+  "kind": "sim",
+  "payload": {
+   "mode": "spike"
+  }
+ },
+ {
+  "t_ms": 1790888363758,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 7087,
+   "chunk": 9,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888367124,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888367124,
+   "kind": "down",
+   "chunk": 11,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "OVERLOAD",
+    "therapist": null,
+    "breath_bpm": 26.7,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits at the far end of the lawn, looking toward the camera in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "CEILING_BODY",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790888373458,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 6334,
+   "chunk": 11,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888375562,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888376910,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888376910,
+   "kind": "hold",
+   "chunk": 13,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.2,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888378523,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888378523,
+   "kind": "hold",
+   "chunk": 14,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.3,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888380386,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888380386,
+   "kind": "hold",
+   "chunk": 15,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.2,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888381505,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888382191,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888382191,
+   "kind": "hold",
+   "chunk": 16,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.5,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888384075,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888384075,
+   "kind": "selfApproach",
+   "chunk": 17,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits in the middle of the lawn in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888387640,
+  "trial_idx": 1,
+  "kind": "suds",
+  "payload": {
+   "v": 9
+  }
+ },
+ {
+  "t_ms": 1790888391765,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 7690,
+   "chunk": 17,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888395244,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888395244,
+   "kind": "down",
+   "chunk": 19,
+   "inputs": {
+    "suds": 9,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits at the far end of the lawn, looking toward the camera in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "CEILING_SUDS",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790888395710,
+  "trial_idx": 1,
+  "kind": "suds",
+  "payload": {
+   "v": 2
+  }
+ },
+ {
+  "t_ms": 1790888401072,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 5828,
+   "chunk": 19,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888401661,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888404644,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888404644,
+   "kind": "hold",
+   "chunk": 21,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888406143,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888406143,
+   "kind": "hold",
+   "chunk": 22,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 13,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888407611,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888407957,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888407957,
+   "kind": "hold",
+   "chunk": 23,
+   "inputs": {
+    "suds": 2,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.8,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888409783,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888409783,
+   "kind": "hold",
+   "chunk": 24,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888411613,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888411613,
+   "kind": "selfApproach",
+   "chunk": 25,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.9,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits in the middle of the lawn in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888413489,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888419690,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790888419953,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 8340,
+   "chunk": 25,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888423403,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888423403,
+   "kind": "selfApproach",
+   "chunk": 27,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.8,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar stands about three meters from the camera, tail wagging in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 4,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790888429127,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 5723,
+   "chunk": 27,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888439718,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888439718,
+   "kind": "up",
+   "chunk": 33,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.6,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sniffs near the camera lens in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 5,
+   "landed_chunk": null,
+   "level_before": 4
+  }
+ },
+ {
+  "t_ms": 1790888447334,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 7616,
+   "chunk": 33,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888457900,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888457900,
+   "kind": "vary",
+   "chunk": 39,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "WINDOW",
+    "therapist": null,
+    "breath_bpm": 12.8,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sniffs near the camera lens in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field. The terrier scratches behind its ear with a back paw.",
+   "reason": "VARIABILITY",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 5,
+   "landed_chunk": null,
+   "level_before": 5
+  }
+ },
+ {
+  "t_ms": 1790888464879,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 6979,
+   "chunk": 39,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888471802,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888471802,
+   "kind": "nudge",
+   "chunk": 43,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.2,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "STALL_NUDGE",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 5,
+   "landed_chunk": null,
+   "level_before": 5
+  }
+ },
+ {
+  "t_ms": 1790888475451,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888475451,
+   "kind": "vary",
+   "chunk": 45,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.1,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sniffs near the camera lens in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field. The terrier sniffs the grass and takes one step to the side.",
+   "reason": "VARIABILITY",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 5,
+   "landed_chunk": null,
+   "level_before": 5
+  }
+ },
+ {
+  "t_ms": 1790888483086,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 7635,
+   "chunk": 45,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888486566,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888486566,
+   "kind": "up",
+   "chunk": 47,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits right beside the camera, looking up in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 6,
+   "landed_chunk": null,
+   "level_before": 5
+  }
+ },
+ {
+  "t_ms": 1790888492479,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 5913,
+   "chunk": 47,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888495965,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888495965,
+   "kind": "ev",
+   "chunk": 49,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar sits right beside the camera, looking up in a quiet city park in warm late-afternoon light, plane trees behind it. Wide shot, eye-level, static camera, deep depth of field. The dog trots right up to the camera and sits down at the camera's feet, tail wagging.",
+   "reason": "EXPECTANCY_TEST",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 6,
+   "landed_chunk": null,
+   "level_before": 6
+  }
+ },
+ {
+  "t_ms": 1790888502904,
+  "trial_idx": 1,
+  "kind": "restart",
+  "payload": {
+   "ms": 6939,
+   "chunk": 49,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888511673,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888511673,
+   "kind": "end_trial",
+   "chunk": 54,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "TRIAL_MAX",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 6,
+   "landed_chunk": null,
+   "level_before": 6
+  }
+ },
+ {
+  "t_ms": 1790888513753,
+  "trial_idx": 1,
+  "kind": "rating",
+  "payload": {
+   "suds": 2,
+   "feeling": null,
+   "happened": "no",
+   "expectancyAfter": 30
+  }
+ },
+ {
+  "t_ms": 1790888515287,
+  "trial_idx": 1,
+  "kind": "end",
+  "payload": {
+   "reason": "USER_END"
+  }
+ },
+ {
+  "t_ms": 1790888518015,
+  "trial_idx": 2,
+  "kind": "run_started",
+  "payload": {
+   "image": false,
+   "trial": 2,
+   "context": "sidewalk",
+   "max_chunks": 2000
+  }
+ },
+ {
+  "t_ms": 1790888530117,
+  "trial_idx": 2,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888530117,
+   "kind": "vary",
+   "chunk": 6,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.4,
+    "breath_conf": 0.92
+   },
+   "prompt": "A medium tricolor beagle with long floppy ears sits beside the garden gate far down the sidewalk on a quiet residential sidewalk on a bright morning, a brick wall and garden gate beside it. Wide shot, eye-level, static camera, deep depth of field. The beagle looks over at a bicycle by the curb.",
+   "reason": "VARIABILITY",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 1,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790888540185,
+  "trial_idx": 2,
+  "kind": "restart",
+  "payload": {
+   "ms": 10068,
+   "chunk": 6,
+   "image": true
+  }
+ },
+ {
+  "t_ms": 1790888547120,
+  "trial_idx": 2,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888547120,
+   "kind": "up",
+   "chunk": 10,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.2,
+    "breath_conf": 0.92
+   },
+   "prompt": "A medium tricolor beagle with long floppy ears stands by the garden gate far down the sidewalk, looking toward the camera on a quiet residential sidewalk on a bright morning, a brick wall and garden gate beside it. Wide shot, eye-level, static camera, deep depth of field.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790888557283,
+  "trial_idx": 2,
+  "kind": "reactor_error",
+  "payload": {
+   "message": "DISCONNECTED: peer connection state: Disconnected"
+  }
+ },
+ {
+  "t_ms": 1790888557286,
+  "trial_idx": 2,
+  "kind": "reactor_error",
+  "payload": {
+   "message": "DISCONNECTED: command 'set_seed' failed (DISCONNECTED): disconnected (request_id=data_113)"
+  }
+ },
+ {
+  "t_ms": 1790888557288,
+  "trial_idx": 2,
+  "kind": "restart_failed",
+  "payload": {
+   "error": "invalid state: operation requires ready status, currently disconnected"
+  }
+ },
+ {
+  "t_ms": 1790888557288,
+  "trial_idx": 2,
+  "kind": "intent",
+  "payload": {
+   "kind": "pause"
+  }
+ },
+ {
+  "t_ms": 1790888557288,
+  "trial_idx": 2,
+  "kind": "decision",
+  "payload": {
+   "t": 1790888557288,
+   "kind": "pause",
+   "chunk": 10,
+   "inputs": {
+    "suds": 2,
+    "intent": "pause",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.4,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "PAUSE",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790888557291,
+  "trial_idx": 2,
+  "kind": "reactor_error",
+  "payload": {
+   "message": "INVALID_STATE: invalid state: operation requires ready status, currently disconnected"
+  }
+ },
+ {
+  "t_ms": 1790888571805,
+  "trial_idx": 2,
+  "kind": "recording_uploaded",
+  "payload": {
+   "path": "recordings/e3e2cc5e-77ad-45c4-a57a-f3d1dd7026c5/1.webm",
+   "bytes": 20128573,
+   "trial": 1,
+   "sha256": "682222d247d51580d6876634f7c770f6b8ed433328462ca23414f8dcb4ea2fe9"
+  }
+ }
+]

@@ -1,0 +1,81 @@
+{
+ "threshold": 0.8171,
+ "cuts": {
+  "e3": {
+   "trials": 3,
+   "trials_with_cuts": 2,
+   "cuts": 4,
+   "restarts": 0
+  },
+  "morph": {
+   "trials": 9,
+   "trials_with_cuts": 4,
+   "cuts": 10,
+   "restarts": 0
+  },
+  "nosend": {
+   "trials": 3,
+   "trials_with_cuts": 1,
+   "cuts": 1,
+   "restarts": 0
+  },
+  "restart": {
+   "trials": 4,
+   "trials_with_cuts": 4,
+   "cuts": 4,
+   "restarts": 48
+  },
+  "restate": {
+   "trials": 4,
+   "trials_with_cuts": 2,
+   "cuts": 3,
+   "restarts": 0
+  },
+  "safe": {
+   "trials": 4,
+   "trials_with_cuts": 2,
+   "cuts": 3,
+   "restarts": 0
+  }
+ },
+ "ceiling_retreats_morph": {
+  "n": 25,
+  "median_landed_chunks": 3,
+  "p90_landed_chunks": 3.0,
+  "median_input_to_decision_ms": 3990,
+  "landed_by": [
+   "next_boundary"
+  ]
+ },
+ "accept_ms": {
+  "e3": 1842,
+  "morph": 1837,
+  "nosend": 1772.5,
+  "restart": 5822,
+  "restate": 1830.5,
+  "safe": 1833.0
+ },
+ "nosend": {
+  "trials": 4,
+  "rated": 0
+ },
+ "approach_requests": {
+  "n": 117,
+  "honored": 95,
+  "median_honor_delay_ms": 1022,
+  "deferred": 2,
+  "median_deferred_delay_ms": 4828.5,
+  "deferred_by_reason": {
+   "COOLDOWN": 2
+  },
+  "refused_by_reason": {
+   "AT_CAP": 20
+  }
+ },
+ "safe_place": {
+  "n": 8,
+  "median_input_to_decision_ms": 0.0,
+  "median_accepted_ms": 815.0,
+  "median_landed_chunks": 3.0
+ }
+}

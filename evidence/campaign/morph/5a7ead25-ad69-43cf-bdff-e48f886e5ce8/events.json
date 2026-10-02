@@ -1,0 +1,639 @@
+[
+ {
+  "t_ms": 1790887818229,
+  "trial_idx": 1,
+  "kind": "run_started",
+  "payload": {
+   "image": false,
+   "trial": 1,
+   "context": "park",
+   "max_chunks": 2000
+  }
+ },
+ {
+  "t_ms": 1790887821951,
+  "trial_idx": 1,
+  "kind": "first_frame",
+  "payload": {
+   "ms_from_intake": 29883
+  }
+ },
+ {
+  "t_ms": 1790887828362,
+  "trial_idx": 1,
+  "kind": "calibrated",
+  "payload": {
+   "samples": 19,
+   "baseline_bpm": 12
+  }
+ },
+ {
+  "t_ms": 1790887831494,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790887832064,
+  "trial_idx": 1,
+  "kind": "prompt_unacked",
+  "payload": {
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar trots onto the far end of the lawn and lies down in the grass.",
+   "reason": "Timed out waiting for prompt_accepted"
+  }
+ },
+ {
+  "t_ms": 1790887832324,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887832324,
+   "kind": "selfApproach",
+   "chunk": 7,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.4,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier lifts its head from the grass and looks toward the camera.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790887832337,
+  "trial_idx": 1,
+  "kind": "enter",
+  "payload": {
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar trots onto the far end of the lawn and lies down in the grass.",
+   "accepted_ms": 274
+  }
+ },
+ {
+  "t_ms": 1790887837648,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790887837808,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887837808,
+   "kind": "selfApproach",
+   "chunk": 10,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks slowly to the middle of the lawn and sits down.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887843523,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790887845131,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887845131,
+   "kind": "selfApproach",
+   "chunk": 14,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks closer and stops about three meters from the camera, tail wagging.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 4,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790887850438,
+  "trial_idx": 1,
+  "kind": "sim",
+  "payload": {
+   "mode": "spike"
+  }
+ },
+ {
+  "t_ms": 1790887854428,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887854428,
+   "kind": "down",
+   "chunk": 19,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "OVERLOAD",
+    "therapist": null,
+    "breath_bpm": 25.1,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier trots back to the middle of the lawn and lies down.",
+   "reason": "CEILING_BODY",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 4
+  }
+ },
+ {
+  "t_ms": 1790887857983,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887857983,
+   "kind": "hold",
+   "chunk": 21,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "OVERLOAD",
+    "therapist": null,
+    "breath_bpm": 26.4,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790887859845,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887859845,
+   "kind": "hold",
+   "chunk": 22,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "OVERLOAD",
+    "therapist": null,
+    "breath_bpm": 27.6,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790887861635,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887861635,
+   "kind": "hold",
+   "chunk": 23,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "OVERLOAD",
+    "therapist": null,
+    "breath_bpm": 28.2,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790887863487,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887863487,
+   "kind": "hold",
+   "chunk": 24,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "OVERLOAD",
+    "therapist": null,
+    "breath_bpm": 26.8,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790887865313,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887865313,
+   "kind": "down",
+   "chunk": 25,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "OVERLOAD",
+    "therapist": null,
+    "breath_bpm": 28.3,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks back to the far end of the lawn and sits down.",
+   "reason": "CEILING_BODY",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790887868599,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790887868992,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887868992,
+   "kind": "hold",
+   "chunk": 27,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.3,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887870828,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887870828,
+   "kind": "hold",
+   "chunk": 28,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887872638,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887872638,
+   "kind": "hold",
+   "chunk": 29,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887874480,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790887874488,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887874488,
+   "kind": "hold",
+   "chunk": 30,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.3,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887876368,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887876368,
+   "kind": "selfApproach",
+   "chunk": 31,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.4,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks slowly to the middle of the lawn and sits down.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887880601,
+  "trial_idx": 1,
+  "kind": "suds",
+  "payload": {
+   "v": 9
+  }
+ },
+ {
+  "t_ms": 1790887881905,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887881905,
+   "kind": "down",
+   "chunk": 34,
+   "inputs": {
+    "suds": 9,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.8,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks back to the far end of the lawn and sits down.",
+   "reason": "CEILING_SUDS",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790887885600,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887885600,
+   "kind": "hold",
+   "chunk": 36,
+   "inputs": {
+    "suds": 9,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.2,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887887470,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887887470,
+   "kind": "hold",
+   "chunk": 37,
+   "inputs": {
+    "suds": 9,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.4,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887888550,
+  "trial_idx": 1,
+  "kind": "suds",
+  "payload": {
+   "v": 2
+  }
+ },
+ {
+  "t_ms": 1790887889137,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887889137,
+   "kind": "hold",
+   "chunk": 38,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887890978,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790887890978,
+   "kind": "hold",
+   "chunk": 39,
+   "inputs": {
+    "suds": 2,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.8,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "COOLDOWN",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790887892333,
+  "trial_idx": 1,
+  "kind": "connection_lost",
+  "payload": {}
+ },
+ {
+  "t_ms": 1790887892333,
+  "trial_idx": 1,
+  "kind": "reactor_error",
+  "payload": {
+   "message": "DISCONNECTED: peer connection state: Disconnected"
+  }
+ },
+ {
+  "t_ms": 1790887892336,
+  "trial_idx": 1,
+  "kind": "reactor_error",
+  "payload": {
+   "message": "INVALID_STATE: invalid state: operation requires ready status, currently disconnected"
+  }
+ },
+ {
+  "t_ms": 1790887952202,
+  "trial_idx": 1,
+  "kind": "recording_uploaded",
+  "payload": {
+   "path": "recordings/5a7ead25-ad69-43cf-bdff-e48f886e5ce8/1.webm",
+   "bytes": 16545406,
+   "trial": 1,
+   "sha256": "aedb265c4d0b06b357da6aa7c91f542e1bc09148c12342630d8c1563ad3edf46"
+  }
+ }
+]

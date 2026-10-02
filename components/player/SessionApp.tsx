@@ -5,6 +5,7 @@ import QRCode from "qrcode";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 
 import type { Ladder, LadderContext, LadderSource } from "@/lib/ladder/schema";
+import { PRODUCT_CONDITION } from "@/lib/orbis/receipts";
 import { loadLocalSession, type LocalSession } from "@/lib/session/local";
 import { dataUrlToBlob, loadPhoto } from "@/lib/session/photo";
 import { SessionRuntime, type SessionConfig } from "@/lib/session/runtime";
@@ -36,9 +37,12 @@ function planLine(ladder: Ladder, withPlace: boolean): string {
 }
 
 export function SessionApp({ id }: { id: string }) {
-  const [local] = useState<LocalSession | null | undefined>(() =>
-    typeof window === "undefined" ? undefined : loadLocalSession(id),
-  );
+  // Session keys live in sessionStorage, which the server can't see. Both renders start empty and the
+  // browser reads storage after hydration, so server and client markup match.
+  const [local, setLocal] = useState<LocalSession | null | undefined>(undefined);
+  useEffect(() => {
+    setLocal(loadLocalSession(id));
+  }, [id]);
   const [plan, setPlan] = useState<Plan | null>(null);
   const [planError, setPlanError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
@@ -199,6 +203,7 @@ function Live({ local, plan, place }: { local: LocalSession; plan: Plan; place: 
       audio: local.audio,
       intakeAt: local.intakeAt,
       builderDemo: local.builderDemo,
+      condition: local.experiment ?? PRODUCT_CONDITION,
       place: place.status === "ready" ? { context: place.context, image: place.image, edited: place.edited } : null,
     }),
     [local, plan, place],

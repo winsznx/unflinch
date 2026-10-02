@@ -1,0 +1,503 @@
+[
+ {
+  "t_ms": 1790899683760,
+  "trial_idx": 1,
+  "kind": "run_started",
+  "payload": {
+   "image": false,
+   "trial": 1,
+   "context": "park",
+   "max_chunks": 2000
+  }
+ },
+ {
+  "t_ms": 1790899687467,
+  "trial_idx": 1,
+  "kind": "first_frame",
+  "payload": {
+   "ms_from_intake": 22043
+  }
+ },
+ {
+  "t_ms": 1790899694571,
+  "trial_idx": 1,
+  "kind": "calibrated",
+  "payload": {
+   "samples": 20,
+   "baseline_bpm": 12
+  }
+ },
+ {
+  "t_ms": 1790899696011,
+  "trial_idx": 1,
+  "kind": "enter",
+  "payload": {
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar trots onto the far end of the lawn and lies down in the grass.",
+   "accepted_ms": 1438
+  }
+ },
+ {
+  "t_ms": 1790899698141,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790899699704,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899699704,
+   "kind": "selfApproach",
+   "chunk": 8,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier lifts its head from the grass and looks toward the camera.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790899704264,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790899705185,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899705185,
+   "kind": "selfApproach",
+   "chunk": 11,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.2,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks slowly to the middle of the lawn and sits down.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790899710128,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790899710687,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899710687,
+   "kind": "selfApproach",
+   "chunk": 14,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.6,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks closer and stops about three meters from the camera, tail wagging.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "acknowledged",
+   "landed_by": null,
+   "accepted_ms": 1841,
+   "level_after": 4,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790899717265,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "safe"
+  }
+ },
+ {
+  "t_ms": 1790899717265,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899717265,
+   "kind": "safe",
+   "chunk": 17,
+   "inputs": {
+    "suds": null,
+    "intent": "safe",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier gets up and walks out of frame behind the trees.",
+   "reason": "PATIENT_SAFE",
+   "outcome": "acknowledged",
+   "landed_by": null,
+   "accepted_ms": 776,
+   "level_after": 0,
+   "landed_chunk": null,
+   "level_before": 4
+  }
+ },
+ {
+  "t_ms": 1790899725391,
+  "trial_idx": 1,
+  "kind": "safe_settled",
+  "payload": {
+   "chunk": 22
+  }
+ },
+ {
+  "t_ms": 1790899735119,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "resume"
+  }
+ },
+ {
+  "t_ms": 1790899735119,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899735119,
+   "kind": "resume",
+   "chunk": 27,
+   "inputs": {
+    "suds": null,
+    "intent": "resume",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.5,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "RESUME",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 0,
+   "landed_chunk": null,
+   "level_before": 0
+  }
+ },
+ {
+  "t_ms": 1790899736353,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899736353,
+   "kind": "nudge",
+   "chunk": 28,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.6,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "STALL_NUDGE",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 0,
+   "landed_chunk": null,
+   "level_before": 0
+  }
+ },
+ {
+  "t_ms": 1790899739216,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790899740021,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899740021,
+   "kind": "selfApproach",
+   "chunk": 30,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar trots onto the far end of the lawn and lies down in the grass.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 1,
+   "landed_chunk": null,
+   "level_before": 0
+  }
+ },
+ {
+  "t_ms": 1790899745327,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790899745534,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899745534,
+   "kind": "selfApproach",
+   "chunk": 33,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.4,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier lifts its head from the grass and looks toward the camera.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 2,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790899751193,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "closer"
+  }
+ },
+ {
+  "t_ms": 1790899752854,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899752854,
+   "kind": "selfApproach",
+   "chunk": 37,
+   "inputs": {
+    "suds": null,
+    "intent": "closer",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 11.7,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier walks slowly to the middle of the lawn and sits down.",
+   "reason": "PATIENT_CLOSER",
+   "outcome": "requested",
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 3,
+   "landed_chunk": null,
+   "level_before": 2
+  }
+ },
+ {
+  "t_ms": 1790899758084,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "safe"
+  }
+ },
+ {
+  "t_ms": 1790899758084,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899758084,
+   "kind": "safe",
+   "chunk": 39,
+   "inputs": {
+    "suds": null,
+    "intent": "safe",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.2,
+    "breath_conf": 0.92
+   },
+   "prompt": "The terrier gets up and walks out of frame behind the trees.",
+   "reason": "PATIENT_SAFE",
+   "outcome": "acknowledged",
+   "landed_by": null,
+   "accepted_ms": 283,
+   "level_after": 0,
+   "landed_chunk": null,
+   "level_before": 3
+  }
+ },
+ {
+  "t_ms": 1790899765685,
+  "trial_idx": 1,
+  "kind": "safe_settled",
+  "payload": {
+   "chunk": 44
+  }
+ },
+ {
+  "t_ms": 1790899775180,
+  "trial_idx": 1,
+  "kind": "intent",
+  "payload": {
+   "kind": "resume"
+  }
+ },
+ {
+  "t_ms": 1790899775180,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899775180,
+   "kind": "resume",
+   "chunk": 49,
+   "inputs": {
+    "suds": null,
+    "intent": "resume",
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "RESUME",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 0,
+   "landed_chunk": null,
+   "level_before": 0
+  }
+ },
+ {
+  "t_ms": 1790899776690,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899776690,
+   "kind": "up",
+   "chunk": 50,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.5,
+    "breath_conf": 0.92
+   },
+   "prompt": "A small light-brown terrier with a wiry coat and a red collar trots onto the far end of the lawn and lies down in the grass.",
+   "reason": "UNDER_ENGAGED",
+   "outcome": "acknowledged",
+   "landed_by": null,
+   "accepted_ms": 1845,
+   "level_after": 1,
+   "landed_chunk": null,
+   "level_before": 0
+  }
+ },
+ {
+  "t_ms": 1790899784022,
+  "trial_idx": 1,
+  "kind": "decision",
+  "payload": {
+   "t": 1790899784022,
+   "kind": "end_trial",
+   "chunk": 54,
+   "inputs": {
+    "suds": null,
+    "intent": null,
+    "arousal": "LOW",
+    "therapist": null,
+    "breath_bpm": 12.1,
+    "breath_conf": 0.92
+   },
+   "prompt": null,
+   "reason": "TRIAL_MAX",
+   "outcome": null,
+   "landed_by": null,
+   "accepted_ms": null,
+   "level_after": 1,
+   "landed_chunk": null,
+   "level_before": 1
+  }
+ },
+ {
+  "t_ms": 1790899785982,
+  "trial_idx": 1,
+  "kind": "rating",
+  "payload": {
+   "suds": 5,
+   "feeling": null,
+   "happened": "no",
+   "expectancyAfter": 30
+  }
+ },
+ {
+  "t_ms": 1790899787516,
+  "trial_idx": 1,
+  "kind": "end",
+  "payload": {
+   "reason": "USER_END"
+  }
+ },
+ {
+  "t_ms": 1790899810597,
+  "trial_idx": 1,
+  "kind": "recording_uploaded",
+  "payload": {
+   "path": "recordings/3eca46e1-d787-44ab-b1f0-f065abca4c9e/1.webm",
+   "bytes": 25797748,
+   "trial": 1,
+   "sha256": "99c9e31526bbe6a44c94521480d25b80608bea1935cd9d77dd65ff8ed5efbff9"
+  }
+ }
+]

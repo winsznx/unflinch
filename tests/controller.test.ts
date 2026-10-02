@@ -63,6 +63,27 @@ describe("decide", () => {
     expect(decisions.map((d) => d.action)).toEqual(["pause", "none", "resume"]);
   });
 
+  it("safe place drops to level 0, sends once, pauses, and outranks a ceiling retreat", () => {
+    const start = initialControllerState(config, 4);
+    const { decisions, state } = run(start, [
+      tick(0, { intent: "safe", suds: { value: 9, ageS: 0 } }),
+      tick(1, { arousal: "OVERLOAD" }),
+      tick(2, { intent: "resume" }),
+    ]);
+    expect(decisions[0]).toMatchObject({ action: "safe", reason: "PATIENT_SAFE", levelBefore: 4, levelAfter: 0, sends: true });
+    expect(decisions[1]).toMatchObject({ action: "none", reason: "PAUSED" });
+    expect(decisions[2]).toMatchObject({ action: "resume" });
+    expect(state.level).toBe(0);
+  });
+
+  it("safe place waits out the landing window and is a plain pause at level 0", () => {
+    const landing = { ...initialControllerState(config, 3), lastSendChunk: 9 };
+    const waited = run(landing, [tick(10, { intent: "safe" }), tick(11)]);
+    expect(waited.decisions.map((d) => d.action)).toEqual(["none", "safe"]);
+    const empty = run(initialControllerState(config, 0), [tick(0, { intent: "safe" })]);
+    expect(empty.decisions[0]).toMatchObject({ action: "pause", reason: "PATIENT_SAFE", sends: false });
+  });
+
   it("steps closer on patient intent, runs the expectancy test at the cap, and ends after it holds", () => {
     const start = initialControllerState({ ...config, cap: 2, autoMode: false }, 1);
     const ticks = [tick(0, { intent: "closer" }), ...Array.from({ length: 14 }, (_, i) => tick(i + 1))];

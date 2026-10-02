@@ -1,6 +1,6 @@
 export type Arousal = "UNKNOWN" | "LOW" | "WINDOW" | "HIGH" | "OVERLOAD";
 
-export type IntentKind = "closer" | "back" | "pause" | "resume" | "end";
+export type IntentKind = "closer" | "back" | "pause" | "resume" | "end" | "safe";
 
 export type TherapistKind =
   | "approach"
@@ -34,7 +34,9 @@ export type ActionKind =
   | "pause"
   | "resume"
   | "end_trial"
-  | "nudge";
+  | "nudge"
+  /** Patient's safe place: the subject leaves the scene (level 0) and the controller pauses. */
+  | "safe";
 
 export type ReasonCode =
   | "PAUSE"
@@ -47,6 +49,7 @@ export type ReasonCode =
   | "CEILING_SUDS"
   | "CEILING_BODY"
   | "PATIENT_BACK"
+  | "PATIENT_SAFE"
   | "THERAPIST_BACK"
   | "COOLDOWN"
   | "CEILING_HOLD"
@@ -115,4 +118,5 @@ export const SENDING_ACTIONS: ReadonlySet<ActionKind> = new Set([
   "down",
   "ev",
   "vary",
+  "safe",
 ]);

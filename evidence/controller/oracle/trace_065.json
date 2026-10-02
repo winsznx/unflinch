@@ -44,7 +44,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 0.138
+     "ageS": 1.161
     },
     "intent": null,
     "queuedIntent": null,
@@ -72,7 +72,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 1.971
+     "ageS": 2.994
     },
     "intent": null,
     "queuedIntent": null,
@@ -100,7 +100,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 3.804
+     "ageS": 4.827
     },
     "intent": null,
     "queuedIntent": null,
@@ -128,7 +128,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 5.637
+     "ageS": 6.66
     },
     "intent": null,
     "queuedIntent": null,
@@ -156,7 +156,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 7.47
+     "ageS": 8.493
     },
     "intent": null,
     "queuedIntent": null,
@@ -184,7 +184,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 9.303
+     "ageS": 10.326
     },
     "intent": null,
     "queuedIntent": null,
@@ -212,7 +212,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 11.136
+     "ageS": 12.159
     },
     "intent": null,
     "queuedIntent": null,
@@ -240,7 +240,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 12.969
+     "ageS": 13.992
     },
     "intent": null,
     "queuedIntent": null,
@@ -268,7 +268,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 14.802
+     "ageS": 15.825
     },
     "intent": null,
     "queuedIntent": null,
@@ -296,7 +296,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 16.635
+     "ageS": 17.658
     },
     "intent": null,
     "queuedIntent": null,
@@ -324,7 +324,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 0.677
+     "ageS": 1.033
     },
     "intent": null,
     "queuedIntent": null,
@@ -352,7 +352,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 2.51
+     "ageS": 2.866
     },
     "intent": null,
     "queuedIntent": null,

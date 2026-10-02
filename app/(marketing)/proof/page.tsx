@@ -6,6 +6,7 @@ import { CLAIMS, formatClaimValue, type Claim, type ClaimStatus } from "@/lib/ev
 import type { ReceiptLabel } from "@/lib/orbis/receipts";
 import { LABEL_TEXT } from "@/lib/proof/metrics";
 import { listRepoRunIds, loadEvidenceHashes, loadRun, type EvidenceHashes } from "@/lib/proof/runs";
+import campaign from "@/evidence/campaign/summary.json";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "../proof.css";
@@ -256,6 +257,8 @@ export default async function ProofPage() {
         )}
       </p>
 
+      <CampaignFindings />
+
       <section className="p-block" aria-labelledby="fool">
         <div className="p-block-head">
           <h2 id="fool">How this could fool us</h2>
@@ -360,3 +363,58 @@ export default async function ProofPage() {
     </main>
   );
 }
+
+const seconds = (ms: number | null | undefined) => (ms === null || ms === undefined ? "n/a" : `${(ms / 1000).toFixed(1)} s`);
+
+/** Live campaign results that carry no pre-set claim, read straight from evidence/campaign/summary.json. */
+function CampaignFindings() {
+  const requests = campaign.approach_requests;
+  const safe = campaign.safe_place;
+  const morph = campaign.accept_ms.morph;
+  const restart = campaign.accept_ms.restart;
+  const findings = [
+    {
+      title: "Live morph vs restarting each step",
+      detail: `A step is acknowledged in ${seconds(morph)} as a live morph and ${seconds(restart)} as a restart from the last frame (medians).`,
+    },
+    {
+      title: "Ceiling retreats",
+      detail: `${campaign.ceiling_retreats_morph.n} retreats landed a median of ${campaign.ceiling_retreats_morph.median_landed_chunks} chunks after the decision. That misses the F-RESP target of 2, shown above.`,
+    },
+    {
+      title: "Safe place",
+      detail: `${safe.n} safe places: decided ${(safe.median_input_to_decision_ms ?? 0) < 100 ? "immediately on the tap" : `${seconds(safe.median_input_to_decision_ms)} after the tap`}, exit prompt acknowledged ${seconds(safe.median_accepted_ms)} later (medians). About 11 s later, of the 6 where the dog was on screen at the tap, it was gone in 1, walking away in 3 and still in place in 2 (builder viewing, not blind). The controller stops escalating at once; the subject leaving is up to Orbis.`,
+    },
+    {
+      title: "When the controller said wait or no",
+      detail: `${requests.n} step-closer requests: ${requests.honored} honored (median ${seconds(requests.median_honor_delay_ms)}), ${requests.deferred} held back by a safety rule until it cleared, ${Object.entries(requests.refused_by_reason).map(([reason, n]) => `${n} refused (${reason.replace("_", " ").toLowerCase()})`).join(", ") || "none refused"}.`,
+    },
+    {
+      title: "Restating the scene",
+      detail: "Sending each level's full scene instead of only the change kept the dog out of the picture until the top levels in both runs inspected. Unflinch sends changes only.",
+    },
+  ];
+  return (
+    <section className="p-block" aria-labelledby="campaign">
+      <div className="p-block-head">
+        <h2 id="campaign">Live campaign, 2026-10-01</h2>
+        <p>
+          Runs on Orbis with simulated input, conditions interleaved. Raw data:{" "}
+          <a className="p-link" href={`${SITE.repo}/tree/main/evidence/campaign`} target="_blank" rel="noreferrer">
+            evidence/campaign
+          </a>
+          .
+        </p>
+      </div>
+      <ul className="p-risks">
+        {findings.map((item) => (
+          <li key={item.title}>
+            <strong>{item.title}</strong>
+            <span>{item.detail}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+

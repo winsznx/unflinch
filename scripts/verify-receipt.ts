@@ -70,11 +70,13 @@ async function main(): Promise<number> {
   const legacyStart =
     receipt.start.level === 1 && !receipt.decisions.some((d) => (d.reason as string) === "SUBJECT_ENTER") && receipt.trial === 1;
   if (legacyStart) console.log("note      legacy receipt: start.prompt holds the subject entrance");
+  // Restate and restart campaign conditions send full scenes, which the runtime lints as absolute prompts.
+  const restated = receipt.condition?.prompts === "restate" || receipt.condition?.mode === "restart";
   const issues: LintIssue[] = [
     ...lintPrompt(receipt.start.prompt, legacyStart ? "transition" : "absolute", "start.prompt"),
   ];
   receipt.decisions.forEach((d, i) => {
-    if (d.prompt !== null) issues.push(...lintPrompt(d.prompt, "transition", `decisions[${i}].prompt`));
+    if (d.prompt !== null) issues.push(...lintPrompt(d.prompt, restated ? "absolute" : "transition", `decisions[${i}].prompt`));
   });
   for (const issue of issues) fail(`lint ${issue.path}: ${issue.rule}: "${issue.text}"`);
   console.log(`lint      ${1 + m.sends} prompts, ${issues.length} issues`);

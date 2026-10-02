@@ -32,7 +32,8 @@ export function Player({ runtime, snap, local }: { runtime: SessionRuntime; snap
     function onKey(event: KeyboardEvent) {
       const target = event.target as HTMLElement | null;
       if (target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
-      if (event.key === "ArrowUp") runtime.intent("closer");
+      if (event.key === "Escape") runtime.intent("safe");
+      else if (event.key === "ArrowUp") runtime.intent("closer");
       else if (event.key === "ArrowDown") runtime.intent("back");
       else if (event.key === " ") {
         event.preventDefault();
@@ -198,6 +199,9 @@ function Hud({
           >
             {snap.phase === "paused" ? "Resume" : "Pause"}
           </button>
+          <button type="button" onClick={() => runtime.intent("safe")} disabled={snap.phase !== "trial"}>
+            Safe place
+          </button>
         </div>
         <div className="pl-hud-right">
           <span className="pl-suds-hint">
@@ -293,7 +297,7 @@ function JudgePanel({ runtime, snap }: { runtime: SessionRuntime; snap: Snapshot
           <kbd>H</kbd> Breath hold
         </button>
         <span>
-          <kbd>0</kbd>–<kbd>9</kbd> SUDS · <kbd>↑</kbd>/<kbd>↓</kbd> step · <kbd>Space</kbd> pause
+          <kbd>0</kbd>–<kbd>9</kbd> SUDS · <kbd>↑</kbd>/<kbd>↓</kbd> step · <kbd>Space</kbd> pause · <kbd>Esc</kbd> safe place
         </span>
       </div>
       <ol className="pl-log">

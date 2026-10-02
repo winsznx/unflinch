@@ -3,8 +3,8 @@
  "trace": "trace_031",
  "producer": "oracle_controller.py",
  "config": {
-  "cap": 5,
-  "autoMode": false,
+  "cap": 6,
+  "autoMode": true,
   "trialMax": 48,
   "startLevel": 1
  },
@@ -119,7 +119,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 1.26
+     "ageS": 0.973
     },
     "intent": null,
     "queuedIntent": null,
@@ -147,7 +147,7 @@
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 6,
-     "ageS": 3.093
+     "ageS": 2.806
     },
     "intent": null,
     "queuedIntent": null,
@@ -175,7 +175,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 4.926
+     "ageS": 4.639
     },
     "intent": null,
     "queuedIntent": null,
@@ -203,7 +203,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 6.759
+     "ageS": 6.472
     },
     "intent": "back",
     "queuedIntent": null,
@@ -231,7 +231,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 8.592
+     "ageS": 8.305
     },
     "intent": null,
     "queuedIntent": "back",
@@ -259,7 +259,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 10.425
+     "ageS": 10.138
     },
     "intent": "closer",
     "queuedIntent": null,
@@ -287,7 +287,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 12.258
+     "ageS": 11.971
     },
     "intent": null,
     "queuedIntent": "closer",
@@ -315,7 +315,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 14.091
+     "ageS": 13.804
     },
     "intent": null,
     "queuedIntent": null,
@@ -343,7 +343,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 6,
-     "ageS": 15.924
+     "ageS": 15.637
     },
     "intent": null,
     "queuedIntent": null,
@@ -371,7 +371,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 4,
-     "ageS": 0.973
+     "ageS": 0.086
     },
     "intent": null,
     "queuedIntent": null,
@@ -399,7 +399,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 4,
-     "ageS": 2.806
+     "ageS": 1.919
     },
     "intent": null,
     "queuedIntent": null,
@@ -427,7 +427,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 4,
-     "ageS": 4.639
+     "ageS": 3.752
     },
     "intent": "back",
     "queuedIntent": null,
@@ -455,7 +455,7 @@
     "effectiveArousal": "LOW",
     "suds": {
      "value": 4,
-     "ageS": 6.472
+     "ageS": 5.585
     },
     "intent": null,
     "queuedIntent": null,
@@ -475,15 +475,15 @@
   },
   {
    "chunk": 17,
-   "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "action": "up",
+   "reason": "UNDER_ENGAGED",
+   "level": 1,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 4,
-     "ageS": 8.305
+     "ageS": 7.418
     },
     "intent": null,
     "queuedIntent": null,
@@ -504,25 +504,25 @@
   {
    "chunk": 18,
    "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "reason": "LANDING",
+   "level": 1,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 4,
-     "ageS": 10.138
+     "ageS": 9.251
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 15,
+    "lastSendChunk": 17,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 8,
-    "chunksAtLevel": 3,
-    "chunksSinceVary": 3,
+    "lowStreakChunks": 1,
+    "chunksAtLevel": 1,
+    "chunksSinceVary": 1,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 18,
@@ -533,24 +533,24 @@
    "chunk": 19,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 1,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 0.086
+     "ageS": 1.422
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 15,
+    "lastSendChunk": 17,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 9,
-    "chunksAtLevel": 4,
-    "chunksSinceVary": 4,
+    "lowStreakChunks": 2,
+    "chunksAtLevel": 2,
+    "chunksSinceVary": 2,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 19,
@@ -561,24 +561,24 @@
    "chunk": 20,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 1,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 1.919
+     "ageS": 3.255
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 15,
+    "lastSendChunk": 17,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 10,
-    "chunksAtLevel": 5,
-    "chunksSinceVary": 5,
+    "lowStreakChunks": 3,
+    "chunksAtLevel": 3,
+    "chunksSinceVary": 3,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 20,
@@ -589,24 +589,24 @@
    "chunk": 21,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 1,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 3.752
+     "ageS": 5.088
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 15,
+    "lastSendChunk": 17,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 11,
-    "chunksAtLevel": 6,
-    "chunksSinceVary": 6,
+    "lowStreakChunks": 4,
+    "chunksAtLevel": 4,
+    "chunksSinceVary": 4,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 21,
@@ -617,24 +617,24 @@
    "chunk": 22,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 1,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 0,
-     "ageS": 5.585
+     "ageS": 6.921
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 15,
+    "lastSendChunk": 17,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 12,
-    "chunksAtLevel": 7,
-    "chunksSinceVary": 7,
+    "lowStreakChunks": 5,
+    "chunksAtLevel": 5,
+    "chunksSinceVary": 5,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 22,
@@ -643,121 +643,9 @@
   },
   {
    "chunk": 23,
-   "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
-   "inputs": {
-    "arousal": "HIGH",
-    "effectiveArousal": "LOW",
-    "suds": {
-     "value": 1,
-     "ageS": 1.422
-    },
-    "intent": null,
-    "queuedIntent": null,
-    "therapist": null,
-    "ceilingActive": false,
-    "cooldownUntil": 0,
-    "lastSendChunk": 15,
-    "lastCeilingChunk": null,
-    "lowStreakChunks": 13,
-    "chunksAtLevel": 8,
-    "chunksSinceVary": 8,
-    "evDone": false,
-    "chunksSinceEv": null,
-    "trialChunks": 23,
-    "paused": false
-   }
-  },
-  {
-   "chunk": 24,
-   "action": "selfApproach",
-   "reason": "PATIENT_CLOSER",
-   "level": 1,
-   "inputs": {
-    "arousal": "HIGH",
-    "effectiveArousal": "LOW",
-    "suds": {
-     "value": 1,
-     "ageS": 3.255
-    },
-    "intent": "closer",
-    "queuedIntent": null,
-    "therapist": null,
-    "ceilingActive": false,
-    "cooldownUntil": 0,
-    "lastSendChunk": 15,
-    "lastCeilingChunk": null,
-    "lowStreakChunks": 14,
-    "chunksAtLevel": 9,
-    "chunksSinceVary": 9,
-    "evDone": false,
-    "chunksSinceEv": null,
-    "trialChunks": 24,
-    "paused": false
-   }
-  },
-  {
-   "chunk": 25,
-   "action": "none",
-   "reason": "LANDING",
-   "level": 1,
-   "inputs": {
-    "arousal": "HIGH",
-    "effectiveArousal": "LOW",
-    "suds": {
-     "value": 1,
-     "ageS": 5.088
-    },
-    "intent": null,
-    "queuedIntent": null,
-    "therapist": null,
-    "ceilingActive": false,
-    "cooldownUntil": 0,
-    "lastSendChunk": 24,
-    "lastCeilingChunk": null,
-    "lowStreakChunks": 1,
-    "chunksAtLevel": 1,
-    "chunksSinceVary": 1,
-    "evDone": false,
-    "chunksSinceEv": null,
-    "trialChunks": 25,
-    "paused": false
-   }
-  },
-  {
-   "chunk": 26,
-   "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 1,
-   "inputs": {
-    "arousal": "HIGH",
-    "effectiveArousal": "LOW",
-    "suds": {
-     "value": 1,
-     "ageS": 6.921
-    },
-    "intent": null,
-    "queuedIntent": null,
-    "therapist": null,
-    "ceilingActive": false,
-    "cooldownUntil": 0,
-    "lastSendChunk": 24,
-    "lastCeilingChunk": null,
-    "lowStreakChunks": 2,
-    "chunksAtLevel": 2,
-    "chunksSinceVary": 2,
-    "evDone": false,
-    "chunksSinceEv": null,
-    "trialChunks": 26,
-    "paused": false
-   }
-  },
-  {
-   "chunk": 27,
-   "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 1,
+   "action": "up",
+   "reason": "UNDER_ENGAGED",
+   "level": 2,
    "inputs": {
     "arousal": "HIGH",
     "effectiveArousal": "LOW",
@@ -770,11 +658,123 @@
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 24,
+    "lastSendChunk": 17,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 3,
-    "chunksAtLevel": 3,
-    "chunksSinceVary": 3,
+    "lowStreakChunks": 6,
+    "chunksAtLevel": 6,
+    "chunksSinceVary": 6,
+    "evDone": false,
+    "chunksSinceEv": null,
+    "trialChunks": 23,
+    "paused": false
+   }
+  },
+  {
+   "chunk": 24,
+   "action": "none",
+   "reason": "LANDING",
+   "level": 2,
+   "inputs": {
+    "arousal": "HIGH",
+    "effectiveArousal": "LOW",
+    "suds": {
+     "value": 1,
+     "ageS": 2.639
+    },
+    "intent": "closer",
+    "queuedIntent": null,
+    "therapist": null,
+    "ceilingActive": false,
+    "cooldownUntil": 0,
+    "lastSendChunk": 23,
+    "lastCeilingChunk": null,
+    "lowStreakChunks": 1,
+    "chunksAtLevel": 1,
+    "chunksSinceVary": 1,
+    "evDone": false,
+    "chunksSinceEv": null,
+    "trialChunks": 24,
+    "paused": false
+   }
+  },
+  {
+   "chunk": 25,
+   "action": "selfApproach",
+   "reason": "PATIENT_CLOSER",
+   "level": 3,
+   "inputs": {
+    "arousal": "HIGH",
+    "effectiveArousal": "LOW",
+    "suds": {
+     "value": 1,
+     "ageS": 4.472
+    },
+    "intent": null,
+    "queuedIntent": "closer",
+    "therapist": null,
+    "ceilingActive": false,
+    "cooldownUntil": 0,
+    "lastSendChunk": 23,
+    "lastCeilingChunk": null,
+    "lowStreakChunks": 2,
+    "chunksAtLevel": 2,
+    "chunksSinceVary": 2,
+    "evDone": false,
+    "chunksSinceEv": null,
+    "trialChunks": 25,
+    "paused": false
+   }
+  },
+  {
+   "chunk": 26,
+   "action": "none",
+   "reason": "LANDING",
+   "level": 3,
+   "inputs": {
+    "arousal": "HIGH",
+    "effectiveArousal": "LOW",
+    "suds": {
+     "value": 1,
+     "ageS": 6.305
+    },
+    "intent": null,
+    "queuedIntent": null,
+    "therapist": null,
+    "ceilingActive": false,
+    "cooldownUntil": 0,
+    "lastSendChunk": 25,
+    "lastCeilingChunk": null,
+    "lowStreakChunks": 1,
+    "chunksAtLevel": 1,
+    "chunksSinceVary": 1,
+    "evDone": false,
+    "chunksSinceEv": null,
+    "trialChunks": 26,
+    "paused": false
+   }
+  },
+  {
+   "chunk": 27,
+   "action": "none",
+   "reason": "IN_WINDOW",
+   "level": 3,
+   "inputs": {
+    "arousal": "HIGH",
+    "effectiveArousal": "LOW",
+    "suds": {
+     "value": 1,
+     "ageS": 1.343
+    },
+    "intent": null,
+    "queuedIntent": null,
+    "therapist": null,
+    "ceilingActive": false,
+    "cooldownUntil": 0,
+    "lastSendChunk": 25,
+    "lastCeilingChunk": null,
+    "lowStreakChunks": 2,
+    "chunksAtLevel": 2,
+    "chunksSinceVary": 2,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 27,
@@ -785,24 +785,24 @@
    "chunk": 28,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 1,
+   "level": 3,
    "inputs": {
     "arousal": "OVERLOAD",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 1,
-     "ageS": 2.639
+     "ageS": 3.176
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 24,
+    "lastSendChunk": 25,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 4,
-    "chunksAtLevel": 4,
-    "chunksSinceVary": 4,
+    "lowStreakChunks": 3,
+    "chunksAtLevel": 3,
+    "chunksSinceVary": 3,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 28,
@@ -813,24 +813,24 @@
    "chunk": 29,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 1,
+   "level": 3,
    "inputs": {
     "arousal": "OVERLOAD",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 1,
-     "ageS": 4.472
+     "ageS": 5.009
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 0,
-    "lastSendChunk": 24,
+    "lastSendChunk": 25,
     "lastCeilingChunk": null,
-    "lowStreakChunks": 5,
-    "chunksAtLevel": 5,
-    "chunksSinceVary": 5,
+    "lowStreakChunks": 4,
+    "chunksAtLevel": 4,
+    "chunksSinceVary": 4,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 29,
@@ -841,24 +841,24 @@
    "chunk": 30,
    "action": "down",
    "reason": "CEILING_BODY",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "OVERLOAD",
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 3,
-     "ageS": 1.343
+     "ageS": 0.661
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": true,
     "cooldownUntil": 0,
-    "lastSendChunk": 24,
+    "lastSendChunk": 25,
     "lastCeilingChunk": null,
     "lowStreakChunks": 0,
-    "chunksAtLevel": 6,
-    "chunksSinceVary": 6,
+    "chunksAtLevel": 5,
+    "chunksSinceVary": 5,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 30,
@@ -869,13 +869,13 @@
    "chunk": 31,
    "action": "none",
    "reason": "LANDING",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "OVERLOAD",
     "effectiveArousal": "OVERLOAD",
     "suds": {
      "value": 3,
-     "ageS": 3.176
+     "ageS": 2.494
     },
     "intent": null,
     "queuedIntent": null,
@@ -897,13 +897,13 @@
    "chunk": 32,
    "action": "hold",
    "reason": "COOLDOWN",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "HIGH",
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 3,
-     "ageS": 5.009
+     "ageS": 4.327
     },
     "intent": null,
     "queuedIntent": null,
@@ -925,13 +925,13 @@
    "chunk": 33,
    "action": "hold",
    "reason": "COOLDOWN",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "HIGH",
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 3,
-     "ageS": 6.842
+     "ageS": 6.16
     },
     "intent": null,
     "queuedIntent": null,
@@ -953,13 +953,13 @@
    "chunk": 34,
    "action": "hold",
    "reason": "COOLDOWN",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "HIGH",
     "effectiveArousal": "HIGH",
     "suds": {
      "value": 3,
-     "ageS": 8.675
+     "ageS": 7.993
     },
     "intent": null,
     "queuedIntent": null,
@@ -981,13 +981,13 @@
    "chunk": 35,
    "action": "hold",
    "reason": "COOLDOWN",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 10.508
+     "ageS": 9.826
     },
     "intent": null,
     "queuedIntent": null,
@@ -1007,15 +1007,15 @@
   },
   {
    "chunk": 36,
-   "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "action": "vary",
+   "reason": "VARIABILITY",
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 12.341
+     "ageS": 11.659
     },
     "intent": null,
     "queuedIntent": null,
@@ -1036,25 +1036,25 @@
   {
    "chunk": 37,
    "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "reason": "LANDING",
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 14.174
+     "ageS": 13.492
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 36,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 3,
     "chunksAtLevel": 7,
-    "chunksSinceVary": 7,
+    "chunksSinceVary": 1,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 37,
@@ -1065,24 +1065,24 @@
    "chunk": 38,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "WINDOW",
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 3,
-     "ageS": 16.007
+     "ageS": 15.325
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 36,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 0,
     "chunksAtLevel": 8,
-    "chunksSinceVary": 8,
+    "chunksSinceVary": 2,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 38,
@@ -1093,24 +1093,24 @@
    "chunk": 39,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "WINDOW",
     "effectiveArousal": "WINDOW",
     "suds": {
      "value": 3,
-     "ageS": 17.84
+     "ageS": 17.158
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 36,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 0,
     "chunksAtLevel": 9,
-    "chunksSinceVary": 9,
+    "chunksSinceVary": 3,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 39,
@@ -1121,24 +1121,24 @@
    "chunk": 40,
    "action": "nudge",
    "reason": "STALL_NUDGE",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 19.673
+     "ageS": 18.991
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 36,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 1,
     "chunksAtLevel": 10,
-    "chunksSinceVary": 10,
+    "chunksSinceVary": 4,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 40,
@@ -1149,24 +1149,24 @@
    "chunk": 41,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 21.506
+     "ageS": 20.824
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 36,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 2,
     "chunksAtLevel": 11,
-    "chunksSinceVary": 11,
+    "chunksSinceVary": 5,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 41,
@@ -1175,26 +1175,26 @@
   },
   {
    "chunk": 42,
-   "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "action": "vary",
+   "reason": "VARIABILITY",
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 23.339
+     "ageS": 22.657
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 36,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 3,
     "chunksAtLevel": 12,
-    "chunksSinceVary": 12,
+    "chunksSinceVary": 6,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 42,
@@ -1204,25 +1204,25 @@
   {
    "chunk": 43,
    "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "reason": "LANDING",
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 25.172
+     "ageS": 24.49
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 42,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 4,
     "chunksAtLevel": 13,
-    "chunksSinceVary": 13,
+    "chunksSinceVary": 1,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 43,
@@ -1233,24 +1233,24 @@
    "chunk": 44,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 2,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 27.005
+     "ageS": 26.323
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 42,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 5,
     "chunksAtLevel": 14,
-    "chunksSinceVary": 14,
+    "chunksSinceVary": 2,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 44,
@@ -1259,26 +1259,26 @@
   },
   {
    "chunk": 45,
-   "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "action": "up",
+   "reason": "UNDER_ENGAGED",
+   "level": 3,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 28.838
+     "ageS": 28.156
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 42,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 6,
     "chunksAtLevel": 15,
-    "chunksSinceVary": 15,
+    "chunksSinceVary": 3,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 45,
@@ -1288,25 +1288,25 @@
   {
    "chunk": 46,
    "action": "none",
-   "reason": "IN_WINDOW",
-   "level": 0,
+   "reason": "LANDING",
+   "level": 3,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 30.671
+     "ageS": 29.989
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 45,
     "lastCeilingChunk": 30,
-    "lowStreakChunks": 7,
-    "chunksAtLevel": 16,
-    "chunksSinceVary": 16,
+    "lowStreakChunks": 1,
+    "chunksAtLevel": 1,
+    "chunksSinceVary": 1,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 46,
@@ -1317,24 +1317,24 @@
    "chunk": 47,
    "action": "none",
    "reason": "IN_WINDOW",
-   "level": 0,
+   "level": 3,
    "inputs": {
     "arousal": "LOW",
     "effectiveArousal": "LOW",
     "suds": {
      "value": 3,
-     "ageS": 32.504
+     "ageS": 31.822
     },
     "intent": null,
     "queuedIntent": null,
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 45,
     "lastCeilingChunk": 30,
-    "lowStreakChunks": 8,
-    "chunksAtLevel": 17,
-    "chunksSinceVary": 17,
+    "lowStreakChunks": 2,
+    "chunksAtLevel": 2,
+    "chunksSinceVary": 2,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 47,
@@ -1345,7 +1345,7 @@
    "chunk": 48,
    "action": "end_trial",
    "reason": "TRIAL_MAX",
-   "level": 0,
+   "level": 3,
    "inputs": {
     "arousal": "UNKNOWN",
     "effectiveArousal": "UNKNOWN",
@@ -1355,11 +1355,11 @@
     "therapist": null,
     "ceilingActive": false,
     "cooldownUntil": 36,
-    "lastSendChunk": 30,
+    "lastSendChunk": 45,
     "lastCeilingChunk": 30,
     "lowStreakChunks": 0,
-    "chunksAtLevel": 18,
-    "chunksSinceVary": 18,
+    "chunksAtLevel": 3,
+    "chunksSinceVary": 3,
     "evDone": false,
     "chunksSinceEv": null,
     "trialChunks": 48,

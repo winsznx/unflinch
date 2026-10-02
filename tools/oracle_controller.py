@@ -37,7 +37,7 @@ INTENT_TTL_CHUNKS = 6
 AGREEMENT_PASS_PCT = 99.0
 MISMATCH_SAMPLE = 50
 
-SEND_ACTIONS = {"up", "selfApproach", "down", "ev", "vary"}
+SEND_ACTIONS = {"up", "selfApproach", "down", "ev", "vary", "safe"}
 LEVEL_DELTA = {"up": 1, "selfApproach": 1, "down": -1}
 CEILING_REASONS = {"CEILING_SUDS", "CEILING_BODY"}
 KNOWN_REASONS = {
@@ -48,6 +48,7 @@ KNOWN_REASONS = {
     "THERAPIST_VARY",  # C5
     # Not in the PRD table; see INTERPRETATION notes below.
     "PAUSED", "PATIENT_END", "THERAPIST_END",
+    "PATIENT_SAFE",  # C8
 }
 
 
@@ -210,7 +211,7 @@ def step(state: ControllerState, tick: dict, new_suds_report: bool) -> dict:
 
     # INTERPRETATION: intents arrive into the single queue slot here. `resume`
     # while not paused is ignored. `end` is handled at row 3 and never queued.
-    if intent in ("closer", "back"):
+    if intent in ("closer", "back", "safe"):
         state.queued_intent, state.queued_at = intent, chunk
 
     # Row 3.
@@ -229,6 +230,16 @@ def step(state: ControllerState, tick: dict, new_suds_report: bool) -> dict:
     # LANDING tick (or any tick where a higher row wins) is dropped.
     if state.last_send_chunk is not None and chunk - state.last_send_chunk < MIN_CHUNKS_BETWEEN_SENDS:
         return _decision(chunk, "none", "LANDING", state, inputs)
+
+    # C8: the patient's safe place, after LANDING and before every retreat row.
+    # The subject leaves (level 0, a send) and the controller pauses. With the
+    # level already 0 it is a plain pause with the same reason.
+    if state.queued_intent == "safe":
+        state.queued_intent = None
+        state.paused = True
+        if state.level > 0:
+            return _send(state, chunk, "safe", "PATIENT_SAFE", inputs)
+        return _decision(chunk, "pause", "PATIENT_SAFE", state, inputs)
 
     # Row 5.
     new_suds_high = state.last_high_suds_chunk is not None and (
@@ -310,7 +321,7 @@ def _send(state: ControllerState, chunk: int, action: str, reason: str, inputs: 
     state.last_vary_chunk = chunk  # C3
     if action in ("up", "selfApproach"):
         state.low_streak = 0  # C2
-    delta = LEVEL_DELTA.get(action, 0)
+    delta = -state.level if action == "safe" else LEVEL_DELTA.get(action, 0)
     if delta:
         state.level += delta
         state.level_since_chunk = chunk
@@ -376,10 +387,11 @@ def check_invariants(trace: dict, decisions: list[dict]) -> dict[str, list[str]]
                 v["INV1"].append(f"chunk {c}: {action} with NO_SIGNAL")
 
         # INV2
-        expected = level + LEVEL_DELTA.get(action, 0)
+        # C8: a safe place drops straight to 0; every other change is at most one step.
+        expected = 0 if action == "safe" else level + LEVEL_DELTA.get(action, 0)
         if d["level"] != expected:
             v["INV2"].append(f"chunk {c}: level {d['level']} after {action} from {level}")
-        if abs(d["level"] - level) > 1 or not 0 <= d["level"] <= cap:
+        if (abs(d["level"] - level) > 1 and action != "safe") or not 0 <= d["level"] <= cap:
             v["INV2"].append(f"chunk {c}: level {level}->{d['level']} outside |Δ|≤1 or [0,{cap}]")
         level = d["level"]
 
@@ -399,7 +411,7 @@ def check_invariants(trace: dict, decisions: list[dict]) -> dict[str, list[str]]
                 pending_retreat.append((c, "OVERLOAD onset"))
         prev_overload = overload
         if pending_retreat:
-            if action == "end_trial" or not ceiling or level - LEVEL_DELTA.get(action, 0) == 0:
+            if action in ("end_trial", "safe") or not ceiling or level - LEVEL_DELTA.get(action, 0) == 0:
                 pending_retreat.clear()
             elif not paused and action not in ("pause", "resume"):
                 eligible = last_send is None or c - last_send >= MIN_CHUNKS_BETWEEN_SENDS
@@ -422,7 +434,7 @@ def check_invariants(trace: dict, decisions: list[dict]) -> dict[str, list[str]]
             v["INV5"].append(f"chunk {c}: pause intent not honored (got {action})")
         if paused and action not in ("none", "resume"):
             v["INV5"].append(f"chunk {c}: {action} while paused")
-        if action == "pause":
+        if action in ("pause", "safe"):
             paused = True
         elif action == "resume":
             paused = False

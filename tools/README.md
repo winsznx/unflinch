@@ -125,6 +125,36 @@ suggested value, commit it with the calibration output in
 constant after that. The shipped `0.5` is provisional until calibration
 runs.
 
+## campaign_report.py (E3, E4, E9 and the restate A/B)
+
+```sh
+pnpm campaign <experiment> <runs>            # live runs, see scripts/campaign.ts
+pnpm campaign:export                         # receipts + events to evidence/campaign/, videos to .data/campaign/
+tools/.venv/bin/python tools/campaign_report.py calibrate
+tools/.venv/bin/python tools/campaign_report.py report
+```
+
+It reads only exported receipts, event logs and recordings, never app code.
+
+`calibrate` builds the known-cut set for `cutdetect.py`: pairs of different
+campaign recordings joined at a known frame (8 s each side, re-encoded at
+18 fps), each with a `.cuts.json` sidecar holding the join frame. It writes
+`evidence/ablation/calibration.json` with the suggested threshold. Restart
+baseline clips are deliberately left out of calibration: the baseline hands
+off the last frame, so whether a restart shows up as a hard cut is a result
+to measure, not ground truth to tune on.
+
+`report` scores every exported trial with the frozen threshold and writes
+`evidence/ablation/cuts.csv` (per trial), `evidence/live/latency.csv` (per
+sent decision: input to decision in ms, accept in ms, decision to landing in
+chunks and how the landing is known), `evidence/live/neutral.csv` (E9 trials,
+with empty rater columns for the blind rating) and
+`evidence/campaign/summary.json`.
+
+Input-to-decision time pairs each decision with the latest matching input
+event before it: a simulated spike for CEILING_BODY, a SUDS of 9 or more for
+CEILING_SUDS, a step-closer intent for PATIENT_CLOSER.
+
 ## Ambiguities
 
 Every open item below is also marked `INTERPRETATION:` in
@@ -254,3 +284,13 @@ Invariant checks
 30. INV6 is checked as "every send has a known reason code and an `inputs`
     snapshot".
 31. INV7 is N/A for controller traces.
+
+Safe place (C8, added 2026-10-02)
+
+32. A `safe` intent is queued like `closer` and `back`, so it survives a
+    LANDING tick. It is checked right after LANDING and before every retreat
+    row. At level > 0 it sends (`safe`, `PATIENT_SAFE`), the level becomes 0
+    and the controller pauses. At level 0 it is `pause` with the same reason.
+    INV2 allows the drop to 0 for `safe` only, INV4 treats it as discharging
+    a pending retreat, and INV5 counts it as pausing. Taken from the C8 row in
+    `docs/DECISIONS.md`, not from the TypeScript.

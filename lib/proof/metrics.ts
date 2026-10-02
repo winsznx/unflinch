@@ -12,6 +12,7 @@ export const LABEL_TEXT: Record<ReceiptLabel, string> = {
   SIMULATED_INPUT: "SIMULATED INPUT",
   BUILDER_DEMO: "BUILDER DEMO",
   REPLAY: "REPLAY",
+  EXPERIMENT: "EXPERIMENT",
 };
 
 export type TrialSummary = RunMetrics & {
